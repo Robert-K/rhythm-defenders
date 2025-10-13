@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7vql0lrwfptu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8cj0n"]
+albedo_color = Color(0.4, 0.16600001, 0.088000014, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_8cj0n"]
+material = SubResource("StandardMaterial3D_8cj0n")
+size = Vector2(1000, 1000)
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="VSplitContainer" type="VSplitContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="VSplitContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="VSplitContainer/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1152, 318)
+render_target_update_mode = 4
+
+[node name="Game" type="Node" parent="VSplitContainer/SubViewportContainer/SubViewport"]
+
+[node name="GameUI" type="CanvasLayer" parent="VSplitContainer/SubViewportContainer/SubViewport/Game"]
+
+[node name="World" type="Node3D" parent="VSplitContainer/SubViewportContainer/SubViewport/Game"]
+
+[node name="Camera3D" type="Camera3D" parent="VSplitContainer/SubViewportContainer/SubViewport/Game/World"]
+transform = Transform3D(1, 0, 0, 0, 0.25881907, 0.9659258, 0, -0.9659258, 0.25881907, 0, 10, 0)
+
+[node name="Floor" type="MeshInstance3D" parent="VSplitContainer/SubViewportContainer/SubViewport/Game/World"]
+mesh = SubResource("PlaneMesh_8cj0n")
+
+[node name="BottomUI" type="MarginContainer" parent="VSplitContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ColorRect" type="ColorRect" parent="VSplitContainer/BottomUI"]
+layout_mode = 2

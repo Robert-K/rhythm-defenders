@@ -1,3 +1,7 @@
-[gd_scene format=3 uid="uid://cyfvcuxi210mg"]
+[gd_scene load_steps=2 format=3 uid="uid://cyfvcuxi210mg"]
+
+[ext_resource type="PackedScene" uid="uid://c7vql0lrwfptu" path="res://scenes/game.tscn" id="1_ilwad"]
 
 [node name="Level1" type="Node2D"]
+
+[node name="CanvasLayer" parent="." instance=ExtResource("1_ilwad")]
