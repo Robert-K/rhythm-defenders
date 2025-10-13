@@ -4,7 +4,10 @@ class_name GameManager
 ## Use this when you have only one level
 @export var main_level: PackedScene
 ## Whether the mouse should be captured while in a level
-@export var is_mouse_captured_in_level: bool = true
+@export var is_mouse_captured_in_level: bool = true:
+	set(value):
+		is_mouse_captured_in_level = value
+		InputManager.capture_mouse_ingame = value
 
 @export_subgroup("Level Loading")
 ## Whether your game contains multiple levels.

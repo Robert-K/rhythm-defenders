@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://xia7n4meh7mh"]
+
+[ext_resource type="StyleBox" uid="uid://eqlgoo3q3eeo" path="res://notes/note_style.tres" id="1_2xohx"]
+[ext_resource type="Script" uid="uid://i5jbaew7kbo4" path="res://tower_lanes/ui_note.gd" id="2_75lo8"]
+
+[node name="UINote" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("2_75lo8")
+
+[node name="NotePanel" type="Panel" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -7.5
+offset_right = 50.0
+offset_bottom = 7.5
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("1_2xohx")

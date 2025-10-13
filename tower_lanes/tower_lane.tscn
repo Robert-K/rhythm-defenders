@@ -1,0 +1,79 @@
+[gd_scene load_steps=7 format=3 uid="uid://noqeeoaythhn"]
+
+[ext_resource type="Script" uid="uid://dukbcohfy0kca" path="res://tower_lanes/tower_lane.gd" id="1_05uu3"]
+[ext_resource type="PackedScene" uid="uid://xia7n4meh7mh" path="res://tower_lanes/ui_note.tscn" id="2_05uu3"]
+
+[sub_resource type="Gradient" id="Gradient_ff4tv"]
+offsets = PackedFloat32Array(0, 0.51760566, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_05uu3"]
+gradient = SubResource("Gradient_ff4tv")
+fill_to = Vector2(0, 1)
+
+[sub_resource type="Gradient" id="Gradient_05uu3"]
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ho2ta"]
+gradient = SubResource("Gradient_05uu3")
+
+[node name="TowerLane" type="HBoxContainer"]
+script = ExtResource("1_05uu3")
+
+[node name="KeyContainer" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="KeyContainer"]
+layout_mode = 2
+text = "A"
+
+[node name="LaneParentControl" type="Control" parent="."]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LaneLine" type="ColorRect" parent="LaneParentControl"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.28627452)
+
+[node name="LaneControl" type="Control" parent="LaneParentControl"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="UINote" parent="LaneParentControl/LaneControl" instance=ExtResource("2_05uu3")]
+layout_mode = 0
+
+[node name="HitLine" type="TextureRect" parent="LaneParentControl"]
+custom_minimum_size = Vector2(2, 0)
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_05uu3")
+expand_mode = 1
+
+[node name="EndGradient" type="TextureRect" parent="LaneParentControl"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_ho2ta")
+expand_mode = 1
