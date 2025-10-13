@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://nav7ruy7rqfq"]
+
+[ext_resource type="PackedScene" uid="uid://b20vk52xwuusu" path="res://models/tube.blend" id="1_4nsea"]
+[ext_resource type="Script" uid="uid://b0ue22gt2kqm" path="res://models/tube.gd" id="1_rr3rj"]
+
+[node name="tube" type="Node3D"]
+script = ExtResource("1_rr3rj")
+
+[node name="tube" parent="." instance=ExtResource("1_4nsea")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.601, 0)
