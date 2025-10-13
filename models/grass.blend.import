@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://duogrvotv7wq4"
-path="res://.godot/imported/tree_1.blend-410587d391b812a54e6cb473d1e524b0.scn"
+uid="uid://bmeogqsy6hv72"
+path="res://.godot/imported/grass.blend-872955de3a86d69dbe580bec910bdd4d.scn"
 
 [deps]
 
-source_file="res://models/tree_1.blend"
-dest_files=["res://.godot/imported/tree_1.blend-410587d391b812a54e6cb473d1e524b0.scn"]
+source_file="res://models/grass.blend"
+dest_files=["res://.godot/imported/grass.blend-872955de3a86d69dbe580bec910bdd4d.scn"]
 
 [params]
 
@@ -37,19 +37,7 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={
-"meshes": {
-"tree_1_Cone": {
-"generate/lightmap_uv": 0,
-"generate/lods": 0,
-"generate/shadow_meshes": 0,
-"lods/normal_merge_angle": 20.0,
-"save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://models/tree_1_mesh.res",
-"save_to_file/path": "uid://c1svajx8l6b1n"
-}
-}
-}
+_subresources={}
 blender/nodes/visible=0
 blender/nodes/active_collection_only=false
 blender/nodes/punctual_lights=true

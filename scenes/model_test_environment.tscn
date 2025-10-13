@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cplahagdlyg2l"]
 
-[ext_resource type="PackedScene" uid="uid://bhwymsh8kp4gu" path="res://models/bass_drum_canon.blend" id="1_aiikn"]
+[ext_resource type="PackedScene" uid="uid://bhwymsh8kp4gu" path="res://models/towers/bass_drum_canon.blend" id="1_aiikn"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dxb0u"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)

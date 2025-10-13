@@ -1,0 +1,73 @@
+[gd_scene load_steps=6 format=3 uid="uid://l2xtyj0w5xst"]
+
+[ext_resource type="PackedScene" uid="uid://duogrvotv7wq4" path="res://models/tree_1.blend" id="1_7xies"]
+[ext_resource type="PackedScene" uid="uid://cac5vfy3yie7s" path="res://models/defense_track.blend" id="2_lj2ar"]
+[ext_resource type="ArrayMesh" uid="uid://bjg6oacc2yw4x" path="res://models/tree_1_mesh.res" id="3_lj2ar"]
+[ext_resource type="PackedScene" uid="uid://bmeogqsy6hv72" path="res://models/grass.blend" id="4_00lji"]
+
+[sub_resource type="MultiMesh" id="MultiMesh_00lji"]
+mesh = ExtResource("3_lj2ar")
+
+[node name="Map1" type="Node3D"]
+
+[node name="tree_1" parent="." instance=ExtResource("1_7xies")]
+transform = Transform3D(1.084275, 0, 0, 0, 1.084275, 0, 0, 0, 1.084275, -3.034965, 0, -9.9086)
+
+[node name="tree_2" parent="." instance=ExtResource("1_7xies")]
+transform = Transform3D(0.8771003, 0, 0, 0, 0.8771003, 0, 0, 0, 0.8771003, -4.4769287, 0, -7.8676944)
+
+[node name="tree_3" parent="." instance=ExtResource("1_7xies")]
+transform = Transform3D(1.1122329, 0, 0, 0, 1.1122329, 0, 0, 0, 1.1122329, -3.7016582, 0, -6.391598)
+
+[node name="tree_4" parent="." instance=ExtResource("1_7xies")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4769287, 0, -4.9932184)
+
+[node name="tree_5" parent="." instance=ExtResource("1_7xies")]
+transform = Transform3D(0.84462726, 0, 0, 0, 0.84462726, 0, 0, 0, 0.84462726, -4.4769287, 0, 8.139387)
+
+[node name="tree_11" parent="." instance=ExtResource("1_7xies")]
+transform = Transform3D(1.0631832, 0, 0, 0, 1.0631832, 0, 0, 0, 1.0631832, -3.7007728, 0, 0.60131073)
+
+[node name="tree_12" parent="." instance=ExtResource("1_7xies")]
+transform = Transform3D(0.82766753, 0, 0, 0, 0.82766753, 0, 0, 0, 0.82766753, -3.7007728, 0, -0.681435)
+
+[node name="tree_7" parent="." instance=ExtResource("1_7xies")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9582233, 0, 8.892925)
+
+[node name="tree_8" parent="." instance=ExtResource("1_7xies")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7648544, 0, 10.042627)
+
+[node name="tree_9" parent="." instance=ExtResource("1_7xies")]
+transform = Transform3D(0.91176224, 0, 0, 0, 0.91176224, 0, 0, 0, 0.91176224, 4.7648544, 0, -10.961437)
+
+[node name="tree_10" parent="." instance=ExtResource("1_7xies")]
+transform = Transform3D(1.2521822, 0, 0, 0, 1.2521822, 0, 0, 0, 1.2521822, 3.5226855, 0, -9.528185)
+
+[node name="tree_6" parent="." instance=ExtResource("1_7xies")]
+transform = Transform3D(1.2377772, 0, 0, 0, 1.2377772, 0, 0, 0, 1.2377772, -4.4769287, 0, 10.399188)
+
+[node name="defense_track" parent="." instance=ExtResource("2_lj2ar")]
+
+[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="."]
+multimesh = SubResource("MultiMesh_00lji")
+
+[node name="grass" parent="." instance=ExtResource("4_00lji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9957986, 0, -8.2692585)
+
+[node name="grass7" parent="." instance=ExtResource("4_00lji")]
+transform = Transform3D(0.9229484, 0, 0.38492364, 0, 1, 0, -0.38492364, 0, 0.9229484, 3.7611299, 0, 8.541873)
+
+[node name="grass2" parent="." instance=ExtResource("4_00lji")]
+transform = Transform3D(-0.09970182, 0, 0.99501735, 0, 1, 0, -0.99501735, 0, -0.09970182, -2.9822588, 0, -0.046836376)
+
+[node name="grass5" parent="." instance=ExtResource("4_00lji")]
+transform = Transform3D(-0.7476474, 0, 0.6640959, 0, 1, 0, -0.6640959, 0, -0.7476474, -2.9822588, 0, -7.9307475)
+
+[node name="grass6" parent="." instance=ExtResource("4_00lji")]
+transform = Transform3D(1.5523834, 0, 0.97581047, 0, 1.8336031, 0, -0.97581047, 0, 1.5523834, -4.008316, 0, -7.241034)
+
+[node name="grass3" parent="." instance=ExtResource("4_00lji")]
+transform = Transform3D(0.7671133, 0, 0.9938904, 0, 1.2555003, 0, -0.9938904, 0, 0.7671133, -3.4056616, 0, 7.150801)
+
+[node name="grass4" parent="." instance=ExtResource("4_00lji")]
+transform = Transform3D(-0.09970182, 0, 0.99501735, 0, 1, 0, -0.99501735, 0, -0.09970182, -2.9822588, 0, 7.570365)
