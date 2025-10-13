@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://c7vql0lrwfptu"]
+[gd_scene load_steps=6 format=3 uid="uid://c7vql0lrwfptu"]
 
 [ext_resource type="PackedScene" uid="uid://noqeeoaythhn" path="res://tower_lanes/tower_lane.tscn" id="1_uwrxv"]
+[ext_resource type="PackedScene" uid="uid://d00tuuxxjh6dn" path="res://game_world/towers/bass_drum_canon.tscn" id="2_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://cmqmnkoevcreg" path="res://game_world/level_path/enemy_path.tscn" id="2_lnu2h"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8cj0n"]
 albedo_color = Color(0.24313726, 0.4, 0.08627451, 1)
@@ -37,10 +39,16 @@ render_target_update_mode = 4
 [node name="World" type="Node3D" parent="VSplitContainer/SubViewportContainer/SubViewport/Game"]
 
 [node name="Camera3D" type="Camera3D" parent="VSplitContainer/SubViewportContainer/SubViewport/Game/World"]
-transform = Transform3D(1, 0, 0, 0, 0.25881907, 0.9659258, 0, -0.9659258, 0.25881907, 0, 10, 0)
+transform = Transform3D(1, 0, 0, 0, 0.76604444, 0.6427876, 0, -0.6427876, 0.76604444, 0, 10, 10)
 
 [node name="Floor" type="MeshInstance3D" parent="VSplitContainer/SubViewportContainer/SubViewport/Game/World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04122734, 0.004731655, -0.010489464)
 mesh = SubResource("PlaneMesh_8cj0n")
+
+[node name="EnemyPath" parent="VSplitContainer/SubViewportContainer/SubViewport/Game/World" instance=ExtResource("2_lnu2h")]
+
+[node name="bass_drum_canon" parent="VSplitContainer/SubViewportContainer/SubViewport/Game/World" instance=ExtResource("2_lbhrr")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 0, 0, 0)
 
 [node name="BottomUI" type="MarginContainer" parent="VSplitContainer"]
 layout_mode = 2
