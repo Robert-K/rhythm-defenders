@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://b20vk52xwuusu"
-path="res://.godot/imported/tube.blend-eec0fb47bc58938f7fbf21c526f8960f.scn"
+path="res://.godot/imported/tube.blend-3856c5b8abe05dad7b8dc008303920b6.scn"
 
 [deps]
 
-source_file="res://models/tube.blend"
-dest_files=["res://.godot/imported/tube.blend-eec0fb47bc58938f7fbf21c526f8960f.scn"]
+source_file="res://models/towers/tube.blend"
+dest_files=["res://.godot/imported/tube.blend-3856c5b8abe05dad7b8dc008303920b6.scn"]
 
 [params]
 

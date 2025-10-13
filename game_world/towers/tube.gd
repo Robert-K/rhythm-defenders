@@ -1,4 +1,4 @@
-extends Node3D
+extends Tower
 
 func fire():
 	$tube/AnimationPlayer.play("Fire")

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bhwymsh8kp4gu"
-path="res://.godot/imported/bass_drum_canon.blend-10ff0b16d882871024e2c51805ab72ea.scn"
+path="res://.godot/imported/bass_drum_canon.blend-e16d7384c4b0039d859b55c1034f010b.scn"
 
 [deps]
 
-source_file="res://models/bass_drum_canon.blend"
-dest_files=["res://.godot/imported/bass_drum_canon.blend-10ff0b16d882871024e2c51805ab72ea.scn"]
+source_file="res://models/towers/bass_drum_canon.blend"
+dest_files=["res://.godot/imported/bass_drum_canon.blend-e16d7384c4b0039d859b55c1034f010b.scn"]
 
 [params]
 
