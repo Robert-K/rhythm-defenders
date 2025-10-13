@@ -1,0 +1,14 @@
+[remap]
+
+importer="com.nlaha.godotmidi"
+type="MidiResource"
+uid="uid://d1dmbxjv45k7l"
+path="res://.godot/imported/funky_synth.mid-2196d33df6395bb13bea58d01a1d8027.res"
+
+[deps]
+
+source_file="res://music/kitchen_loop/funky_synth.mid"
+dest_files=["res://.godot/imported/funky_synth.mid-2196d33df6395bb13bea58d01a1d8027.res"]
+
+[params]
+

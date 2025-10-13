@@ -1,0 +1,14 @@
+[remap]
+
+importer="com.nlaha.godotmidi"
+type="MidiResource"
+uid="uid://dhdxswbf4hl4t"
+path="res://.godot/imported/bass.mid-160ed96c513edfd291ece5260e2c9cae.res"
+
+[deps]
+
+source_file="res://music/kitchen_loop/bass.mid"
+dest_files=["res://.godot/imported/bass.mid-160ed96c513edfd291ece5260e2c9cae.res"]
+
+[params]
+

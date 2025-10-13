@@ -1,0 +1,14 @@
+[remap]
+
+importer="com.nlaha.godotmidi"
+type="MidiResource"
+uid="uid://wltweb1b3fqu"
+path="res://.godot/imported/organ.mid-723cd42401ccf6a8a3d44680f7144d88.res"
+
+[deps]
+
+source_file="res://music/kitchen_loop/organ.mid"
+dest_files=["res://.godot/imported/organ.mid-723cd42401ccf6a8a3d44680f7144d88.res"]
+
+[params]
+

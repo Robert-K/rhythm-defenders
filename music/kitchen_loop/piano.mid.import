@@ -1,0 +1,14 @@
+[remap]
+
+importer="com.nlaha.godotmidi"
+type="MidiResource"
+uid="uid://bo78xwanse18a"
+path="res://.godot/imported/piano.mid-ff13fe56a7f98a64c592893400661e9d.res"
+
+[deps]
+
+source_file="res://music/kitchen_loop/piano.mid"
+dest_files=["res://.godot/imported/piano.mid-ff13fe56a7f98a64c592893400661e9d.res"]
+
+[params]
+

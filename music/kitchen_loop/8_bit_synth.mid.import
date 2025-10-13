@@ -1,0 +1,14 @@
+[remap]
+
+importer="com.nlaha.godotmidi"
+type="MidiResource"
+uid="uid://bixamw4tltjos"
+path="res://.godot/imported/8_bit_synth.mid-53e07bcc27470014e79499d2ca723256.res"
+
+[deps]
+
+source_file="res://music/kitchen_loop/8_bit_synth.mid"
+dest_files=["res://.godot/imported/8_bit_synth.mid-53e07bcc27470014e79499d2ca723256.res"]
+
+[params]
+
