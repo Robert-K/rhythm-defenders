@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjunbgmqxqj1w"]
+
+[ext_resource type="PackedScene" uid="uid://coiek6proq74l" path="res://models/enemy_ear.blend" id="1_vhekb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vhekb"]
+transparency = 1
+albedo_color = Color(1, 0, 0, 0)
+
+[node name="enemy_ear" instance=ExtResource("1_vhekb")]
+
+[node name="Skeleton3D" parent="metarig" index="0"]
+bones/0/rotation = Quaternion(0.09652663, 0.0003831981, -0.0048241895, 0.99531865)
+bones/2/rotation = Quaternion(0.9936707, 0.018147016, -0.0016103055, 0.11084526)
+bones/3/rotation = Quaternion(0.53340036, 0.0012397147, 0.0010314459, 0.84586143)
+bones/4/rotation = Quaternion(-0.6230271, 0.016365914, -0.022963202, 0.7816918)
+bones/7/rotation = Quaternion(0.973016, -0.009988908, -0.0021706163, 0.2305113)
+bones/8/rotation = Quaternion(0.046156563, 0.017483635, -0.01184886, 0.99871093)
+bones/9/rotation = Quaternion(-0.5603369, -0.006654959, 0.014962057, 0.8281029)
+bones/10/rotation = Quaternion(0.00078203087, 0.9591575, -0.28287148, 0.0002271081)
+bones/11/rotation = Quaternion(-0.6797051, 0.6797052, -0.19493848, -0.1949385)
+
+[node name="ear" parent="metarig/Skeleton3D" index="0"]
+material_overlay = SubResource("StandardMaterial3D_vhekb")

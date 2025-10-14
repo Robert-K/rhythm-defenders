@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://qdblec0gkowh"]
+
+[ext_resource type="Script" uid="uid://d0f3ej0ct1bje" path="res://game_world/enemies/hit_feedback.gd" id="1_3eeej"]
+
+[node name="Label3D" type="Label3D"]
+billboard = 1
+script = ExtResource("1_3eeej")
+random_names = Array[String](["ouch!", "that hurt!", "don't hit me!", "you're mean!", "i don't like you!", "stop that!", "hey!"])

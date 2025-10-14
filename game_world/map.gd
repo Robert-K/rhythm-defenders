@@ -1,15 +1,38 @@
 extends Node
 class_name Map
 
-var enemies: Array[Enemy] = []
+var _enemies: Array[Enemy] = []
 
 @onready var enemy = preload("res://game_world/enemies/enemy.tscn")
 @onready var path: Path3D = $Path3D
+@onready var timer: Timer = Timer.new()
+
+
 
 func _ready() -> void:
-	get_tree().create_timer(2).timeout.connect(spawn_enemy)
+	# Create a timer node
+	var timer: Timer = Timer.new()
+	# Add it to the scene as a child of this node
+	add_child(timer)
+	# Configure the timer
+	timer.wait_time = 5.0 # How long we're waiting
+	timer.one_shot = false # trigger once or multiple times
+	# Connect its timeout signal to a function we want called
+	timer.timeout.connect(spawn_enemy)
+	# Start the timer
+	timer.start()
+	
+	# Already place first enemy
+	spawn_enemy()
 
 func spawn_enemy():
 	var enemy : Enemy = enemy.instantiate()
 	path.add_child(enemy)
-	enemies.append(enemy)
+	_enemies.append(enemy)
+
+func get_enemies() -> Array[Enemy]:
+	for enemy in _enemies:
+		if !is_instance_valid(enemy):
+			_enemies.erase(enemy)
+	
+	return _enemies

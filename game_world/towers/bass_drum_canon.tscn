@@ -5,9 +5,11 @@
 
 [node name="bass_drum_canon" type="Node3D"]
 script = ExtResource("1_gypo3")
+damage = 34
+radius = 100.0
 
 [node name="bass_drum_canon" parent="." instance=ExtResource("1_l0cdu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6009915, 0)
 
 [node name="ProjectileStart" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5704484, -1.9482838)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5704484, -2.3779705)

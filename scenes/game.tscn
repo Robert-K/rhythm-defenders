@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c7vql0lrwfptu"]
+[gd_scene load_steps=9 format=3 uid="uid://c7vql0lrwfptu"]
 
 [ext_resource type="Script" uid="uid://8h1r1rjtau8e" path="res://game_world/game_world.gd" id="1_p57ef"]
 [ext_resource type="PackedScene" uid="uid://noqeeoaythhn" path="res://tower_lanes/tower_lane.tscn" id="1_uwrxv"]
@@ -6,6 +6,8 @@
 [ext_resource type="Environment" uid="uid://bhb4ckqipjvu3" path="res://other/main_environment.tres" id="3_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://h623sn80nhar" path="res://scenes/map_1.tscn" id="4_iywne"]
 [ext_resource type="PackedScene" uid="uid://nav7ruy7rqfq" path="res://game_world/towers/tube.tscn" id="4_p57ef"]
+[ext_resource type="Texture2D" uid="uid://e4mowu73d4jo" path="res://textures/icon/drum.png" id="6_gee14"]
+[ext_resource type="Texture2D" uid="uid://ih31eiq0kg53" path="res://textures/icon/tube.png" id="7_0tnpc"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 layer = 0
@@ -52,10 +54,33 @@ light_energy = 0.1
 shadow_enabled = true
 
 [node name="Map1" parent="VSplitContainer/SubViewportContainer/SubViewport/Game/World" instance=ExtResource("4_iywne")]
-transform = Transform3D(-1.7484555e-07, 0, -4, 0, 4, 0, 4, 0, -1.7484555e-07, -0.57, 0.1, -0.128)
+transform = Transform3D(-1.7484555e-07, 0, -4, 0, 4, 0, 4, 0, -1.7484555e-07, 0, 0, 0)
 
 [node name="tube" parent="VSplitContainer/SubViewportContainer/SubViewport/Game/World" instance=ExtResource("4_p57ef")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.279396, -9.536743e-07, 4.547248)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VSplitContainer/SubViewportContainer/SubViewport"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -38.0
+offset_top = 14.0
+offset_right = 810.0
+offset_bottom = 422.0
+grow_horizontal = 2
+scale = Vector2(0.1, 0.1)
+size_flags_horizontal = 0
+alignment = 1
+
+[node name="ButtonDrum" type="Button" parent="VSplitContainer/SubViewportContainer/SubViewport/HBoxContainer"]
+layout_mode = 2
+text = "X"
+icon = ExtResource("6_gee14")
+
+[node name="ButtonTube" type="Button" parent="VSplitContainer/SubViewportContainer/SubViewport/HBoxContainer"]
+layout_mode = 2
+text = "X"
+icon = ExtResource("7_0tnpc")
 
 [node name="BottomUI" type="MarginContainer" parent="VSplitContainer"]
 layout_mode = 2

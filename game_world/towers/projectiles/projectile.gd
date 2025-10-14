@@ -1,7 +1,7 @@
 extends RigidBody3D
 class_name Projectile
 
-@export var damage: float = 10
+@export var damage: float
 
 func _ready() -> void:
 	# Destroy projectiles shortly after they are created
