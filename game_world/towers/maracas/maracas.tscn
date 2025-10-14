@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dcr3uedfoisub"]
 
 [ext_resource type="PackedScene" uid="uid://bdwqdu1s5wyue" path="res://models/towers/maracas.blend" id="1_e6mcf"]
-[ext_resource type="Script" uid="uid://bi8xdnpyos5r3" path="res://game_world/towers/maracas.gd" id="1_j80pm"]
+[ext_resource type="Script" uid="uid://bi8xdnpyos5r3" path="res://game_world/towers/maracas/maracas.gd" id="1_j80pm"]
 
 [node name="Maracas" type="Node3D"]
 script = ExtResource("1_j80pm")
