@@ -45,6 +45,7 @@ func _ready() -> void:
 				ui_note.color = notes_color
 				ui_note.duration = duration
 				ui_note.track_length = sync_player.animation.length
+				ui_note.spam = method_name == "dummy_spam"
 				lane_control.add_child(ui_note)
 
 func _process(_delta: float) -> void:
