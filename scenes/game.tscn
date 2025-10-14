@@ -54,6 +54,11 @@ mesh = SubResource("PlaneMesh_8cj0n")
 [node name="bass_drum_canon" parent="VSplitContainer/SubViewportContainer/SubViewport/Game/World" instance=ExtResource("2_lbhrr")]
 transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 0, 0, 0)
 
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="VSplitContainer/SubViewportContainer/SubViewport/Game/World"]
+transform = Transform3D(0.65474087, 0.34667194, -0.6716645, 0, 0.88861746, 0.4586496, 0.7558536, -0.30029663, 0.581814, 0, 0, 0)
+light_energy = 0.35
+shadow_enabled = true
+
 [node name="BottomUI" type="MarginContainer" parent="VSplitContainer"]
 layout_mode = 2
 size_flags_vertical = 3
