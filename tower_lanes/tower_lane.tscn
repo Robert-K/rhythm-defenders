@@ -21,9 +21,10 @@ gradient = SubResource("Gradient_05uu3")
 
 [node name="TowerLane" type="HBoxContainer"]
 script = ExtResource("1_05uu3")
+pixels_per_second = 400.0
 
 [node name="KeyContainer" type="CenterContainer" parent="."]
-custom_minimum_size = Vector2(100, 40)
+custom_minimum_size = Vector2(200, 70)
 layout_mode = 2
 
 [node name="KeyLabel" type="Label" parent="KeyContainer"]
@@ -44,6 +45,8 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
+offset_top = -1.0
+offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0.28627452)

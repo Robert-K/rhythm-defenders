@@ -25,10 +25,6 @@ func _ready() -> void:
 		var sync_player := child as SyncPlayer
 		if sync_player and not sync_players.has(sync_player):
 			sync_players.append(sync_player)
-	if Engine.is_editor_hint():
-		return
-	for i in sync_stream.stream_count:
-		play_clip(i, true)
 
 func clean_animations() -> void:
 	for player in sync_players:

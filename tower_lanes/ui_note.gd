@@ -13,7 +13,11 @@ extends Control
 
 @export var pixels_per_second: float = 100.0
 
+@export var sync_player: SyncPlayer
+
 @export var track_length: float = 1000.0
+
+@export var repetition: int = 1
 
 @export var duration: float = 0.5:
 	set(value):
@@ -31,6 +35,8 @@ extends Control
 		var stylebox := note_panel.get_theme_stylebox("panel")
 		stylebox.bg_color = color
 
+var original_x: float
+
 func _ready() -> void:
 	if Engine.is_editor_hint():
 		return
@@ -41,10 +47,11 @@ func _ready() -> void:
 		spam_overlay.size.x = duration * pixels_per_second
 	if spam_overlay:
 		spam_overlay.visible = spam
+	original_x = position.x
 
 func _process(delta: float) -> void:
 	if Engine.is_editor_hint():
 		return
 	position.x -= delta * pixels_per_second
 	if position.x < -duration * pixels_per_second:
-		position.x += track_length * pixels_per_second
+		position.x += track_length * pixels_per_second * repetition

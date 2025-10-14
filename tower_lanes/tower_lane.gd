@@ -31,22 +31,29 @@ func _ready() -> void:
 	update_ui_notes()
 	MusicPlayer.play_clip(stream_index, true)
 	var sync_player := MusicPlayer.sync_players[stream_index]
+	var x_start := 0.0
+	var repetition := 1
 	for track_index in sync_player.animation.get_track_count():
 		if sync_player.animation.track_get_type(track_index) == Animation.TYPE_METHOD:
-			for key_index in sync_player.animation.track_get_key_count(track_index):
-				var key_time := sync_player.animation.track_get_key_time(track_index, key_index)
-				var method_name := sync_player.animation.method_track_get_name(track_index, key_index)
-				var duration := 0.1
-				if method_name == "dummy_hold" or method_name == "dummy_spam":
-					duration = sync_player.animation.method_track_get_params(track_index, key_index)[0]
-				var ui_note := ui_note_scene.instantiate() as UINote
-				ui_note.pixels_per_second = pixels_per_second
-				ui_note.position.x = key_time * pixels_per_second
-				ui_note.color = notes_color
-				ui_note.duration = duration
-				ui_note.track_length = sync_player.animation.length
-				ui_note.spam = method_name == "dummy_spam"
-				lane_control.add_child(ui_note)
+			while x_start < 3000.0:
+				for key_index in sync_player.animation.track_get_key_count(track_index):
+					var key_time := sync_player.animation.track_get_key_time(track_index, key_index)
+					var method_name := sync_player.animation.method_track_get_name(track_index, key_index)
+					var duration := 0.1
+					if method_name == "dummy_hold" or method_name == "dummy_spam":
+						duration = sync_player.animation.method_track_get_params(track_index, key_index)[0]
+					var ui_note := ui_note_scene.instantiate() as UINote
+					ui_note.pixels_per_second = pixels_per_second
+					ui_note.position.x = x_start + key_time * pixels_per_second
+					ui_note.color = notes_color
+					ui_note.duration = duration
+					ui_note.track_length = sync_player.animation.length
+					ui_note.spam = method_name == "dummy_spam"
+					ui_note.sync_player = sync_player
+					ui_note.repetition = repetition
+					lane_control.add_child(ui_note)
+				x_start += sync_player.animation.length * pixels_per_second
+				repetition += 1
 
 func _process(_delta: float) -> void:
 	if Engine.is_editor_hint():

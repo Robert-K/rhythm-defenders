@@ -14,13 +14,13 @@
 [sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_ibkyq"]
 stream_count = 8
 stream_0/stream = ExtResource("1_o5f0v")
-stream_0/volume = -60.0
+stream_0/volume = 0.0
 stream_1/stream = ExtResource("2_7ry1j")
 stream_1/volume = -60.0
 stream_2/stream = ExtResource("3_8gs32")
 stream_2/volume = -60.0
 stream_3/stream = ExtResource("4_pj4u7")
-stream_3/volume = -60.0
+stream_3/volume = 0.0
 stream_4/stream = ExtResource("5_61wgo")
 stream_4/volume = -60.0
 stream_5/stream = ExtResource("6_80llh")
@@ -90,9 +90,36 @@ tracks/1/path = NodePath("/root/@EditorNode@20439/@Panel@14/@VBoxContainer@15/Do
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"values": []
+"times": PackedFloat32Array(0, 1.44, 1.63, 3.24, 4.83, 6.43, 8.02, 9.622221, 11.242221),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mpbee"]
@@ -125,9 +152,78 @@ tracks/1/path = NodePath("/root/@EditorNode@20439/@Panel@14/@VBoxContainer@15/Do
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"values": []
+"times": PackedFloat32Array(1.03, 1.26, 1.49, 2.84, 3.09, 5.63, 5.85, 6.06, 6.29, 9.244749, 9.47475, 12.034749, 12.254749, 12.824749, 13.834749, 14.054749, 14.244749, 15.642033, 15.882032, 18.852032, 19.233334, 22.262032, 24.856813),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [2.874],
+"method": &"dummy_hold"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4ui1w"]
@@ -195,9 +291,18 @@ tracks/1/path = NodePath("/root/@EditorNode@20439/@Panel@14/@VBoxContainer@15/Do
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"values": []
+"times": PackedFloat32Array(0, 0.81, 1.42),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8gs32"]
@@ -230,9 +335,84 @@ tracks/1/path = NodePath("/root/@EditorNode@20439/@Panel@14/@VBoxContainer@15/Do
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"values": []
+"times": PackedFloat32Array(0.2, 0.83, 1.42, 2.06, 6.6242285, 7.224229, 7.8142285, 8.414228, 13.017623, 13.627623, 14.2476225, 14.817623, 18.816069, 19.106068, 22.006067, 22.256067, 24.806715, 25.066713, 25.266714, 25.466715, 28.41172, 28.67172, 31.0333, 31.266666, 31.903301),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [0.546],
+"method": &"dummy_hold"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_61wgo"]
@@ -265,9 +445,87 @@ tracks/1/path = NodePath("/root/@EditorNode@20439/@Panel@14/@VBoxContainer@15/Do
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"values": []
+"times": PackedFloat32Array(0.4, 0.99, 1.6, 3.61, 4.2000003, 4.82, 5.41, 5.61, 5.8, 5.97, 6.22, 8.828526, 9.448525, 13.218177, 13.808177, 14.418177, 16.428177, 17.018177, 17.638176, 18.228176, 18.428177, 18.618177, 18.788177, 19.038177, 21.646702, 22.266703),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0yixb"]
@@ -300,9 +558,33 @@ tracks/1/path = NodePath("/root/@EditorNode@20439/@Panel@14/@VBoxContainer@15/Do
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"values": []
+"times": PackedFloat32Array(0, 3.2130096, 6.4088373, 9.604665, 12.783311, 16.010952, 19.22396, 22.385426),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [1.564],
+"method": &"dummy_spam"
+}, {
+"args": [1.564],
+"method": &"dummy_spam"
+}, {
+"args": [1.564],
+"method": &"dummy_spam"
+}, {
+"args": [1.564],
+"method": &"dummy_spam"
+}, {
+"args": [1.564],
+"method": &"dummy_spam"
+}, {
+"args": [1.564],
+"method": &"dummy_spam"
+}, {
+"args": [1.564],
+"method": &"dummy_spam"
+}, {
+"args": [1.564],
+"method": &"dummy_spam"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7ogo1"]
@@ -338,7 +620,6 @@ animation = SubResource("Animation_cajrm")
 animation_name = "drums"
 
 [node name="dummy_drums" type="AudioStreamPlayer" parent="SyncPlayer_drums"]
-stream = ExtResource("2_7ry1j")
 
 [node name="SyncPlayer_bass" type="AnimationPlayer" parent="." node_paths=PackedStringArray("dummy_player")]
 libraries = {
@@ -351,7 +632,6 @@ animation = SubResource("Animation_x4rqh")
 animation_name = "bass"
 
 [node name="dummy_bass" type="AudioStreamPlayer" parent="SyncPlayer_bass"]
-stream = ExtResource("3_8gs32")
 
 [node name="SyncPlayer_sparkles" type="AnimationPlayer" parent="." node_paths=PackedStringArray("dummy_player")]
 libraries = {
@@ -377,7 +657,6 @@ animation = SubResource("Animation_7ry1j")
 animation_name = "plucks"
 
 [node name="dummy_plucks" type="AudioStreamPlayer" parent="SyncPlayer_plucks"]
-stream = ExtResource("5_61wgo")
 
 [node name="SyncPlayer_flute" type="AnimationPlayer" parent="." node_paths=PackedStringArray("dummy_player")]
 libraries = {
@@ -390,7 +669,6 @@ animation = SubResource("Animation_pj4u7")
 animation_name = "flute"
 
 [node name="dummy_flute" type="AudioStreamPlayer" parent="SyncPlayer_flute"]
-stream = ExtResource("6_80llh")
 
 [node name="SyncPlayer_choir" type="AnimationPlayer" parent="." node_paths=PackedStringArray("dummy_player")]
 libraries = {
@@ -403,7 +681,6 @@ animation = SubResource("Animation_80llh")
 animation_name = "choir"
 
 [node name="dummy_choir" type="AudioStreamPlayer" parent="SyncPlayer_choir"]
-stream = ExtResource("7_0yixb")
 
 [node name="SyncPlayer_shaker" type="AnimationPlayer" parent="." node_paths=PackedStringArray("dummy_player")]
 libraries = {
