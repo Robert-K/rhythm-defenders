@@ -1,20 +1,31 @@
-[gd_scene load_steps=6 format=3 uid="uid://c5hfxw6pmcg27"]
+[gd_scene load_steps=7 format=3 uid="uid://c5hfxw6pmcg27"]
 
 [ext_resource type="Script" uid="uid://c8bhtyqgdnpg3" path="res://game_world/enemies/enemy.gd" id="1_no0vj"]
+[ext_resource type="PackedScene" uid="uid://coiek6proq74l" path="res://models/enemy_ear.blend" id="2_bwbnx"]
 
 [sub_resource type="Gradient" id="Gradient_s75w2"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 0.28604367, 0.23650238, 1)
 metadata/_snap_count = 2
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_s75w2"]
-
 [sub_resource type="CylinderMesh" id="CylinderMesh_s75w2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s75w2"]
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_s75w2"]
+
 [node name="Enemy" type="PathFollow3D"]
 script = ExtResource("1_no0vj")
 health_gradient = SubResource("Gradient_s75w2")
+
+[node name="enemy_ear" parent="." instance=ExtResource("2_bwbnx")]
+transform = Transform3D(-0.041347783, 0, -0.002383377, 0, 0.041416418, 0, 0.002383377, 0, -0.041347783, 0.060709648, -0.00046774745, -0.042918354)
+
+[node name="DebugMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.333, 0, 0, 0, 0.333, 0, 0, 0, 0.333, 0, 0.333, 0)
+visible = false
+mesh = SubResource("CylinderMesh_s75w2")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_s75w2")
 
 [node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(0.333, 0, 0, 0, 0.333, 0, 0, 0, 0.333, 0, 0.333, 0)
@@ -23,10 +34,5 @@ collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("CylinderShape3D_s75w2")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
-mesh = SubResource("CylinderMesh_s75w2")
-skeleton = NodePath("")
-surface_material_override/0 = SubResource("StandardMaterial3D_s75w2")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_enemy_body_entered"]
