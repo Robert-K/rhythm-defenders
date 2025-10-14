@@ -1,9 +1,10 @@
 [gd_scene load_steps=9 format=3 uid="uid://c7vql0lrwfptu"]
 
-[ext_resource type="Script" uid="uid://8h1r1rjtau8e" path="res://game_world/game_world.gd" id="1_p57ef"]
+[ext_resource type="Script" path="res://game_world/game_world.gd" id="1_p57ef"]
 [ext_resource type="PackedScene" uid="uid://noqeeoaythhn" path="res://tower_lanes/tower_lane.tscn" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://d00tuuxxjh6dn" path="res://game_world/towers/bass_drum/bass_drum_canon.tscn" id="2_lbhrr"]
 [ext_resource type="Environment" uid="uid://bhb4ckqipjvu3" path="res://other/main_environment.tres" id="3_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://nav7ruy7rqfq" path="res://game_world/towers/tube.tscn" id="4_p57ef"]
 [ext_resource type="PackedScene" uid="uid://h623sn80nhar" path="res://scenes/map_1.tscn" id="4_iywne"]
 [ext_resource type="PackedScene" uid="uid://nav7ruy7rqfq" path="res://game_world/towers/tube/tube.tscn" id="4_p57ef"]
 [ext_resource type="Texture2D" uid="uid://e4mowu73d4jo" path="res://textures/icon/drum.png" id="6_gee14"]
