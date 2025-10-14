@@ -3,6 +3,9 @@ extends Tower
 @onready var projectile = preload("res://game_world/towers/projectiles/projectile.tscn")
 @onready var projectile_start = $ProjectileStart
 
+func _process(_delta):
+	turn_to_closest_enemy(delta)
+
 func fire():
 	$bass_drum_canon/AnimationPlayer.play("Fire")
 	await $bass_drum_canon/AnimationPlayer.animation_finished
