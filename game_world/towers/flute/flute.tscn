@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://d4bqpss13euoj"]
+[gd_scene load_steps=4 format=3 uid="uid://d4bqpss13euoj"]
 
 [ext_resource type="Script" uid="uid://25gdfoxq5sol" path="res://game_world/towers/flute/flute.gd" id="1_48p82"]
 [ext_resource type="PackedScene" uid="uid://blklrdey58lxe" path="res://models/towers/flute.blend" id="1_ol7h7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_48p82"]
+size = Vector3(2.5, 3.6572113, 2.5)
 
 [node name="Flute" type="Node3D"]
 script = ExtResource("1_48p82")
@@ -11,3 +14,10 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 2
 
 [node name="ProjectileStart" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.03861565, 1.702, -3.951)
+
+[node name="TowerBody" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+
+[node name="TowerCollision" type="CollisionShape3D" parent="TowerBody"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9277878, 0)
+shape = SubResource("BoxShape3D_48p82")

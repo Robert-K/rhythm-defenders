@@ -18,11 +18,10 @@
 [node name="CanvasLayer" type="CanvasLayer"]
 layer = 0
 
-[node name="World" type="Node3D" parent="." node_paths=PackedStringArray("build_ui", "start_button", "tower_buttons")]
+[node name="World" type="Node3D" parent="." node_paths=PackedStringArray("build_ui", "start_button")]
 script = ExtResource("1_p57ef")
 build_ui = NodePath("../GameUI/BuildTowers")
 start_button = NodePath("../GameUI/StartButton")
-tower_buttons = [NodePath("../GameUI/BuildTowers/ButtonDrum"), NodePath("../GameUI/BuildTowers/ButtonTube"), NodePath("../GameUI/BuildTowers/ButtonMaracas"), NodePath("../GameUI/BuildTowers/ButtonFlute")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="World"]
 environment = ExtResource("3_lbhrr")
@@ -41,16 +40,20 @@ shadow_enabled = true
 transform = Transform3D(-1.7484555e-07, 0, -4, 0, 4, 0, 4, 0, -1.7484555e-07, 0, 0, 0)
 
 [node name="Maracas" parent="World" instance=ExtResource("9_0tnpc")]
-transform = Transform3D(-1, 0, -8.940697e-08, 0, 1, 0, 8.940697e-08, 0, -1, 25.52243, 0, -1.8918371)
+transform = Transform3D(-1, 0, -8.940697e-08, 0, 1, 0, 8.940697e-08, 0, -1, 26.287218, 1.9073486e-06, -1.4455805)
 
 [node name="tube" parent="World" instance=ExtResource("4_p57ef")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.279396, -9.536743e-07, 4.547248)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.0180798, -9.536743e-07, 9.475182)
 
 [node name="bass_drum_canon" parent="World" instance=ExtResource("2_lbhrr")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 8.875913, 0, 3.697873)
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 13.032256, -1.9073486e-06, 3.8778563)
 
 [node name="Flute" parent="World" instance=ExtResource("7_vtaks")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.405538, 0, -4.993597)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.034779, 1.9073486e-06, -7.813347)
+projectile_speed = null
+damage = null
+radius = null
+fire_interval = null
 
 [node name="GameUI" type="CanvasLayer" parent="."]
 

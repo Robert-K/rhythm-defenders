@@ -1,10 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://nav7ruy7rqfq"]
+[gd_scene load_steps=4 format=3 uid="uid://nav7ruy7rqfq"]
 
 [ext_resource type="PackedScene" uid="uid://b20vk52xwuusu" path="res://models/towers/tube.blend" id="1_4nsea"]
 [ext_resource type="Script" uid="uid://b0ue22gt2kqm" path="res://game_world/towers/tube/tube.gd" id="1_rr3rj"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_bcdp0"]
+size = Vector3(2.5, 3.6572113, 2.5)
+
 [node name="tube" type="Node3D"]
 script = ExtResource("1_rr3rj")
+damage = null
+radius = null
+fire_interval = null
 
 [node name="tube" parent="." instance=ExtResource("1_4nsea")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.601, 0)
+
+[node name="TowerBody" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+collision_layer = 4
+collision_mask = 4
+
+[node name="TowerCollision" type="CollisionShape3D" parent="TowerBody"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9277878, 0)
+shape = SubResource("BoxShape3D_bcdp0")

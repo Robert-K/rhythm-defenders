@@ -10,6 +10,8 @@ class_name World
 @onready var tube = preload("res://game_world/towers/tube/tube.tscn")
 @onready var flute = preload("res://game_world/towers/flute/flute.tscn")
 
+@onready var path = $Map1/Path3D
+
 @onready var current_map: Map = $Map1
 
 enum GameMode {
@@ -72,10 +74,12 @@ func _process(delta: float) -> void:
 		cancel_tower()
 	
 	if (Input.is_action_just_pressed("scroll_down")):
-		current_ghost_tower.rotate_y(-PI / 2)
+		if (is_instance_valid(current_ghost_tower)):
+			current_ghost_tower.rotate_y(-PI / 2)
 	
 	if (Input.is_action_just_pressed("scroll_up")):
-		current_ghost_tower.rotate_y(PI / 2)
+		if (is_instance_valid(current_ghost_tower)):
+			current_ghost_tower.rotate_y(PI / 2)
 	
 	update_tower()
 
@@ -100,13 +104,41 @@ func update_tower():
 	var end := origin + direction * ray_length
 	var space_state := viewport.get_world_3d().direct_space_state
 	var query := PhysicsRayQueryParameters3D.create(origin, end)
-	DebugDraw3D.draw_line(origin, end)
 	var result := space_state.intersect_ray(query)
 	if (result.has("position")):
+		print(result.position)
+		var pos = find_closest_abs_pos(path, result.position)
+		if (result.position.distance_to(pos) < 4):
+			return
 		var position: Vector3 = result.position;
-		current_ghost_tower.global_position = (Vector3i(position) / 3) * 3
+		#current_ghost_tower.global_position = (Vector3i(position) / 3) * 3
+		current_ghost_tower.global_position = result.position
+
+func find_closest_abs_pos(path: Path3D, global_pos: Vector3):
+	var curve: Curve3D = path.curve
+
+	# transform the target position to local space
+	#print(current_map.scale)
+	var path_transform: Transform3D = path.global_transform#.scaled(Vector3(1/4, 1/4, 1/4))
+	#print("path, transform", path_transform)
+	var local_pos: Vector3 = (global_pos) * path_transform.scaled(Vector3(1,1,1)/16)
+
+	# get the nearest offset on the curve
+	return path_transform * curve.get_closest_point(local_pos)
+	var offset: float = curve.get_closest_offset(local_pos)
+
+	# get the local position at this offset
+	var curve_pos: Vector3 = curve.sample_baked(offset, true)
+
+	# transform it back to world space
+	curve_pos = path_transform * curve_pos
+
+	return curve_pos
 
 func cancel_tower():
+	if (current_ghost_tower == null):
+		return
+	
 	leave_placement()
 	current_ghost_tower.queue_free()
 
@@ -114,6 +146,7 @@ func place_tower():
 	if (current_ghost_tower == null):
 		return
 	
+	current_ghost_tower.collision.disabled = false
 	current_ghost_tower = null
 	leave_placement()
 

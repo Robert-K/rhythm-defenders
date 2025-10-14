@@ -21,19 +21,18 @@ size = Vector3(6.5, 0.1, 16)
 mesh = ExtResource("3_lj2ar")
 
 [node name="Map1" type="Node3D"]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
 script = ExtResource("1_nfx0i")
 
 [node name="Path3D" type="Path3D" parent="."]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.5935273, 0, -0.3046664)
 curve = SubResource("Curve3D_nfx0i")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="TowerPlacementBody" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
 collision_layer = 4
 collision_mask = 4
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TowerPlacementBody"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.13735962, 0)
 shape = SubResource("BoxShape3D_0dnla")
 

@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://d00tuuxxjh6dn"]
+[gd_scene load_steps=4 format=3 uid="uid://d00tuuxxjh6dn"]
 
 [ext_resource type="Script" uid="uid://vgy6a10kefgw" path="res://game_world/towers/bass_drum/bass_drum_canon.gd" id="1_gypo3"]
 [ext_resource type="PackedScene" uid="uid://bhwymsh8kp4gu" path="res://models/towers/bass_drum_canon.blend" id="1_l0cdu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_etmhg"]
+size = Vector3(2.5, 3.6572113, 2.5)
 
 [node name="bass_drum_canon" type="Node3D"]
 script = ExtResource("1_gypo3")
@@ -9,7 +12,14 @@ damage = 34
 radius = 100.0
 
 [node name="bass_drum_canon" parent="." instance=ExtResource("1_l0cdu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6009915, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5598657, 0)
 
 [node name="ProjectileStart" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5704484, -2.3779705)
+
+[node name="TowerBody" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+
+[node name="TowerCollision" type="CollisionShape3D" parent="TowerBody"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9277878, 0)
+shape = SubResource("BoxShape3D_etmhg")

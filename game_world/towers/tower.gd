@@ -5,12 +5,16 @@ class_name Tower
 @export var radius: float = 1000
 @export var fire_interval: float = 1
 
+@onready var collision: CollisionShape3D = find_child("TowerCollision")
+
 @onready var world: World = find_parent('World')
 
 var fire_delta: float = 0
 var target_enemy: Enemy = null
 
 func _ready() -> void:
+	assert(collision != null)
+	collision.disabled = true
 	fire()
 
 func turn_to_closest_enemy():

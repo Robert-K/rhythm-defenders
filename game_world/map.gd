@@ -1,4 +1,4 @@
-extends Node
+extends Node3D
 class_name Map
 
 var _enemies: Array[Enemy] = []
