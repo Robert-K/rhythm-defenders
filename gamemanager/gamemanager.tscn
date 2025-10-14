@@ -10,6 +10,7 @@ process_mode = 3
 script = ExtResource("1_htktm")
 main_level = ExtResource("2_xueuq")
 is_mouse_captured_in_level = false
+has_multiple_levels = false
 
 [node name="MenuLayer" type="CanvasLayer" parent="."]
 unique_name_in_owner = true

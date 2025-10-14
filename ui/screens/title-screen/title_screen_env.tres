@@ -1,0 +1,22 @@
+[gd_resource type="Environment" load_steps=3 format=3 uid="uid://ophtydbbuykc"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_587ml"]
+sky_top_color = Color(0.52590317, 0.72112703, 0.9390915, 1)
+sky_horizon_color = Color(0.38039216, 0.79607844, 0.54509807, 1)
+sky_curve = 0.029421866
+ground_bottom_color = Color(0.023539752, 0.21460381, 0.16496444, 1)
+ground_horizon_color = Color(0.38039216, 0.79607844, 0.54509807, 1)
+ground_curve = 0.036050152
+
+[sub_resource type="Sky" id="Sky_8jtjs"]
+sky_material = SubResource("ProceduralSkyMaterial_587ml")
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_8jtjs")
+tonemap_mode = 3
+tonemap_exposure = 0.8
+adjustment_enabled = true
+adjustment_brightness = 0.95
+adjustment_contrast = 1.09
+adjustment_saturation = 0.95

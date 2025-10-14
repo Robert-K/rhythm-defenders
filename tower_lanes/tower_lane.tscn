@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://noqeeoaythhn"]
+[gd_scene load_steps=8 format=3 uid="uid://noqeeoaythhn"]
 
 [ext_resource type="Script" uid="uid://dukbcohfy0kca" path="res://tower_lanes/tower_lane.gd" id="1_05uu3"]
+[ext_resource type="FontFile" uid="uid://b7tawnkqrlpkn" path="res://ui/MouldyCheeseRegular-WyMWG.ttf" id="2_05uu3"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ff4tv"]
+font = ExtResource("2_05uu3")
 font_size = 40
 
 [sub_resource type="Gradient" id="Gradient_ff4tv"]
@@ -20,6 +22,8 @@ colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1)
 gradient = SubResource("Gradient_05uu3")
 
 [node name="TowerLane" type="HBoxContainer"]
+offset_right = 204.0
+offset_bottom = 70.0
 script = ExtResource("1_05uu3")
 pixels_per_second = 400.0
 

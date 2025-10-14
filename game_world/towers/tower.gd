@@ -18,6 +18,9 @@ func _ready() -> void:
 	fire()
 
 func turn_to_closest_enemy():
+	if not world:
+		return
+
 	target_enemy = world.get_closest_enemy(global_position)
 	if (target_enemy == null):
 		return

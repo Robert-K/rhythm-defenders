@@ -1,4 +1,41 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://hheneshfv1b2"]
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://hheneshfv1b2"]
+
+[ext_resource type="FontFile" uid="uid://b7tawnkqrlpkn" path="res://ui/MouldyCheeseRegular-WyMWG.ttf" id="1_d100o"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d100o"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d100o"]
+content_margin_left = 10.0
+content_margin_top = 15.0
+content_margin_right = 10.0
+content_margin_bottom = 11.0
+bg_color = Color(0.9469643, 0.50609416, 0.42892033, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ge066"]
+content_margin_left = 10.0
+content_margin_top = 15.0
+content_margin_right = 10.0
+content_margin_bottom = 11.0
+bg_color = Color(0.8901961, 0.36862746, 0.28627452, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c2y3n"]
+content_margin_left = 10.0
+content_margin_top = 15.0
+content_margin_right = 10.0
+content_margin_bottom = 11.0
+bg_color = Color(0.403389, 0.12120172, 0.079579495, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0d4dl"]
 content_margin_left = 8.0
@@ -12,6 +49,16 @@ corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
 [resource]
+default_font = ExtResource("1_d100o")
+default_font_size = 20
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(0.67, 0.27514666, 0.2144, 1)
+Button/constants/outline_size = 13
+Button/font_sizes/font_size = 23
+Button/styles/focus = SubResource("StyleBoxEmpty_d100o")
+Button/styles/hover = SubResource("StyleBoxFlat_d100o")
+Button/styles/normal = SubResource("StyleBoxFlat_ge066")
+Button/styles/pressed = SubResource("StyleBoxFlat_c2y3n")
 HeaderLarge/font_sizes/font_size = 56
 HeaderMedium/font_sizes/font_size = 24
 MarginContainer/constants/margin_bottom = 8

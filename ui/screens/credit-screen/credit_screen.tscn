@@ -55,11 +55,6 @@ text = "Created by You"
 label_settings = SubResource("LabelSettings_cutkl")
 horizontal_alignment = 1
 
-[node name="LabelSpecialThanks" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-text = "Special thanks to Also You"
-horizontal_alignment = 1
-
 [node name="Spacer" type="Control" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 27.17)
 layout_mode = 2

@@ -9,18 +9,17 @@
 [ext_resource type="Texture2D" uid="uid://e4mowu73d4jo" path="res://textures/icon/drum.png" id="6_gee14"]
 [ext_resource type="Texture2D" uid="uid://ih31eiq0kg53" path="res://textures/icon/tube.png" id="7_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://d4bqpss13euoj" path="res://game_world/towers/flute/flute.tscn" id="7_vtaks"]
+[ext_resource type="Theme" uid="uid://hheneshfv1b2" path="res://ui/themes/your_theme.tres" id="8_kvuet"]
 [ext_resource type="PackedScene" uid="uid://dcr3uedfoisub" path="res://game_world/towers/maracas/maracas.tscn" id="9_0tnpc"]
 [ext_resource type="Texture2D" uid="uid://ctq0pqbm0lmhm" path="res://textures/icon/Maracas.png" id="10_dinhu"]
 [ext_resource type="Texture2D" uid="uid://bhipuc0pmport" path="res://textures/icon/flute.png" id="11_kvuet"]
-
-[sub_resource type="Theme" id="Theme_dinhu"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 layer = 0
 
 [node name="World" type="Node3D" parent="." node_paths=PackedStringArray("build_ui", "start_button")]
 script = ExtResource("1_p57ef")
-build_ui = NodePath("../GameUI/BuildTowers")
+build_ui = NodePath("../GameUI/MarginContainer/BuildTowers")
 start_button = NodePath("../GameUI/StartButton")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="World"]
@@ -57,60 +56,76 @@ fire_interval = null
 
 [node name="GameUI" type="CanvasLayer" parent="."]
 
-[node name="BuildTowers" type="HBoxContainer" parent="GameUI"]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -160.0
-offset_right = 1652.0
-offset_bottom = 520.0
+[node name="MarginContainer" type="MarginContainer" parent="GameUI"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 60.0
 grow_horizontal = 2
-scale = Vector2(0.2, 0.2)
-size_flags_horizontal = 0
+theme_override_constants/margin_top = 5
+
+[node name="BuildTowers" type="HBoxContainer" parent="GameUI/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("8_kvuet")
+theme_override_constants/separation = 4
 alignment = 1
 
-[node name="ButtonDrum" type="Button" parent="GameUI/BuildTowers"]
+[node name="ButtonDrum" type="Button" parent="GameUI/MarginContainer/BuildTowers"]
+custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
-text = "X"
 icon = ExtResource("6_gee14")
+icon_alignment = 1
+expand_icon = true
 
-[node name="ButtonTube" type="Button" parent="GameUI/BuildTowers"]
+[node name="ButtonTube" type="Button" parent="GameUI/MarginContainer/BuildTowers"]
+custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
-text = "X"
 icon = ExtResource("7_0tnpc")
+icon_alignment = 1
+expand_icon = true
 
-[node name="ButtonMaracas" type="Button" parent="GameUI/BuildTowers"]
+[node name="ButtonMaracas" type="Button" parent="GameUI/MarginContainer/BuildTowers"]
+custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
-text = "X"
 icon = ExtResource("10_dinhu")
+icon_alignment = 1
+expand_icon = true
 
-[node name="ButtonFlute" type="Button" parent="GameUI/BuildTowers"]
+[node name="ButtonFlute" type="Button" parent="GameUI/MarginContainer/BuildTowers"]
+custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
-text = "X"
 icon = ExtResource("11_kvuet")
+icon_alignment = 1
+expand_icon = true
 
 [node name="StartButton" type="Button" parent="GameUI"]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -238.0
-offset_top = 7.0
-offset_right = -8.0
-offset_bottom = 104.0
+offset_left = -180.0
+offset_right = -18.0
+offset_bottom = 79.0
 grow_horizontal = 0
-theme = SubResource("Theme_dinhu")
-theme_override_colors/font_color = Color(0.40789756, 0.6193799, 0, 1)
-theme_override_font_sizes/font_size = 64
+theme = ExtResource("8_kvuet")
+theme_override_colors/font_color = Color(0.38039216, 0.79607844, 0.54509807, 1)
+theme_override_colors/font_pressed_color = Color(0.12068664, 0.30641085, 0.1974492, 1)
+theme_override_colors/font_hover_color = Color(0.37038267, 0.7811675, 0.53354007, 1)
+theme_override_colors/font_outline_color = Color(0.18094951, 0.18889105, 0.22610942, 1)
+theme_override_font_sizes/font_size = 39
 text = "▶ Start"
+flat = true
 
 [node name="BottomUI" type="MarginContainer" parent="."]
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -260.0
+offset_top = -220.0
+offset_right = 1152.0
+offset_bottom = 220.0
 grow_horizontal = 2
 grow_vertical = 0
+scale = Vector2(0.5, 0.5)
 size_flags_vertical = 8
 
 [node name="Background" type="ColorRect" parent="BottomUI"]
@@ -122,6 +137,7 @@ layout_mode = 2
 
 [node name="TowerLanes" type="VBoxContainer" parent="BottomUI/LanesMargin"]
 layout_mode = 2
+size_flags_vertical = 8
 
 [node name="TowerLane" parent="BottomUI/LanesMargin/TowerLanes" instance=ExtResource("1_uwrxv")]
 layout_mode = 2
@@ -158,8 +174,8 @@ notes_color = Color(0.9333334, 0, 1, 1)
 stream_index = 7
 key_label_text = "K"
 
-[connection signal="pressed" from="GameUI/BuildTowers/ButtonDrum" to="World" method="_on_button_drum_pressed"]
-[connection signal="pressed" from="GameUI/BuildTowers/ButtonTube" to="World" method="_on_button_tube_pressed"]
-[connection signal="pressed" from="GameUI/BuildTowers/ButtonMaracas" to="World" method="_on_button_maracas_pressed"]
-[connection signal="pressed" from="GameUI/BuildTowers/ButtonFlute" to="World" method="_on_button_flute_pressed"]
+[connection signal="pressed" from="GameUI/MarginContainer/BuildTowers/ButtonDrum" to="World" method="_on_button_drum_pressed"]
+[connection signal="pressed" from="GameUI/MarginContainer/BuildTowers/ButtonTube" to="World" method="_on_button_tube_pressed"]
+[connection signal="pressed" from="GameUI/MarginContainer/BuildTowers/ButtonMaracas" to="World" method="_on_button_maracas_pressed"]
+[connection signal="pressed" from="GameUI/MarginContainer/BuildTowers/ButtonFlute" to="World" method="_on_button_flute_pressed"]
 [connection signal="pressed" from="GameUI/StartButton" to="World" method="_on_start_button_pressed"]
