@@ -1,0 +1,757 @@
+[gd_scene load_steps=25 format=3 uid="uid://bl13r18x60hc1"]
+
+[ext_resource type="AudioStream" uid="uid://vs6eo7d100gp" path="res://music/kitchen_loop/drums.wav" id="1_4ryh7"]
+[ext_resource type="AudioStream" uid="uid://fr464egs7ah0" path="res://music/kitchen_loop/bass.wav" id="2_gn5aw"]
+[ext_resource type="AudioStream" uid="uid://drhxblr0inut5" path="res://music/kitchen_loop/organ.wav" id="3_0isv4"]
+[ext_resource type="AudioStream" uid="uid://ra475a55ijrp" path="res://music/kitchen_loop/piano.wav" id="4_78lc6"]
+[ext_resource type="AudioStream" uid="uid://bmydeoymb8mvo" path="res://music/kitchen_loop/8bit.wav" id="5_3p47c"]
+[ext_resource type="AudioStream" uid="uid://p0ykrcx7uh7m" path="res://music/kitchen_loop/synth.wav" id="6_615hb"]
+[ext_resource type="AudioStream" uid="uid://d2vhp34jhkycc" path="res://music/kitchen_loop/tenor.wav" id="7_2iv1y"]
+[ext_resource type="Script" uid="uid://bu7sfn0jdxgnn" path="res://music/music_player.gd" id="8_3p47c"]
+[ext_resource type="Script" uid="uid://0trg3d4dgrak" path="res://music/sync_player.gd" id="9_615hb"]
+
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_ibkyq"]
+stream_count = 7
+stream_0/stream = ExtResource("1_4ryh7")
+stream_0/volume = -60.0
+stream_1/stream = ExtResource("2_gn5aw")
+stream_1/volume = -60.0
+stream_2/stream = ExtResource("3_0isv4")
+stream_2/volume = -60.0
+stream_3/stream = ExtResource("4_78lc6")
+stream_3/volume = -60.0
+stream_4/stream = ExtResource("5_3p47c")
+stream_4/volume = -60.0
+stream_5/stream = ExtResource("6_615hb")
+stream_5/volume = -60.0
+stream_6/stream = ExtResource("7_2iv1y")
+stream_6/volume = -60.0
+
+[sub_resource type="Animation" id="Animation_615hb"]
+length = 20.425533
+loop_mode = 1
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("/root/@EditorNode@20438/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@62/@VBoxContainer@63/@EditorMainScreen@103/MainScreen/@CanvasItemEditor@10871/@VSplitContainer@10516/@HSplitContainer@10518/@HSplitContainer@10520/@Control@10521/@SubViewportContainer@10522/@SubViewport@10523/MusicPlayer/SyncPlayer_drums/dummy_drums")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("1_4ryh7")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("/root/@EditorNode@20438/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@62/@VBoxContainer@63/@EditorMainScreen@103/MainScreen/@CanvasItemEditor@10871/@VSplitContainer@10516/@HSplitContainer@10518/@HSplitContainer@10520/@Control@10521/@SubViewportContainer@10522/@SubViewport@10523/MusicPlayer/SyncPlayer_drums")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3, 0.98, 1.63, 2.25, 2.88, 3.53, 4.17, 4.79, 5.42, 6.07, 6.71, 7.34, 7.98, 8.632431, 9.272431, 9.882431, 10.552431, 11.1924305, 11.832431, 12.452431, 13.112431, 13.742431, 14.382431, 15.012431, 15.662431, 16.279205, 16.929205, 17.569204, 18.209204, 18.849205, 19.479204, 20.129204),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2iv1y"]
+_data = {
+&"drums": SubResource("Animation_615hb")
+}
+
+[sub_resource type="Animation" id="Animation_bow1e"]
+length = 20.425533
+loop_mode = 1
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("/root/@EditorNode@20438/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@62/@VBoxContainer@63/@EditorMainScreen@103/MainScreen/@CanvasItemEditor@10871/@VSplitContainer@10516/@HSplitContainer@10518/@HSplitContainer@10520/@Control@10521/@SubViewportContainer@10522/@SubViewport@10523/MusicPlayer/SyncPlayer_bass/dummy_bass")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("2_gn5aw")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("/root/@EditorNode@20438/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@62/@VBoxContainer@63/@EditorMainScreen@103/MainScreen/@CanvasItemEditor@10871/@VSplitContainer@10516/@HSplitContainer@10518/@HSplitContainer@10520/@Control@10521/@SubViewportContainer@10522/@SubViewport@10523/MusicPlayer/SyncPlayer_bass")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.69, 1.32, 1.65, 1.96, 2.25, 2.89, 3.22, 3.83, 4.4666667, 4.8333335, 5.2000003, 5.466667, 5.8, 6.72, 7.372266, 8.062265, 8.6922655, 9.022265, 9.332266, 9.622266, 10.262266, 10.592266, 11.202266, 11.838932, 12.205599, 12.572266, 12.838933, 13.172266, 13.424463, 14.114463, 14.744463, 15.074463, 15.384463, 15.674463, 16.314463, 16.644463, 17.254463, 17.89113, 18.257797, 18.624464, 18.89113, 19.224464, 19.525917),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cajrm"]
+_data = {
+&"bass": SubResource("Animation_bow1e")
+}
+
+[sub_resource type="Animation" id="Animation_mpbee"]
+length = 20.425533
+loop_mode = 1
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("/root/@EditorNode@20438/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@62/@VBoxContainer@63/@EditorMainScreen@103/MainScreen/@CanvasItemEditor@10871/@VSplitContainer@10516/@HSplitContainer@10518/@HSplitContainer@10520/@Control@10521/@SubViewportContainer@10522/@SubViewport@10523/MusicPlayer/SyncPlayer_organ/dummy_organ")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_0isv4")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("/root/@EditorNode@20438/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@62/@VBoxContainer@63/@EditorMainScreen@103/MainScreen/@CanvasItemEditor@10871/@VSplitContainer@10516/@HSplitContainer@10518/@HSplitContainer@10520/@Control@10521/@SubViewportContainer@10522/@SubViewport@10523/MusicPlayer/SyncPlayer_organ")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.2752404, 1.9128606, 2.3910758, 4.133333, 6.6153097, 7.013822, 7.3724837, 7.9304013, 8.2890625, 9.564303, 10.221849, 11.497089, 12.13471, 12.612926, 14.355183, 16.837158, 17.235672, 17.594334, 18.15225, 18.510912, 19.786152),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [1.5659999999999998],
+"method": &"dummy_hold"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [1.5659999999999998],
+"method": &"dummy_hold"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x4rqh"]
+_data = {
+&"organ": SubResource("Animation_mpbee")
+}
+
+[sub_resource type="Animation" id="Animation_4ui1w"]
+length = 20.425533
+loop_mode = 1
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("/root/@EditorNode@20438/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@62/@VBoxContainer@63/@EditorMainScreen@103/MainScreen/@CanvasItemEditor@10871/@VSplitContainer@10516/@HSplitContainer@10518/@HSplitContainer@10520/@Control@10521/@SubViewportContainer@10522/@SubViewport@10523/MusicPlayer/SyncPlayer_piano/dummy_piano")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_78lc6")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("/root/@EditorNode@20438/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@62/@VBoxContainer@63/@EditorMainScreen@103/MainScreen/@CanvasItemEditor@10871/@VSplitContainer@10516/@HSplitContainer@10518/@HSplitContainer@10520/@Control@10521/@SubViewportContainer@10522/@SubViewport@10523/MusicPlayer/SyncPlayer_piano")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.9564303, 4.444813, 7.015219, 8.877436, 10.252304, 11.766652, 12.14524, 12.728596, 14.37691, 14.695721, 15.014531, 15.333341, 17.866667, 19.1, 19.627417, 20.130978),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [1.9689999999999999],
+"method": &"dummy_spam"
+}, {
+"args": [0.577],
+"method": &"dummy_spam"
+}, {
+"args": [0.577],
+"method": &"dummy_spam"
+}, {
+"args": [0.577],
+"method": &"dummy_spam"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [0.577],
+"method": &"dummy_spam"
+}, {
+"args": [0.577],
+"method": &"dummy_spam"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}, {
+"args": [],
+"method": &"dummy_hit"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6rfpk"]
+_data = {
+&"piano": SubResource("Animation_4ui1w")
+}
+
+[sub_resource type="Animation" id="Animation_o5f0v"]
+length = 20.425533
+loop_mode = 1
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("/root/@EditorNode@20438/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@62/@VBoxContainer@63/@EditorMainScreen@103/MainScreen/@CanvasItemEditor@10871/@VSplitContainer@10516/@HSplitContainer@10518/@HSplitContainer@10520/@Control@10521/@SubViewportContainer@10522/@SubViewport@10523/MusicPlayer/SyncPlayer_8bit/dummy_8bit")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("5_3p47c")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("/root/@EditorNode@20438/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@62/@VBoxContainer@63/@EditorMainScreen@103/MainScreen/@CanvasItemEditor@10871/@VSplitContainer@10516/@HSplitContainer@10518/@HSplitContainer@10520/@Control@10521/@SubViewportContainer@10522/@SubViewport@10523/MusicPlayer/SyncPlayer_8bit")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.2333333, 3.7740743, 6.364074, 8.888509, 11.4585085, 13.992383, 16.562384, 19.108797),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [1.2],
+"method": &"dummy_hold"
+}, {
+"args": [1.2],
+"method": &"dummy_hold"
+}, {
+"args": [1.2],
+"method": &"dummy_hold"
+}, {
+"args": [1.2],
+"method": &"dummy_hold"
+}, {
+"args": [1.2],
+"method": &"dummy_hold"
+}, {
+"args": [1.2],
+"method": &"dummy_hold"
+}, {
+"args": [1.2],
+"method": &"dummy_hold"
+}, {
+"args": [1.2],
+"method": &"dummy_hold"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7ry1j"]
+_data = {
+&"8bit": SubResource("Animation_o5f0v")
+}
+
+[sub_resource type="Animation" id="Animation_8gs32"]
+length = 20.425533
+loop_mode = 1
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("/root/@EditorNode@20438/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@62/@VBoxContainer@63/@EditorMainScreen@103/MainScreen/@CanvasItemEditor@10871/@VSplitContainer@10516/@HSplitContainer@10518/@HSplitContainer@10520/@Control@10521/@SubViewportContainer@10522/@SubViewport@10523/MusicPlayer/SyncPlayer_synth/dummy_synth")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("6_615hb")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("/root/@EditorNode@20438/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@62/@VBoxContainer@63/@EditorMainScreen@103/MainScreen/@CanvasItemEditor@10871/@VSplitContainer@10516/@HSplitContainer@10518/@HSplitContainer@10520/@Control@10521/@SubViewportContainer@10522/@SubViewport@10523/MusicPlayer/SyncPlayer_synth")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.5121536, 5.0697336, 7.652661, 10.230202, 12.705174, 15.282716, 17.860693),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [1.18],
+"method": &"dummy_hold"
+}, {
+"args": [1.18],
+"method": &"dummy_hold"
+}, {
+"args": [1.18],
+"method": &"dummy_hold"
+}, {
+"args": [1.18],
+"method": &"dummy_hold"
+}, {
+"args": [1.18],
+"method": &"dummy_hold"
+}, {
+"args": [1.18],
+"method": &"dummy_hold"
+}, {
+"args": [1.18],
+"method": &"dummy_hold"
+}, {
+"args": [1.18],
+"method": &"dummy_hold"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pj4u7"]
+_data = {
+&"synth": SubResource("Animation_8gs32")
+}
+
+[sub_resource type="Animation" id="Animation_61wgo"]
+length = 20.425533
+loop_mode = 1
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("/root/@EditorNode@20438/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@62/@VBoxContainer@63/@EditorMainScreen@103/MainScreen/@CanvasItemEditor@10871/@VSplitContainer@10516/@HSplitContainer@10518/@HSplitContainer@10520/@Control@10521/@SubViewportContainer@10522/@SubViewport@10523/MusicPlayer/SyncPlayer_tenor/dummy_tenor")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("7_2iv1y")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("/root/@EditorNode@20438/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@62/@VBoxContainer@63/@EditorMainScreen@103/MainScreen/@CanvasItemEditor@10871/@VSplitContainer@10516/@HSplitContainer@10518/@HSplitContainer@10520/@Control@10521/@SubViewportContainer@10522/@SubViewport@10523/MusicPlayer/SyncPlayer_tenor")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_80llh"]
+_data = {
+&"tenor": SubResource("Animation_61wgo")
+}
+
+[node name="MusicPlayer" type="AudioStreamPlayer"]
+stream = SubResource("AudioStreamSynchronized_ibkyq")
+script = ExtResource("8_3p47c")
+
+[node name="SyncPlayer_drums" type="AnimationPlayer" parent="." node_paths=PackedStringArray("dummy_player")]
+libraries = {
+&"": SubResource("AnimationLibrary_2iv1y")
+}
+script = ExtResource("9_615hb")
+dummy_player = NodePath("dummy_drums")
+animation_library = SubResource("AnimationLibrary_2iv1y")
+animation = SubResource("Animation_615hb")
+animation_name = "drums"
+
+[node name="dummy_drums" type="AudioStreamPlayer" parent="SyncPlayer_drums"]
+stream = ExtResource("1_4ryh7")
+
+[node name="SyncPlayer_bass" type="AnimationPlayer" parent="." node_paths=PackedStringArray("dummy_player")]
+libraries = {
+&"": SubResource("AnimationLibrary_cajrm")
+}
+script = ExtResource("9_615hb")
+dummy_player = NodePath("dummy_bass")
+animation_library = SubResource("AnimationLibrary_cajrm")
+animation = SubResource("Animation_bow1e")
+animation_name = "bass"
+
+[node name="dummy_bass" type="AudioStreamPlayer" parent="SyncPlayer_bass"]
+
+[node name="SyncPlayer_organ" type="AnimationPlayer" parent="." node_paths=PackedStringArray("dummy_player")]
+libraries = {
+&"": SubResource("AnimationLibrary_x4rqh")
+}
+script = ExtResource("9_615hb")
+dummy_player = NodePath("dummy_organ")
+animation_library = SubResource("AnimationLibrary_x4rqh")
+animation = SubResource("Animation_mpbee")
+animation_name = "organ"
+
+[node name="dummy_organ" type="AudioStreamPlayer" parent="SyncPlayer_organ"]
+stream = ExtResource("3_0isv4")
+
+[node name="SyncPlayer_piano" type="AnimationPlayer" parent="." node_paths=PackedStringArray("dummy_player")]
+libraries = {
+&"": SubResource("AnimationLibrary_6rfpk")
+}
+script = ExtResource("9_615hb")
+dummy_player = NodePath("dummy_piano")
+animation_library = SubResource("AnimationLibrary_6rfpk")
+animation = SubResource("Animation_4ui1w")
+animation_name = "piano"
+
+[node name="dummy_piano" type="AudioStreamPlayer" parent="SyncPlayer_piano"]
+stream = ExtResource("4_78lc6")
+
+[node name="SyncPlayer_8bit" type="AnimationPlayer" parent="." node_paths=PackedStringArray("dummy_player")]
+libraries = {
+&"": SubResource("AnimationLibrary_7ry1j")
+}
+script = ExtResource("9_615hb")
+dummy_player = NodePath("dummy_8bit")
+animation_library = SubResource("AnimationLibrary_7ry1j")
+animation = SubResource("Animation_o5f0v")
+animation_name = "8bit"
+
+[node name="dummy_8bit" type="AudioStreamPlayer" parent="SyncPlayer_8bit"]
+stream = ExtResource("5_3p47c")
+
+[node name="SyncPlayer_synth" type="AnimationPlayer" parent="." node_paths=PackedStringArray("dummy_player")]
+libraries = {
+&"": SubResource("AnimationLibrary_pj4u7")
+}
+script = ExtResource("9_615hb")
+dummy_player = NodePath("dummy_synth")
+animation_library = SubResource("AnimationLibrary_pj4u7")
+animation = SubResource("Animation_8gs32")
+animation_name = "synth"
+
+[node name="dummy_synth" type="AudioStreamPlayer" parent="SyncPlayer_synth"]
+stream = ExtResource("6_615hb")
+
+[node name="SyncPlayer_tenor" type="AnimationPlayer" parent="." node_paths=PackedStringArray("dummy_player")]
+libraries = {
+&"": SubResource("AnimationLibrary_80llh")
+}
+script = ExtResource("9_615hb")
+dummy_player = NodePath("dummy_tenor")
+animation_library = SubResource("AnimationLibrary_80llh")
+animation = SubResource("Animation_61wgo")
+animation_name = "tenor"
+
+[node name="dummy_tenor" type="AudioStreamPlayer" parent="SyncPlayer_tenor"]
+stream = ExtResource("7_2iv1y")

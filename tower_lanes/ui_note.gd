@@ -4,6 +4,17 @@ extends Control
 
 @onready var note_panel: Panel = %NotePanel
 
+@export var pixels_per_second: float = 100.0
+
+@export var track_length: float = 1000.0
+
+@export var duration: float = 0.5:
+	set(value):
+		duration = value
+		if not note_panel:
+			return
+		note_panel.size.x = duration * pixels_per_second
+
 @export var color: Color = Color.RED:
 	set(value):
 		color = value
@@ -11,3 +22,18 @@ extends Control
 			return
 		var stylebox := note_panel.get_theme_stylebox("panel")
 		stylebox.bg_color = color
+
+func _ready() -> void:
+	if Engine.is_editor_hint():
+		return
+	if note_panel:
+		var stylebox := note_panel.get_theme_stylebox("panel")
+		stylebox.bg_color = color
+		note_panel.size.x = duration * pixels_per_second
+
+func _process(delta: float) -> void:
+	if Engine.is_editor_hint():
+		return
+	position.x -= delta * pixels_per_second
+	if position.x < -duration * pixels_per_second:
+		position.x += track_length * pixels_per_second

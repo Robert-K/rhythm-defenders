@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://btn3e0rkvcell"]
+
+[ext_resource type="Script" uid="uid://0trg3d4dgrak" path="res://music/sync_player.gd" id="1_2td2l"]
+
+[node name="SyncPlayer" type="AnimationPlayer"]
+script = ExtResource("1_2td2l")

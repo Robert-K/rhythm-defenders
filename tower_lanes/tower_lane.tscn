@@ -1,16 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://noqeeoaythhn"]
+[gd_scene load_steps=6 format=3 uid="uid://noqeeoaythhn"]
 
 [ext_resource type="Script" uid="uid://dukbcohfy0kca" path="res://tower_lanes/tower_lane.gd" id="1_05uu3"]
-[ext_resource type="PackedScene" uid="uid://xia7n4meh7mh" path="res://tower_lanes/ui_note.tscn" id="2_05uu3"]
-[ext_resource type="AudioStream" uid="uid://p0ykrcx7uh7m" path="res://music/kitchen_loop/synth.wav" id="2_i616h"]
-[ext_resource type="MidiResource" uid="uid://d1dmbxjv45k7l" path="res://music/kitchen_loop/funky_synth.mid" id="3_fxno7"]
-[ext_resource type="Script" uid="uid://bl2aopffiony8" path="res://music/music_clip.gd" id="4_73vko"]
-
-[sub_resource type="Resource" id="Resource_i616h"]
-script = ExtResource("4_73vko")
-audio_stream = ExtResource("2_i616h")
-midi_file = ExtResource("3_fxno7")
-metadata/_custom_type_script = "uid://bl2aopffiony8"
 
 [sub_resource type="Gradient" id="Gradient_ff4tv"]
 offsets = PackedFloat32Array(0, 0.51760566, 1)
@@ -28,13 +18,14 @@ gradient = SubResource("Gradient_05uu3")
 
 [node name="TowerLane" type="HBoxContainer"]
 script = ExtResource("1_05uu3")
-music_clip = SubResource("Resource_i616h")
+key_label = null
 
 [node name="KeyContainer" type="CenterContainer" parent="."]
 custom_minimum_size = Vector2(100, 40)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="KeyContainer"]
+[node name="KeyLabel" type="Label" parent="KeyContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "A"
 
@@ -64,9 +55,6 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="UINote" parent="LaneParentControl/LaneControl" instance=ExtResource("2_05uu3")]
-layout_mode = 0
-
 [node name="HitLine" type="TextureRect" parent="LaneParentControl"]
 custom_minimum_size = Vector2(2, 0)
 layout_mode = 1
@@ -87,10 +75,3 @@ grow_horizontal = 0
 grow_vertical = 2
 texture = SubResource("GradientTexture1D_ho2ta")
 expand_mode = 1
-
-[node name="MidiPlayer" type="MidiPlayer" parent="."]
-loop = true
-unique_name_in_owner = true
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-unique_name_in_owner = true

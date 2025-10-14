@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Godot Game Template"
+config/name="Rhythm Defenders"
 run/main_scene="res://gamemanager/gamemanager.tscn"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
@@ -21,10 +21,11 @@ InputManager="*res://autoloads/input_manager.gd"
 DebugGlobal="*res://autoloads/debug_global.gd"
 Global="*res://autoloads/global.gd"
 Settings="*res://autoloads/settings/settings.gd"
+MusicPlayer="*res://music/music_player.tscn"
 
-[editor_plugins]
+[display]
 
-enabled=PackedStringArray("res://addons/godot_midi/plugin.cfg")
+window/stretch/scale=2.0
 
 [input]
 
