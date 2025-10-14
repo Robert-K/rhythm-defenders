@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://c7vql0lrwfptu"]
+[gd_scene load_steps=7 format=3 uid="uid://c7vql0lrwfptu"]
 
 [ext_resource type="PackedScene" uid="uid://noqeeoaythhn" path="res://tower_lanes/tower_lane.tscn" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://d00tuuxxjh6dn" path="res://game_world/towers/bass_drum_canon.tscn" id="2_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://cmqmnkoevcreg" path="res://game_world/level_path/enemy_path.tscn" id="2_lnu2h"]
+[ext_resource type="Environment" uid="uid://bhb4ckqipjvu3" path="res://other/main_environment.tres" id="3_lbhrr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8cj0n"]
 albedo_color = Color(0.24313726, 0.4, 0.08627451, 1)
@@ -37,6 +38,9 @@ render_target_update_mode = 4
 [node name="GameUI" type="CanvasLayer" parent="VSplitContainer/SubViewportContainer/SubViewport/Game"]
 
 [node name="World" type="Node3D" parent="VSplitContainer/SubViewportContainer/SubViewport/Game"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="VSplitContainer/SubViewportContainer/SubViewport/Game/World"]
+environment = ExtResource("3_lbhrr")
 
 [node name="Camera3D" type="Camera3D" parent="VSplitContainer/SubViewportContainer/SubViewport/Game/World"]
 transform = Transform3D(1, 0, 0, 0, 0.76604444, 0.6427876, 0, -0.6427876, 0.76604444, 0, 10, 10)
