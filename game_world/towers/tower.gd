@@ -16,9 +16,12 @@ func turn_to_closest_enemy(delta: float):
 	if (target_enemy == null):
 		return
 	
+	DebugDraw3D.draw_line(target_enemy.position, position)
 	var dist = position.distance_to(target_enemy.position)
 	print("Enemy is close", target_enemy, "dist", dist)
+	var target_rotation = transform.looking_at(target_enemy.position, Vector3.UP).basis
 	look_at(target_enemy.position, Vector3.UP, true)
+	#transform.basis = target_rotation
 	#if (dist <= radius):
 		#var target_vector = position.direction_to(target_enemy.position)
 		#var target_basis = Basis.looking_at(target_vector)
