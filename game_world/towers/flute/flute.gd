@@ -24,4 +24,5 @@ func fire():
 	node.damage = damage
 	node.global_position = projectile_start.global_position
 	var target_vector = global_position.direction_to(target_enemy.global_position)
+	node.rotation = rotation + Vector3(0, PI / 2, 0)
 	node.apply_central_impulse(target_vector * projectile_speed)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c7vql0lrwfptu"]
+[gd_scene load_steps=13 format=3 uid="uid://c7vql0lrwfptu"]
 
 [ext_resource type="Script" uid="uid://8h1r1rjtau8e" path="res://game_world/game_world.gd" id="1_p57ef"]
 [ext_resource type="PackedScene" uid="uid://noqeeoaythhn" path="res://tower_lanes/tower_lane.tscn" id="1_uwrxv"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://ih31eiq0kg53" path="res://textures/icon/tube.png" id="7_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://d4bqpss13euoj" path="res://game_world/towers/flute/flute.tscn" id="7_vtaks"]
 [ext_resource type="PackedScene" uid="uid://dcr3uedfoisub" path="res://game_world/towers/maracas/maracas.tscn" id="9_0tnpc"]
+[ext_resource type="Texture2D" uid="uid://ctq0pqbm0lmhm" path="res://textures/icon/Maracas.png" id="10_dinhu"]
+[ext_resource type="Texture2D" uid="uid://bhipuc0pmport" path="res://textures/icon/flute.png" id="11_kvuet"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 layer = 0
@@ -51,10 +53,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.405538, 0, -4.993597)
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -38.0
-offset_top = 14.0
-offset_right = 810.0
-offset_bottom = 422.0
+offset_left = -160.0
+offset_right = 1652.0
+offset_bottom = 520.0
 grow_horizontal = 2
 scale = Vector2(0.2, 0.2)
 size_flags_horizontal = 0
@@ -69,6 +70,16 @@ icon = ExtResource("6_gee14")
 layout_mode = 2
 text = "X"
 icon = ExtResource("7_0tnpc")
+
+[node name="ButtonMaracas" type="Button" parent="GameUI/HBoxContainer"]
+layout_mode = 2
+text = "X"
+icon = ExtResource("10_dinhu")
+
+[node name="ButtonFlute" type="Button" parent="GameUI/HBoxContainer"]
+layout_mode = 2
+text = "X"
+icon = ExtResource("11_kvuet")
 
 [node name="BottomUI" type="MarginContainer" parent="."]
 anchors_preset = 12
