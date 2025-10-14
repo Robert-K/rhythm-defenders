@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://d4bqpss13euoj"]
+
+[ext_resource type="Script" uid="uid://25gdfoxq5sol" path="res://game_world/towers/flute/flute.gd" id="1_48p82"]
+[ext_resource type="PackedScene" uid="uid://blklrdey58lxe" path="res://models/towers/flute.blend" id="1_ol7h7"]
+
+[node name="Flute" type="Node3D"]
+script = ExtResource("1_48p82")
+
+[node name="flute" parent="." instance=ExtResource("1_ol7h7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.601, 0)

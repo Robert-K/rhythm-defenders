@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8ijx1be6w80p"]
+
+[ext_resource type="Script" uid="uid://yvnwm7jv76oa" path="res://game_world/towers/projectiles/projectile.gd" id="1_5bpnr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5bpnr"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_5bpnr"]
+material = SubResource("StandardMaterial3D_5bpnr")
+top_radius = 0.0
+radial_segments = 5
+rings = 0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_d5tly"]
+
+[node name="FluteProjectile" type="RigidBody3D"]
+top_level = true
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_5bpnr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-2.0763844e-08, -0.47502136, 0, 0.47502136, -2.0763844e-08, 0, 0, 0, 0.47502136, 0, 0, 0)
+mesh = SubResource("CylinderMesh_5bpnr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_d5tly")
