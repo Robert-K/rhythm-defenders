@@ -1,9 +1,9 @@
 extends Tower
 
-@onready var projectile = preload("res://game_world/towers/projectiles/projectile.tscn")
+@onready var projectile = preload("res://game_world/damage_dealer/projectile/flute_projectile.tscn")
 @onready var projectile_start = $ProjectileStart
 
-@export var projectile_speed: float = 30
+@export var projectile_speed: float = 45
 
 func _process(_delta):
 	super._process(_delta)
@@ -17,8 +17,8 @@ func fire():
 	if (dist > radius):
 		return
 	
-	$bass_drum_canon/AnimationPlayer.play("Fire")
-	await $bass_drum_canon/AnimationPlayer.animation_finished
+	$flute/AnimationPlayer.play("Fire")
+	await $flute/AnimationPlayer.animation_finished
 	var node : Projectile = projectile.instantiate()
 	projectile_start.add_child(node)
 	node.damage = damage

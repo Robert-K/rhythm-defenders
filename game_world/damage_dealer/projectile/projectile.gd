@@ -1,7 +1,5 @@
-extends RigidBody3D
+extends DamageDealer
 class_name Projectile
-
-@export var damage: float
 
 func _ready() -> void:
 	# Destroy projectiles shortly after they are created

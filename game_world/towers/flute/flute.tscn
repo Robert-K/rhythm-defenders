@@ -8,3 +8,6 @@ script = ExtResource("1_48p82")
 
 [node name="flute" parent="." instance=ExtResource("1_ol7h7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.601, 0)
+
+[node name="ProjectileStart" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.921, 1.702, 0)

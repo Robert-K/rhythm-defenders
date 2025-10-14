@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://bkru5xvj61m25"]
+[gd_scene load_steps=5 format=3 uid="uid://bkru5xvj61m25"]
 
-[ext_resource type="Script" uid="uid://yvnwm7jv76oa" path="res://game_world/towers/projectiles/projectile.gd" id="1_d5tly"]
+[ext_resource type="Script" uid="uid://yvnwm7jv76oa" path="res://game_world/damage_dealer/projectile/projectile.gd" id="1_d5tly"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_acklx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uw2iy"]
+albedo_color = Color(0.40832946, 0.40832946, 0.40832946, 1)
+metallic = 0.92
+roughness = 0.71
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_d5tly"]
 
@@ -14,6 +19,7 @@ script = ExtResource("1_d5tly")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_acklx")
+surface_material_override/0 = SubResource("StandardMaterial3D_uw2iy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_d5tly")

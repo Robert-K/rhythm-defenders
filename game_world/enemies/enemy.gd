@@ -24,8 +24,8 @@ func _ready() -> void:
 	# Ear animation
 	$enemy_ear/AnimationPlayer.play("Walk")
 
-func hit(projectile: Projectile) -> void:
-	health -= projectile.damage
+func apply_damage(amount: float) -> void:
+	health -= amount
 	update_health_visuals()
 	play_hit_feedback()
 	if (health <= 0):
@@ -44,8 +44,20 @@ func play_hit_feedback():
 	hit_feedback_container.add_child(label)
 
 func _on_enemy_body_entered(body: Node3D) -> void:
-	var projectile = (body as Projectile)
-	hit(projectile)
+	deal_damage(body)
+
+func _on_enemy_area_3d_area_entered(area: Area3D) -> void:
+	deal_damage(area)
+
+func deal_damage(body: Node):
+	var damage_dealer: DamageDealer = body as DamageDealer
+	while (damage_dealer == null):
+		body = body.get_parent()
+		if (body == null):
+			return
+		damage_dealer = (body as DamageDealer)
+	
+	damage_dealer.apply(self)
 
 func on_destination_entered():
 	enemy_at_destination.emit(self)

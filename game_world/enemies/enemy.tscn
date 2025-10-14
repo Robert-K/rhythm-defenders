@@ -16,15 +16,16 @@ health_gradient = SubResource("Gradient_s75w2")
 [node name="enemy_ear" parent="." instance=ExtResource("2_bwbnx")]
 transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, -0.06213615, 0, 0.041115135)
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="Enemy_Area3D" type="Area3D" parent="."]
 transform = Transform3D(0.333, 0, 0, 0, 0.333, 0, 0, 0, 0.333, 0, 0.333, 0)
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Enemy_Area3D"]
 shape = SubResource("CylinderShape3D_s75w2")
 
 [node name="HitFeedbackContainer" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.74133027, 0)
 
-[connection signal="body_entered" from="Area3D" to="." method="_on_enemy_body_entered"]
+[connection signal="area_entered" from="Enemy_Area3D" to="." method="_on_enemy_area_3d_area_entered"]
+[connection signal="body_entered" from="Enemy_Area3D" to="." method="_on_enemy_body_entered"]

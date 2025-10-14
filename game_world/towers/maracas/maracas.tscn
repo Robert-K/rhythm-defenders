@@ -1,10 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://dcr3uedfoisub"]
+[gd_scene load_steps=4 format=3 uid="uid://dcr3uedfoisub"]
 
 [ext_resource type="PackedScene" uid="uid://bdwqdu1s5wyue" path="res://models/towers/maracas.blend" id="1_e6mcf"]
 [ext_resource type="Script" uid="uid://bi8xdnpyos5r3" path="res://game_world/towers/maracas/maracas.gd" id="1_j80pm"]
+[ext_resource type="PackedScene" uid="uid://c3681qmi3fmsa" path="res://game_world/damage_dealer/area_damage/area_damage.tscn" id="3_86aje"]
 
 [node name="Maracas" type="Node3D"]
 script = ExtResource("1_j80pm")
+fire_interval = 5.0
 
 [node name="maracas" parent="." instance=ExtResource("1_e6mcf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.601, 0)
+
+[node name="AreaDamage" parent="." instance=ExtResource("3_86aje")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.3638654)

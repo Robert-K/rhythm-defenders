@@ -1,6 +1,6 @@
 extends Tower
 
-@onready var projectile = preload("res://game_world/towers/projectiles/projectile.tscn")
+@onready var projectile = preload("res://game_world/damage_dealer/projectile/projectile.tscn")
 @onready var projectile_start = $ProjectileStart
 
 @export var projectile_speed: float = 15
