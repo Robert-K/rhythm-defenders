@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6h4rk33fjvc6"]
+
+[ext_resource type="Script" uid="uid://dy4sptoaq04dq" path="res://game_world/towers/tower.gd" id="1_450td"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_axq8e"]
+
+[node name="Tower" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+script = ExtResource("1_450td")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_axq8e")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-2.6314256e-08, 0.4, 0, -0.602, -1.7484556e-08, 0, 0, 0, 0.602, 0.50671303, 0.6858927, -0.009322405)
+mesh = SubResource("CylinderMesh_axq8e")
+
+[node name="ProjectileStart" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1721652, 0.70271456, 0)

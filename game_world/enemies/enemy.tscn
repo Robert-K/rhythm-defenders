@@ -2,18 +2,23 @@
 
 [ext_resource type="Script" uid="uid://c8bhtyqgdnpg3" path="res://game_world/enemies/enemy.gd" id="1_no0vj"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_no0vj"]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_s75w2"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_5hmsy"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_s75w2"]
 
-[node name="PathFollow3D" type="PathFollow3D"]
+[node name="Enemy" type="PathFollow3D"]
 script = ExtResource("1_no0vj")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(0.333, 0, 0, 0, 0.333, 0, 0, 0, 0.333, 0, 0.333, 0)
+collision_layer = 2
+collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-shape = SubResource("BoxShape3D_no0vj")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("CylinderShape3D_s75w2")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
-mesh = SubResource("BoxMesh_5hmsy")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
+mesh = SubResource("CylinderMesh_s75w2")
+skeleton = NodePath("")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_enemy_body_entered"]

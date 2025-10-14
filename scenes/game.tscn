@@ -1,16 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://c7vql0lrwfptu"]
+[gd_scene load_steps=6 format=3 uid="uid://c7vql0lrwfptu"]
 
 [ext_resource type="PackedScene" uid="uid://noqeeoaythhn" path="res://tower_lanes/tower_lane.tscn" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://d00tuuxxjh6dn" path="res://game_world/towers/bass_drum_canon.tscn" id="2_lbhrr"]
-[ext_resource type="PackedScene" uid="uid://cmqmnkoevcreg" path="res://game_world/level_path/enemy_path.tscn" id="2_lnu2h"]
 [ext_resource type="Environment" uid="uid://bhb4ckqipjvu3" path="res://other/main_environment.tres" id="3_lbhrr"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8cj0n"]
-albedo_color = Color(0.24313726, 0.4, 0.08627451, 1)
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_8cj0n"]
-material = SubResource("StandardMaterial3D_8cj0n")
-size = Vector2(1000, 1000)
+[ext_resource type="PackedScene" uid="uid://h623sn80nhar" path="res://scenes/map_1.tscn" id="4_iywne"]
+[ext_resource type="PackedScene" uid="uid://nav7ruy7rqfq" path="res://game_world/towers/tube.tscn" id="4_p57ef"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 layer = 0
@@ -43,21 +37,26 @@ render_target_update_mode = 4
 environment = ExtResource("3_lbhrr")
 
 [node name="Camera3D" type="Camera3D" parent="VSplitContainer/SubViewportContainer/SubViewport/Game/World"]
-transform = Transform3D(1, 0, 0, 0, 0.76604444, 0.6427876, 0, -0.6427876, 0.76604444, 0, 10, 10)
-
-[node name="Floor" type="MeshInstance3D" parent="VSplitContainer/SubViewportContainer/SubViewport/Game/World"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04122734, 0.004731655, -0.010489464)
-mesh = SubResource("PlaneMesh_8cj0n")
-
-[node name="EnemyPath" parent="VSplitContainer/SubViewportContainer/SubViewport/Game/World" instance=ExtResource("2_lnu2h")]
+transform = Transform3D(1, 0, 0, 0, 0.76604444, 0.6427876, 0, -0.6427876, 0.76604444, 0, 11.25, 12.5)
+projection = 1
+size = 20.0
 
 [node name="bass_drum_canon" parent="VSplitContainer/SubViewportContainer/SubViewport/Game/World" instance=ExtResource("2_lbhrr")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 0, 0, 0)
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 8.875913, 0, 3.697873)
+
+[node name="bass_drum_canon2" parent="VSplitContainer/SubViewportContainer/SubViewport/Game/World" instance=ExtResource("2_lbhrr")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -5.1042786, 0, -3.9840517)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="VSplitContainer/SubViewportContainer/SubViewport/Game/World"]
 transform = Transform3D(0.65474087, 0.34667194, -0.6716645, 0, 0.88861746, 0.4586496, 0.7558536, -0.30029663, 0.581814, 0, 0, 0)
-light_energy = 0.35
+light_energy = 0.1
 shadow_enabled = true
+
+[node name="Map1" parent="VSplitContainer/SubViewportContainer/SubViewport/Game/World" instance=ExtResource("4_iywne")]
+transform = Transform3D(-1.7484555e-07, 0, -4, 0, 4, 0, 4, 0, -1.7484555e-07, -0.57, 0.1, -0.128)
+
+[node name="tube" parent="VSplitContainer/SubViewportContainer/SubViewport/Game/World" instance=ExtResource("4_p57ef")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.279396, -9.536743e-07, 4.547248)
 
 [node name="BottomUI" type="MarginContainer" parent="VSplitContainer"]
 layout_mode = 2

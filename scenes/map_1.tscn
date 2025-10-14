@@ -1,14 +1,32 @@
-[gd_scene load_steps=6 format=3 uid="uid://l2xtyj0w5xst"]
+[gd_scene load_steps=8 format=3 uid="uid://h623sn80nhar"]
 
 [ext_resource type="PackedScene" uid="uid://duogrvotv7wq4" path="res://models/tree_1.blend" id="1_7xies"]
+[ext_resource type="PackedScene" uid="uid://c5hfxw6pmcg27" path="res://game_world/enemies/enemy.tscn" id="1_k075t"]
 [ext_resource type="PackedScene" uid="uid://cac5vfy3yie7s" path="res://models/defense_track.blend" id="2_lj2ar"]
-[ext_resource type="ArrayMesh" uid="uid://bjg6oacc2yw4x" path="res://models/tree_1_mesh.res" id="3_lj2ar"]
+[ext_resource type="ArrayMesh" uid="uid://dqmk15a7b1nsw" path="res://models/tree_1_mesh.res" id="3_lj2ar"]
 [ext_resource type="PackedScene" uid="uid://bmeogqsy6hv72" path="res://models/grass.blend" id="4_00lji"]
+
+[sub_resource type="Curve3D" id="Curve3D_nfx0i"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 2, 0, 0, 0, 0, 0, 0, 2.5, 0, 2, 0, 0, 0, 0, 0, 0, 2.5, 0, -2, 0, 0, 0, 0, 0, 0, 0, 0, -1.935, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, -2.5, 0, 2, 0, 0, 0, 0, 0, 0, -2.5, 0, -2, 0, 0, 0, 0, 0, 0, -5, 0, -2, 0, 0, 0, 0, 0, 0, -5, 0, 0, 0, 0, 0, 0, 0, 0, -10, 0, -0.3),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 12
 
 [sub_resource type="MultiMesh" id="MultiMesh_00lji"]
 mesh = ExtResource("3_lj2ar")
 
 [node name="Map1" type="Node3D"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+
+[node name="Path3D" type="Path3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.5935273, 0, -0.3046664)
+curve = SubResource("Curve3D_nfx0i")
+
+[node name="Enemy" parent="Path3D" instance=ExtResource("1_k075t")]
+transform = Transform3D(-4.3710802e-08, 0, 0.99998134, 0, 0.9999834, 0, -0.9999866, 0, -4.371057e-08, 8, 0, 0)
+
+[node name="ground" parent="." instance=ExtResource("2_lj2ar")]
 
 [node name="tree_1" parent="." instance=ExtResource("1_7xies")]
 transform = Transform3D(1.084275, 0, 0, 0, 1.084275, 0, 0, 0, 1.084275, -3.034965, 0, -9.9086)
@@ -45,8 +63,6 @@ transform = Transform3D(1.2521822, 0, 0, 0, 1.2521822, 0, 0, 0, 1.2521822, 3.522
 
 [node name="tree_6" parent="." instance=ExtResource("1_7xies")]
 transform = Transform3D(1.2377772, 0, 0, 0, 1.2377772, 0, 0, 0, 1.2377772, -4.4769287, 0, 10.399188)
-
-[node name="defense_track" parent="." instance=ExtResource("2_lj2ar")]
 
 [node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="."]
 multimesh = SubResource("MultiMesh_00lji")
