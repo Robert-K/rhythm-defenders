@@ -14,7 +14,7 @@ script = ExtResource("1_no0vj")
 health_gradient = SubResource("Gradient_s75w2")
 
 [node name="enemy_ear" parent="." instance=ExtResource("2_bwbnx")]
-transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, -0.06213615, 0, 0.041115135)
+transform = Transform3D(-0.04, 0, 3.496911e-09, 0, 0.04, 0, -3.496911e-09, 0, -0.04, 0.07069886, 0, -0.048735917)
 
 [node name="Enemy_Area3D" type="Area3D" parent="."]
 transform = Transform3D(0.333, 0, 0, 0, 0.333, 0, 0, 0, 0.333, 0, 0.333, 0)

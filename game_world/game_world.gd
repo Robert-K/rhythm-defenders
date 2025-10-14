@@ -103,7 +103,8 @@ func update_tower():
 	DebugDraw3D.draw_line(origin, end)
 	var result := space_state.intersect_ray(query)
 	if (result.has("position")):
-		current_ghost_tower.global_position = result.position
+		var position: Vector3 = result.position;
+		current_ghost_tower.global_position = (Vector3i(position) / 3) * 3
 
 func cancel_tower():
 	leave_placement()
