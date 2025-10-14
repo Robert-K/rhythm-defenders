@@ -1,6 +1,7 @@
 extends PathFollow3D
 class_name Enemy
 
+@export var damage: float = 10
 @export var speed: float = 0.4
 @export var max_health: float = 100
 @export var health_gradient: Gradient = Gradient.new()
@@ -11,10 +12,14 @@ var health: float = max_health
 @onready var hit_feedback = preload("res://game_world/enemies/hit_feedback.tscn")
 @onready var hit_feedback_container : Node3D = $HitFeedbackContainer
 
+signal enemy_defeated
+signal enemy_at_destination
 
 func _ready() -> void:
 	# Start walking on path
-	create_tween().tween_property(self, "progress_ratio", 1, 20 / speed)
+	var tween = create_tween()
+	tween.tween_property(self, "progress_ratio", 1, 20 / speed)
+	tween.tween_callback(on_destination_entered)
 	
 	# Ear animation
 	$enemy_ear/AnimationPlayer.play("Walk")
@@ -23,9 +28,8 @@ func hit(projectile: Projectile) -> void:
 	health -= projectile.damage
 	update_health_visuals()
 	play_hit_feedback()
-	print(health)
 	if (health <= 0):
-		queue_free()
+		enemy_defeated.emit(self)
 
 func update_health_visuals():
 	var offset = (max_health - health) / max_health
@@ -42,3 +46,6 @@ func play_hit_feedback():
 func _on_enemy_body_entered(body: Node3D) -> void:
 	var projectile = (body as Projectile)
 	hit(projectile)
+
+func on_destination_entered():
+	enemy_at_destination.emit(self)
