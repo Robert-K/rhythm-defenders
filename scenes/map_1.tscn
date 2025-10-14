@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://h623sn80nhar"]
+[gd_scene load_steps=9 format=3 uid="uid://h623sn80nhar"]
 
 [ext_resource type="PackedScene" uid="uid://duogrvotv7wq4" path="res://models/tree_1.blend" id="1_7xies"]
 [ext_resource type="Script" uid="uid://vwe7gt3qqtq2" path="res://game_world/map.gd" id="1_nfx0i"]
@@ -13,6 +13,9 @@ _data = {
 }
 point_count = 12
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_0dnla"]
+size = Vector3(6.5, 0.1, 16)
+
 [sub_resource type="MultiMesh" id="MultiMesh_00lji"]
 mesh = ExtResource("3_lj2ar")
 
@@ -23,6 +26,15 @@ script = ExtResource("1_nfx0i")
 [node name="Path3D" type="Path3D" parent="."]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.5935273, 0, -0.3046664)
 curve = SubResource("Curve3D_nfx0i")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.13735962, 0)
+shape = SubResource("BoxShape3D_0dnla")
 
 [node name="ground" parent="." instance=ExtResource("2_lj2ar")]
 

@@ -6,8 +6,7 @@ class_name AreaDamage
 @onready var area3d: Area3D = $"."
 
 func apply(enemy: Enemy):
-	while (contains_enemy(enemy)):
-		print("Apply interval damage ", damage)
+	while (is_instance_valid(enemy) && contains_enemy(enemy)):
 		enemy.apply_damage(damage)
 		await get_tree().create_timer(interval).timeout
 

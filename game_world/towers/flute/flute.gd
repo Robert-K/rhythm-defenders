@@ -9,20 +9,9 @@ func _process(_delta):
 	super._process(_delta)
 	turn_to_closest_enemy()
 
-func fire():
-	if (target_enemy == null):
-		return
-	
-	var dist = global_position.distance_to(target_enemy.global_position)
-	if (dist > radius):
-		return
-	
+func play_anim():
 	$flute/AnimationPlayer.play("Fire")
 	await $flute/AnimationPlayer.animation_finished
-	var node : Projectile = projectile.instantiate()
-	projectile_start.add_child(node)
-	node.damage = damage
-	node.global_position = projectile_start.global_position
-	var target_vector = global_position.direction_to(target_enemy.global_position)
-	node.rotation = rotation + Vector3(0, PI / 2, 0)
-	node.apply_central_impulse(target_vector * projectile_speed)
+
+func fire():
+	fire_at_target(play_anim, projectile, projectile_start, projectile_speed)

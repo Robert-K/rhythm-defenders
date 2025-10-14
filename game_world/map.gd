@@ -5,11 +5,11 @@ var _enemies: Array[Enemy] = []
 
 @export var map_health: float = 100
 
-@onready var enemy = preload("res://game_world/enemies/enemy.tscn")
+@onready var enemy_scene = preload("res://game_world/enemies/enemy.tscn")
 @onready var path: Path3D = $Path3D
 @onready var timer: Timer = Timer.new()
 
-func _ready() -> void:
+func start() -> void:
 	# Create a timer node
 	var timer: Timer = Timer.new()
 	# Add it to the scene as a child of this node
@@ -26,7 +26,7 @@ func _ready() -> void:
 	spawn_enemy()
 
 func spawn_enemy():
-	var enemy : Enemy = enemy.instantiate()
+	var enemy : Enemy = enemy_scene.instantiate()
 	path.add_child(enemy)
 	enemy.enemy_defeated.connect(destroy_enemy)
 	enemy.enemy_at_destination.connect(destination_reached)

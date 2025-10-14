@@ -33,3 +33,20 @@ func _process(_delta):
 
 func fire() -> void:
 	print("fire")
+
+func fire_at_target(play_anim: Callable, projectile: PackedScene, projectile_start: Node3D, projectile_speed: float):
+	if (target_enemy == null || !is_instance_valid(target_enemy)):
+		return
+	
+	var target_pos = target_enemy.global_position
+	var dist = global_position.distance_to(target_pos)
+	if (dist > radius):
+		return
+	
+	play_anim.call()
+	var node : Projectile = projectile.instantiate()
+	projectile_start.add_child(node)
+	node.damage = damage
+	node.global_position = projectile_start.global_position
+	var target_vector = global_position.direction_to(target_pos)
+	node.apply_central_impulse(target_vector * projectile_speed)

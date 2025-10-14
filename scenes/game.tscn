@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c7vql0lrwfptu"]
+[gd_scene load_steps=14 format=3 uid="uid://c7vql0lrwfptu"]
 
 [ext_resource type="Script" uid="uid://8h1r1rjtau8e" path="res://game_world/game_world.gd" id="1_p57ef"]
 [ext_resource type="PackedScene" uid="uid://noqeeoaythhn" path="res://tower_lanes/tower_lane.tscn" id="1_uwrxv"]
@@ -13,11 +13,16 @@
 [ext_resource type="Texture2D" uid="uid://ctq0pqbm0lmhm" path="res://textures/icon/Maracas.png" id="10_dinhu"]
 [ext_resource type="Texture2D" uid="uid://bhipuc0pmport" path="res://textures/icon/flute.png" id="11_kvuet"]
 
+[sub_resource type="Theme" id="Theme_dinhu"]
+
 [node name="CanvasLayer" type="CanvasLayer"]
 layer = 0
 
-[node name="World" type="Node3D" parent="."]
+[node name="World" type="Node3D" parent="." node_paths=PackedStringArray("build_ui", "start_button", "tower_buttons")]
 script = ExtResource("1_p57ef")
+build_ui = NodePath("../GameUI/BuildTowers")
+start_button = NodePath("../GameUI/StartButton")
+tower_buttons = [NodePath("../GameUI/BuildTowers/ButtonDrum"), NodePath("../GameUI/BuildTowers/ButtonTube"), NodePath("../GameUI/BuildTowers/ButtonMaracas"), NodePath("../GameUI/BuildTowers/ButtonFlute")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="World"]
 environment = ExtResource("3_lbhrr")
@@ -49,7 +54,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.405538, 0, -4.993597)
 
 [node name="GameUI" type="CanvasLayer" parent="."]
 
-[node name="HBoxContainer" type="HBoxContainer" parent="GameUI"]
+[node name="BuildTowers" type="HBoxContainer" parent="GameUI"]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -61,25 +66,39 @@ scale = Vector2(0.2, 0.2)
 size_flags_horizontal = 0
 alignment = 1
 
-[node name="ButtonDrum" type="Button" parent="GameUI/HBoxContainer"]
+[node name="ButtonDrum" type="Button" parent="GameUI/BuildTowers"]
 layout_mode = 2
 text = "X"
 icon = ExtResource("6_gee14")
 
-[node name="ButtonTube" type="Button" parent="GameUI/HBoxContainer"]
+[node name="ButtonTube" type="Button" parent="GameUI/BuildTowers"]
 layout_mode = 2
 text = "X"
 icon = ExtResource("7_0tnpc")
 
-[node name="ButtonMaracas" type="Button" parent="GameUI/HBoxContainer"]
+[node name="ButtonMaracas" type="Button" parent="GameUI/BuildTowers"]
 layout_mode = 2
 text = "X"
 icon = ExtResource("10_dinhu")
 
-[node name="ButtonFlute" type="Button" parent="GameUI/HBoxContainer"]
+[node name="ButtonFlute" type="Button" parent="GameUI/BuildTowers"]
 layout_mode = 2
 text = "X"
 icon = ExtResource("11_kvuet")
+
+[node name="StartButton" type="Button" parent="GameUI"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -238.0
+offset_top = 7.0
+offset_right = -8.0
+offset_bottom = 104.0
+grow_horizontal = 0
+theme = SubResource("Theme_dinhu")
+theme_override_colors/font_color = Color(0.40789756, 0.6193799, 0, 1)
+theme_override_font_sizes/font_size = 64
+text = "▶ Start"
 
 [node name="BottomUI" type="MarginContainer" parent="."]
 anchors_preset = 12
@@ -135,3 +154,9 @@ layout_mode = 2
 notes_color = Color(0.9333334, 0, 1, 1)
 stream_index = 7
 key_label_text = "K"
+
+[connection signal="pressed" from="GameUI/BuildTowers/ButtonDrum" to="World" method="_on_button_drum_pressed"]
+[connection signal="pressed" from="GameUI/BuildTowers/ButtonTube" to="World" method="_on_button_tube_pressed"]
+[connection signal="pressed" from="GameUI/BuildTowers/ButtonMaracas" to="World" method="_on_button_maracas_pressed"]
+[connection signal="pressed" from="GameUI/BuildTowers/ButtonFlute" to="World" method="_on_button_flute_pressed"]
+[connection signal="pressed" from="GameUI/StartButton" to="World" method="_on_start_button_pressed"]

@@ -11,5 +11,5 @@ func _ready() -> void:
 	var tween = create_tween()
 	tween.tween_property(self, "position", fly_up, duration)
 	tween.tween_property(self, "modulate", color, duration)
-	tween.tween_property(self, "scale", size, duration)
+	tween.tween_property(self, "scale", Vector3.ONE * size, duration)
 	tween.tween_callback(self.queue_free)
