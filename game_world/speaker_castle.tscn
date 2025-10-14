@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://djwpgt2cuqd4n"]
+
+[ext_resource type="PackedScene" uid="uid://cxtsrl0gxnfav" path="res://models/speaker_castle.blend" id="1_eb228"]
+[ext_resource type="Script" uid="uid://c7gtaa53uh6s6" path="res://game_world/speaker_castle.gd" id="1_xcyrc"]
+
+[node name="SpeakerCastle" type="Node3D"]
+script = ExtResource("1_xcyrc")
+
+[node name="speaker_castle" parent="." instance=ExtResource("1_eb228")]
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true

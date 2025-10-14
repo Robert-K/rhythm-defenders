@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cac5vfy3yie7s" path="res://models/defense_track.blend" id="2_lj2ar"]
 [ext_resource type="ArrayMesh" uid="uid://c1svajx8l6b1n" path="res://models/tree_1_mesh.res" id="3_lj2ar"]
 [ext_resource type="PackedScene" uid="uid://bmeogqsy6hv72" path="res://models/grass.blend" id="4_00lji"]
+[ext_resource type="PackedScene" uid="uid://djwpgt2cuqd4n" path="res://game_world/speaker_castle.tscn" id="6_k075t"]
 
 [sub_resource type="Curve3D" id="Curve3D_nfx0i"]
 _data = {
@@ -98,3 +99,6 @@ transform = Transform3D(0.7671133, 0, 0.9938904, 0, 1.2555003, 0, -0.9938904, 0,
 
 [node name="grass4" parent="." instance=ExtResource("4_00lji")]
 transform = Transform3D(-0.09970182, 0, 0.99501735, 0, 1, 0, -0.99501735, 0, -0.09970182, -2.9822588, 0, 7.570365)
+
+[node name="SpeakerCastle" parent="." instance=ExtResource("6_k075t")]
+transform = Transform3D(-0.7286339, 0, -0.6849033, 0, 1, 0, 0.6849033, 0, -0.7286339, -0.20357221, 0.043548226, 5.584481)
