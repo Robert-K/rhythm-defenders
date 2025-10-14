@@ -12,54 +12,34 @@
 [node name="CanvasLayer" type="CanvasLayer"]
 layer = 0
 
-[node name="VSplitContainer" type="VSplitContainer" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-split_offset = 100
-
-[node name="SubViewportContainer" type="SubViewportContainer" parent="VSplitContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-stretch = true
-
-[node name="SubViewport" type="SubViewport" parent="VSplitContainer/SubViewportContainer"]
-handle_input_locally = false
-size = Vector2i(1152, 376)
-render_target_update_mode = 4
-
-[node name="Game" type="Node" parent="VSplitContainer/SubViewportContainer/SubViewport"]
-
-[node name="GameUI" type="CanvasLayer" parent="VSplitContainer/SubViewportContainer/SubViewport/Game"]
-
-[node name="World" type="Node3D" parent="VSplitContainer/SubViewportContainer/SubViewport/Game"]
+[node name="World" type="Node3D" parent="."]
 script = ExtResource("1_p57ef")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="VSplitContainer/SubViewportContainer/SubViewport/Game/World"]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="World"]
 environment = ExtResource("3_lbhrr")
 
-[node name="Camera3D" type="Camera3D" parent="VSplitContainer/SubViewportContainer/SubViewport/Game/World"]
-transform = Transform3D(1, 0, 0, 0, 0.76604444, 0.6427876, 0, -0.6427876, 0.76604444, 0, 11.25, 12.5)
+[node name="Camera3D" type="Camera3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 0.7660445, 0.64278764, 0, -0.64278764, 0.7660445, 0, 10.07, 18.446241)
 projection = 1
-size = 20.0
+size = 40.037296
 
-[node name="bass_drum_canon" parent="VSplitContainer/SubViewportContainer/SubViewport/Game/World" instance=ExtResource("2_lbhrr")]
+[node name="bass_drum_canon" parent="World" instance=ExtResource("2_lbhrr")]
 transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 8.875913, 0, 3.697873)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="VSplitContainer/SubViewportContainer/SubViewport/Game/World"]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="World"]
 transform = Transform3D(0.65474087, 0.34667194, -0.6716645, 0, 0.88861746, 0.4586496, 0.7558536, -0.30029663, 0.581814, 0, 0, 0)
 light_energy = 0.1
 shadow_enabled = true
 
-[node name="Map1" parent="VSplitContainer/SubViewportContainer/SubViewport/Game/World" instance=ExtResource("4_iywne")]
+[node name="Map1" parent="World" instance=ExtResource("4_iywne")]
 transform = Transform3D(-1.7484555e-07, 0, -4, 0, 4, 0, 4, 0, -1.7484555e-07, 0, 0, 0)
 
-[node name="tube" parent="VSplitContainer/SubViewportContainer/SubViewport/Game/World" instance=ExtResource("4_p57ef")]
+[node name="tube" parent="World" instance=ExtResource("4_p57ef")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.279396, -9.536743e-07, 4.547248)
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VSplitContainer/SubViewportContainer/SubViewport"]
+[node name="GameUI" type="CanvasLayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GameUI"]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -68,63 +48,69 @@ offset_top = 14.0
 offset_right = 810.0
 offset_bottom = 422.0
 grow_horizontal = 2
-scale = Vector2(0.1, 0.1)
+scale = Vector2(0.2, 0.2)
 size_flags_horizontal = 0
 alignment = 1
 
-[node name="ButtonDrum" type="Button" parent="VSplitContainer/SubViewportContainer/SubViewport/HBoxContainer"]
+[node name="ButtonDrum" type="Button" parent="GameUI/HBoxContainer"]
 layout_mode = 2
 text = "X"
 icon = ExtResource("6_gee14")
 
-[node name="ButtonTube" type="Button" parent="VSplitContainer/SubViewportContainer/SubViewport/HBoxContainer"]
+[node name="ButtonTube" type="Button" parent="GameUI/HBoxContainer"]
 layout_mode = 2
 text = "X"
 icon = ExtResource("7_0tnpc")
 
-[node name="BottomUI" type="MarginContainer" parent="VSplitContainer"]
-layout_mode = 2
-size_flags_vertical = 3
+[node name="BottomUI" type="MarginContainer" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -260.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 10
 
-[node name="Background" type="ColorRect" parent="VSplitContainer/BottomUI"]
+[node name="Background" type="ColorRect" parent="BottomUI"]
 layout_mode = 2
 color = Color(0, 0, 0, 1)
 
-[node name="LanesMargin" type="MarginContainer" parent="VSplitContainer/BottomUI"]
+[node name="LanesMargin" type="MarginContainer" parent="BottomUI"]
 layout_mode = 2
 
-[node name="TowerLanes" type="VBoxContainer" parent="VSplitContainer/BottomUI/LanesMargin"]
+[node name="TowerLanes" type="VBoxContainer" parent="BottomUI/LanesMargin"]
 layout_mode = 2
 
-[node name="TowerLane" parent="VSplitContainer/BottomUI/LanesMargin/TowerLanes" instance=ExtResource("1_uwrxv")]
+[node name="TowerLane" parent="BottomUI/LanesMargin/TowerLanes" instance=ExtResource("1_uwrxv")]
 layout_mode = 2
 notes_color = Color(0.9872448, 0, 0.2998942, 1)
 
-[node name="TowerLane2" parent="VSplitContainer/BottomUI/LanesMargin/TowerLanes" instance=ExtResource("1_uwrxv")]
+[node name="TowerLane2" parent="BottomUI/LanesMargin/TowerLanes" instance=ExtResource("1_uwrxv")]
 layout_mode = 2
 notes_color = Color(1, 0.73333335, 0, 1)
 stream_index = 1
 key_label_text = "S"
 
-[node name="TowerLane3" parent="VSplitContainer/BottomUI/LanesMargin/TowerLanes" instance=ExtResource("1_uwrxv")]
+[node name="TowerLane3" parent="BottomUI/LanesMargin/TowerLanes" instance=ExtResource("1_uwrxv")]
 layout_mode = 2
 notes_color = Color(0.76666665, 1, 0, 1)
 stream_index = 2
 key_label_text = "D"
 
-[node name="TowerLane4" parent="VSplitContainer/BottomUI/LanesMargin/TowerLanes" instance=ExtResource("1_uwrxv")]
+[node name="TowerLane4" parent="BottomUI/LanesMargin/TowerLanes" instance=ExtResource("1_uwrxv")]
 layout_mode = 2
 notes_color = Color(0, 0.7999997, 1, 1)
 stream_index = 3
 key_label_text = "H"
 
-[node name="TowerLane5" parent="VSplitContainer/BottomUI/LanesMargin/TowerLanes" instance=ExtResource("1_uwrxv")]
+[node name="TowerLane5" parent="BottomUI/LanesMargin/TowerLanes" instance=ExtResource("1_uwrxv")]
 layout_mode = 2
 notes_color = Color(0.23333359, 0, 1, 1)
 stream_index = 4
 key_label_text = "J"
 
-[node name="TowerLane6" parent="VSplitContainer/BottomUI/LanesMargin/TowerLanes" instance=ExtResource("1_uwrxv")]
+[node name="TowerLane6" parent="BottomUI/LanesMargin/TowerLanes" instance=ExtResource("1_uwrxv")]
 layout_mode = 2
 notes_color = Color(0.9333334, 0, 1, 1)
 stream_index = 5
