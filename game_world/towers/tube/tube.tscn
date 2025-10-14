@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://nav7ruy7rqfq"]
 
 [ext_resource type="PackedScene" uid="uid://b20vk52xwuusu" path="res://models/towers/tube.blend" id="1_4nsea"]
-[ext_resource type="Script" uid="uid://b0ue22gt2kqm" path="res://game_world/towers/tube.gd" id="1_rr3rj"]
+[ext_resource type="Script" uid="uid://b0ue22gt2kqm" path="res://game_world/towers/tube/tube.gd" id="1_rr3rj"]
 
 [node name="tube" type="Node3D"]
 script = ExtResource("1_rr3rj")

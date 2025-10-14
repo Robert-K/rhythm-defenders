@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://d00tuuxxjh6dn"]
 
-[ext_resource type="Script" uid="uid://vgy6a10kefgw" path="res://game_world/towers/bass_drum_canon.gd" id="1_gypo3"]
+[ext_resource type="Script" uid="uid://vgy6a10kefgw" path="res://game_world/towers/bass_drum/bass_drum_canon.gd" id="1_gypo3"]
 [ext_resource type="PackedScene" uid="uid://bhwymsh8kp4gu" path="res://models/towers/bass_drum_canon.blend" id="1_l0cdu"]
 
 [node name="bass_drum_canon" type="Node3D"]
