@@ -5,14 +5,17 @@ class_name Enemy
 
 var health: float = max_health
 
-@export var speed: float = 1
+@export var speed: float = 0.4
 
 @export var health_gradient: Gradient = Gradient.new()
 
 @onready var mesh = $Area3D/MeshInstance3D
 
 func _ready() -> void:
-	create_tween().tween_property(self, "progress_ratio", 1, 20 * speed)
+	create_tween().tween_property(self, "progress_ratio", 1, 20 / speed)
+	
+	# Ear animation
+	$enemy_ear/AnimationPlayer.play("Walk")
 
 func hit(projectile: Projectile) -> void:
 	health -= projectile.damage
