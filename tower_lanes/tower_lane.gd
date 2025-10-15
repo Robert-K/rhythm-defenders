@@ -4,6 +4,7 @@ extends HBoxContainer
 var ui_notes: Array[UINote]
 
 signal fire
+signal release
 
 @export var input_name: String = "drum_trigger"
 
@@ -42,9 +43,10 @@ func _ready() -> void:
 				var key_time := sync_player.animation.track_get_key_time(track_index, key_index)
 				var method_name := sync_player.animation.method_track_get_name(track_index, key_index)
 				var duration := 0.1
+				var ui_note := ui_note_scene.instantiate() as UINote
 				if method_name == "dummy_hold" or method_name == "dummy_spam":
 					duration = sync_player.animation.method_track_get_params(track_index, key_index)[0]
-				var ui_note := ui_note_scene.instantiate() as UINote
+					ui_note.hold_me = true
 				ui_note.pixels_per_second = pixels_per_second
 				ui_note.position.x = x_start + key_time * pixels_per_second
 				ui_note.color = notes_color
@@ -59,6 +61,8 @@ func _ready() -> void:
 			# x_start += sync_player.animation.length * pixels_per_second
 			# repetition += 1
 
+var held_note: UINote = null
+
 func _process(_delta: float) -> void:
 	if ui_notes.size() == 0:
 		return
@@ -67,5 +71,29 @@ func _process(_delta: float) -> void:
 			if absf(ui_note.position.x) < tolerance * pixels_per_second and not ui_note.expended:
 				emit_signal("fire")
 				ui_note.expended = true
+				if ui_note.hold_me:
+					ui_note.holding = true
+					held_note = ui_note
 				$AudioStreamPlayer.play()
 				break
+			elif ui_note.hold_me and not ui_note.expended and ui_note.position.x < 0.0 and ui_note.position.x + ui_note.duration * pixels_per_second > 0.0:
+				emit_signal("fire")
+				ui_note.holding = true
+				held_note = ui_note
+				$AudioStreamPlayer.play()
+				ui_note.expended = true
+				break
+	if Input.is_action_just_released(input_name):
+		for ui_note in ui_notes:
+			if ui_note.holding:
+				ui_note.holding = false
+				held_note = null
+				emit_signal("release")
+				break
+	if held_note and held_note.holding:
+		if held_note.position.x < - held_note.duration * pixels_per_second:
+			held_note.holding = false
+			held_note = null
+			emit_signal("release")
+	if held_note:
+		$AudioStreamPlayer.play()

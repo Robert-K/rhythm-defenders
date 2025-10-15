@@ -12,6 +12,8 @@ extends Control
 			spam_overlay.visible = spam
 
 var expended: bool = false
+var hold_me: bool = false
+var holding: bool = false
 
 @export var pixels_per_second: float = 100.0
 
