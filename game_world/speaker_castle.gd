@@ -11,9 +11,12 @@ const HARDCODED_BPM = 75.0
 var health: float = total_health
 
 func _ready() -> void:
-	timer.wait_time = 60/HARDCODED_BPM
+	timer.wait_time = 60/HARDCODED_BPM / MusicPlayer.pitch_scale
 	timer.timeout.connect(_on_timeout)
 	update_health_label()
+
+func _process(delta: float) -> void:
+	timer.wait_time = 60/HARDCODED_BPM / MusicPlayer.pitch_scale
 
 func _on_timeout() -> void:
 	$speaker_castle/AnimationPlayer.stop(false)
