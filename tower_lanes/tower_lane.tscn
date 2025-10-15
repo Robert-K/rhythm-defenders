@@ -26,7 +26,6 @@ gradient = SubResource("Gradient_05uu3")
 offset_right = 204.0
 offset_bottom = 70.0
 script = ExtResource("1_05uu3")
-input_name = null
 pixels_per_second = 400.0
 
 [node name="KeyContainer" type="CenterContainer" parent="."]
@@ -90,3 +89,4 @@ expand_mode = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_ho2ta")
+volume_db = -80.0
