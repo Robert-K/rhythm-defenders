@@ -1,12 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://bdpcln3jm05ds"]
+[gd_scene load_steps=3 format=3 uid="uid://bdpcln3jm05ds"]
 
 [ext_resource type="Script" uid="uid://cqdoayw41egta" path="res://game_world/damage_dealer/projectile/tube_projectile.gd" id="1_8p2h4"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_o755g"]
-height = 1.4599762
-radius = 2.6586914
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_8p2h4"]
+height = 5.0
+radius = 8.0
 
 [node name="TubeProjectile" type="RigidBody3D"]
 collision_layer = 2
@@ -15,9 +13,5 @@ gravity_scale = 0.0
 script = ExtResource("1_8p2h4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 1.695, 0)
+transform = Transform3D(-1.512414e-08, 1, 0, -0.346, -4.371139e-08, 0, 0, 0, 0.346, 2.5, 2.175, 0)
 shape = SubResource("CylinderShape3D_o755g")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
-transform = Transform3D(5.284128, 0, 0, 0, 1.0000001, 0, 0, 0, -5.3561416, 0, 0, 0)
-mesh = SubResource("CylinderMesh_8p2h4")

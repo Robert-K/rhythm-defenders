@@ -5,12 +5,9 @@ class_name TubeProjectile
 
 @export var move_back_time: float = 1.5
 
-@onready var particles: GPUParticles3D = $CollisionShape3D/AirParticles
-
 @onready var rigid_body: RigidBody3D = $"."
 
 func _ready() -> void:
-	particles.emitting = true
 	await get_tree().create_timer(exist_time).timeout
 	queue_free()
 
