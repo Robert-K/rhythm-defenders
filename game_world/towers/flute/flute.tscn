@@ -17,7 +17,9 @@ outer_radius = 1.98
 
 [node name="Flute" type="Node3D"]
 script = ExtResource("1_48p82")
-radius = 15.0
+projectile_speed = 60.0
+damage = 25
+radius = 50.0
 
 [node name="flute" parent="." instance=ExtResource("1_ol7h7")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 2.601, 0)

@@ -17,6 +17,7 @@ rings = 0
 top_level = true
 collision_layer = 2
 collision_mask = 2
+continuous_cd = true
 script = ExtResource("1_lf3eo")
 damage = 10.0
 
