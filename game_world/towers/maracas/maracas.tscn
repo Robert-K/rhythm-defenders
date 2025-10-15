@@ -22,7 +22,7 @@ material = SubResource("StandardMaterial3D_86aje")
 
 [node name="Maracas" type="Node3D"]
 script = ExtResource("1_j80pm")
-damage = 20
+damage = 15
 
 [node name="maracas" parent="." instance=ExtResource("1_e6mcf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.601, 0)

@@ -71,6 +71,7 @@ func spawn_enemy():
 	enemy.enemy_at_destination.connect(destination_reached)
 	_enemies.append(enemy)
 	enemy.speed *= 1 + round / 10
+	enemy.health *= 1 + round / 5
 	enemy_count_spawned += 1
 
 func defeat_enemy(enemy: Enemy):

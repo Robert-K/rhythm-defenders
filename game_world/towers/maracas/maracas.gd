@@ -1,6 +1,8 @@
 extends Tower
 class_name Maracas
 
+@onready var area: Area3D = $AreaDamage
+
 @onready var area_damage: CollisionShape3D = $AreaDamage/CollisionShape3D
 
 @export var fire_duration: float = 2
@@ -13,10 +15,14 @@ func fire():
 	# Play animation
 	$maracas/AnimationPlayer.play("FireLoop")
 	firing = true
-	
+	area.set_collision_layer_value(2, true)
+	area.set_collision_mask_value(2, true)
+
 func stop_firing():
 	$maracas/AnimationPlayer.stop()
 	firing = false
+	area.set_collision_layer_value(2, false)
+	area.set_collision_mask_value(2, false)
 
 func _process(_delta):
 	if firing:
