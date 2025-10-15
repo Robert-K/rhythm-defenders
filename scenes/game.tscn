@@ -300,26 +300,36 @@ offset_left = 347.0
 offset_top = 154.0
 offset_right = 811.0
 offset_bottom = 279.0
+theme = ExtResource("8_kvuet")
+theme_override_colors/font_color = Color(0.8117647, 0.3254902, 0.30980393, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 51
 theme_override_font_sizes/font_size = 91
 text = "YOU LOST!"
 
 [node name="RoundContainer" type="HBoxContainer" parent="GameUI"]
-visible = false
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -242.0
-offset_bottom = 88.0
+offset_left = -187.0
+offset_right = -7.0
+offset_bottom = 96.0
 grow_horizontal = 0
+theme = ExtResource("8_kvuet")
+theme_override_constants/separation = 24
 
 [node name="Label" type="Label" parent="GameUI/RoundContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 64
+theme_override_colors/font_outline_color = Color(0.18039216, 0.1882353, 0.22745098, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 39
 text = "Round"
 
 [node name="RoundLabel" type="Label" parent="GameUI/RoundContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 64
+theme_override_colors/font_outline_color = Color(0.18039216, 0.1882353, 0.22745098, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 39
 text = "1"
 
 [node name="PointsLabel" type="Label" parent="GameUI"]
