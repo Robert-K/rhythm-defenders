@@ -100,3 +100,5 @@ func _process(_delta: float) -> void:
 			held_note.holding = false
 			held_note = null
 			emit_signal("release")
+	if held_note:
+		$AudioStreamPlayer.play()

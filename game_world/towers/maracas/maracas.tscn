@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dcr3uedfoisub"]
+[gd_scene load_steps=8 format=3 uid="uid://dcr3uedfoisub"]
 
 [ext_resource type="PackedScene" uid="uid://bdwqdu1s5wyue" path="res://models/towers/maracas.blend" id="1_e6mcf"]
 [ext_resource type="Script" uid="uid://bi8xdnpyos5r3" path="res://game_world/towers/maracas/maracas.gd" id="1_j80pm"]
 [ext_resource type="PackedScene" uid="uid://c3681qmi3fmsa" path="res://game_world/damage_dealer/area_damage/maracas_area_damage.tscn" id="3_86aje"]
+[ext_resource type="Texture2D" uid="uid://46a66a3aypn0" path="res://textures/damaged_ground.png" id="4_qyovd"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_86aje"]
 size = Vector3(2.5, 3.6572113, 2.5)
@@ -38,3 +39,9 @@ shape = SubResource("BoxShape3D_86aje")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 cast_shadow = 0
 mesh = SubResource("TorusMesh_qyovd")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1.2996279, 0, 0, 0, -5.680854e-08, -1.2996279, 0, 1.2996279, -5.680854e-08, 0, 0.29644847, -4.463938)
+cast_shadow = 0
+shaded = true
+texture = ExtResource("4_qyovd")
