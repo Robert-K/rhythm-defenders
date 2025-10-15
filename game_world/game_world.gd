@@ -6,7 +6,13 @@ class_name World
 @export var round_container: Container
 @export var lost_screen: Control
 @export var start_button: Button
+@export var points_label: Label
 var tower_buttons: Array[Button] # Filled with the buttons from button_ui
+
+@export var drum_lane: TowerLane
+@export var tube_lane: TowerLane
+@export var maracas_lane: TowerLane
+@export var flute_lane: TowerLane
 
 @onready var drum = preload("res://game_world/towers/bass_drum/bass_drum_canon.tscn")
 @onready var maracas = preload("res://game_world/towers/maracas/maracas.tscn")
@@ -24,6 +30,10 @@ enum GameMode {
 
 signal on_game_mode_changed
 
+@export var points_per_round: int = 50
+@export var starting_points: int = 50
+var points: int = starting_points
+
 var round: int = 0
 
 var placed_towers: Array[Tower]
@@ -38,6 +48,7 @@ func _ready() -> void:
 	for child in build_ui.get_children():
 		assert(child is Button)
 		tower_buttons.append(child)
+	new_level()
 	change_game_mode(GameMode.BUILD)
 
 func change_game_mode(new_game_mode: GameMode):
@@ -49,25 +60,49 @@ func change_game_mode(new_game_mode: GameMode):
 	on_game_mode_changed.emit(game_mode)
 
 func loose():
+	update_points(starting_points)
 	update_round(1)
 	change_game_mode(GameMode.BUILD)
 	lost_screen.visible = true
-	
 
 func round_completed():
 	change_game_mode(GameMode.BUILD)
 	update_round(round + 1)
 
+func enemy_defeated(enemy: Enemy):
+	points += enemy.point_reward
+
 func play():
 	stop_build()
 	
+	if (round == 1):
+		new_level()
+	else:
+		next_round()
+	
 	current_map.lost.connect(loose)
+	current_map.enemey_defeated.connect(enemy_defeated)
 	current_map.round_completed.connect(round_completed)
 	current_map.start(round)
+
+func new_level():
+	# only set start visible when first tower is placed
+	start_button.visible = false
+	update_points(starting_points)
+	for tower in placed_towers:
+		tower.queue_free()
+	placed_towers.clear()
+
+func next_round():
+	update_points(points + points_per_round)
 
 func update_round(new_round: int):
 	round = new_round
 	round_label.text = str(new_round)
+
+func update_points(new_points: int):
+	points = new_points
+	points_label.text = str(new_points)
 
 func build():
 	round_container.visible = false
@@ -119,10 +154,14 @@ func start_placing_tower(tower_scene: PackedScene):
 	if (current_ghost_tower != null):
 		cancel_tower()
 	
-	enter_placement()
 	current_ghost_tower = tower_scene.instantiate()
+	if (points < current_ghost_tower.point_cost):
+		current_ghost_tower.queue_free()
+		return
+	
 	current_ghost_tower.set_placement_preview(true)
 	add_child(current_ghost_tower)
+	enter_placement()
 
 func update_tower():
 	if (current_ghost_tower == null):
@@ -158,7 +197,6 @@ func update_tower():
 		current_ghost_tower.global_position = result.position
 	else:
 		current_ghost_tower.visible = false
-		
 
 func find_closest_abs_pos(path: Path3D, global_pos: Vector3):
 	var curve: Curve3D = path.curve
@@ -192,12 +230,28 @@ func place_tower():
 	if (current_ghost_tower == null):
 		return
 		
-	if current_ghost_tower_placement_allowed == false:
+	if (current_ghost_tower_placement_allowed == false):
 		return
 	
+	if (is_instance_of(current_ghost_tower, Drum)):
+		drum_lane.active = true
+	
+	if (is_instance_of(current_ghost_tower, Tube)):
+		tube_lane.active = true
+	
+	if (is_instance_of(current_ghost_tower, Maracas)):
+		maracas_lane.active = true
+	
+	if (is_instance_of(current_ghost_tower, Flute)):
+		flute_lane.active = true
+	
+	update_points(points - current_ghost_tower.point_cost)
 	current_ghost_tower.collision.disabled = false
 	current_ghost_tower.set_placement_preview(false)
 	placed_towers.append(current_ghost_tower)
+	if (placed_towers.size() > 0):
+		start_button.visible = true
+	
 	current_ghost_tower = null
 	leave_placement()
 
@@ -212,7 +266,6 @@ func leave_placement():
 		button.disabled = false
 
 func _on_button_drum_pressed() -> void:
-	print("drum")
 	start_placing_tower(drum)
 
 func _on_button_tube_pressed() -> void:
@@ -264,7 +317,6 @@ func _on_maracas_lane_miss() -> void:
 func _on_flute_lane_fire() -> void:
 	for tower in _get_tower_of_type(Flute):
 		tower.fire()
-
 
 func _on_flute_lane_miss() -> void:
 	pass # Replace with function body.

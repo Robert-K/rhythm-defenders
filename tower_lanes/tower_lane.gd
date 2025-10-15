@@ -1,4 +1,5 @@
 extends HBoxContainer
+class_name TowerLane
 
 var ui_notes: Array[UINote]
 

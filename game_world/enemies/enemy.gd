@@ -6,6 +6,8 @@ class_name Enemy
 @export var max_health: float = 100
 @export var health_gradient: Gradient = Gradient.new()
 
+@export var point_reward: int = 5
+
 var health: float = max_health
 
 @onready var ear : MeshInstance3D = $"enemy_ear/metarig/Skeleton3D/ear"

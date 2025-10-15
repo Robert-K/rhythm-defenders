@@ -5,6 +5,7 @@ const PLACEMENT_FORBIDDEN_INDICATOR_SCENE = preload("res://models/towers/placeme
 var placement_indicator = null
 
 @export var damage: int = 10
+@export var point_cost: int = 50
 @export var radius: float = 1000
 
 @onready var collision: CollisionShape3D = find_child("TowerCollision")

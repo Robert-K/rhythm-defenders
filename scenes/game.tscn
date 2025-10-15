@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://c7vql0lrwfptu"]
+[gd_scene load_steps=28 format=3 uid="uid://c7vql0lrwfptu"]
 
 [ext_resource type="Script" uid="uid://8h1r1rjtau8e" path="res://game_world/game_world.gd" id="1_p57ef"]
 [ext_resource type="PackedScene" uid="uid://noqeeoaythhn" path="res://tower_lanes/tower_lane.tscn" id="1_uwrxv"]
@@ -192,13 +192,18 @@ scale_curve = SubResource("CurveTexture_i616h")
 [node name="CanvasLayer" type="CanvasLayer"]
 layer = 0
 
-[node name="World" type="Node3D" parent="." node_paths=PackedStringArray("build_ui", "round_label", "round_container", "lost_screen", "start_button")]
+[node name="World" type="Node3D" parent="." node_paths=PackedStringArray("build_ui", "round_label", "round_container", "lost_screen", "start_button", "points_label", "drum_lane", "tube_lane", "maracas_lane", "flute_lane")]
 script = ExtResource("1_p57ef")
 build_ui = NodePath("../GameUI/MarginContainer/BuildTowers")
 round_label = NodePath("../GameUI/RoundContainer/RoundLabel")
 round_container = NodePath("../GameUI/RoundContainer")
 lost_screen = NodePath("../GameUI/LostLabel")
 start_button = NodePath("../GameUI/StartButton")
+points_label = NodePath("../GameUI/PointsLabel")
+drum_lane = NodePath("../BottomUI/LanesMargin/TowerLanes/DrumLane")
+tube_lane = NodePath("../BottomUI/LanesMargin/TowerLanes/TubeLane")
+maracas_lane = NodePath("../BottomUI/LanesMargin/TowerLanes/MaracasLane")
+flute_lane = NodePath("../BottomUI/LanesMargin/TowerLanes/FluteLane")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="World"]
 environment = ExtResource("3_lbhrr")
@@ -316,6 +321,12 @@ text = "Round"
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "1"
+
+[node name="PointsLabel" type="Label" parent="GameUI"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 64
+text = "50"
 
 [node name="BottomUI" type="MarginContainer" parent="."]
 anchors_preset = 12
