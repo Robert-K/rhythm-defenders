@@ -88,5 +88,6 @@ func loose():
 	stop_timer()
 	for enemy in get_enemies():
 		destroy_enemy(enemy)
+	castle.reset_health()
 	
 	lost.emit()

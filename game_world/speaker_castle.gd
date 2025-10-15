@@ -7,7 +7,8 @@ const HARDCODED_BPM = 75.0
 
 @onready var health_label: Label3D = $HealthLabel
 
-@export var health: float = 10
+@export var total_health: float = 100
+var health: float = total_health
 
 func _ready() -> void:
 	timer.wait_time = 60/HARDCODED_BPM
@@ -24,3 +25,6 @@ func deal_damage(damage: float):
 
 func update_health_label():
 	health_label.text = str(health)
+
+func reset_health():
+	health = total_health
