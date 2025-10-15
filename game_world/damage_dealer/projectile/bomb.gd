@@ -21,5 +21,6 @@ func _on_ground_entered(body: Node3D) -> void:
 	add_child(node)
 	await get_tree().create_timer(0.5).timeout
 	remove_child(node)
-	
-	
+
+func move_into_direction(dir: Vector3):
+	rigid_body.apply_central_impulse(dir * projectile_speed)

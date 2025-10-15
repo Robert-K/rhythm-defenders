@@ -57,7 +57,6 @@ func fire_at_target(
 	play_anim: Callable,
 	projectile: PackedScene,
 	projectile_start: Node3D,
-	projectile_speed: float,
 	projectile_rotation: Vector3 = Vector3.ZERO):
 	if (target_enemy == null || !is_instance_valid(target_enemy)):
 		return
@@ -68,10 +67,10 @@ func fire_at_target(
 		return
 	
 	await play_anim.call()
-	var node : Projectile = projectile.instantiate()
+	var node: Projectile = projectile.instantiate()
 	projectile_start.add_child(node)
 	node.damage = damage
 	node.global_position = projectile_start.global_position
 	var target_vector = global_position.direction_to(target_pos)
 	node.rotation = rotation + projectile_rotation
-	node.apply_central_impulse(target_vector * projectile_speed)
+	node.move_into_direction(target_vector)

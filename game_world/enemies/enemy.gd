@@ -17,11 +17,13 @@ var health: float = max_health
 signal enemy_defeated
 signal enemy_at_destination
 
+var path_tween: Tween
+
 func _ready() -> void:
 	# Start walking on path
-	var tween = create_tween()
-	tween.tween_property(self, "progress_ratio", 1, 20 / speed)
-	tween.tween_callback(on_destination_entered)
+	path_tween = create_tween()
+	path_tween.tween_property(self, "progress_ratio", 1, 20 / speed)
+	path_tween.tween_callback(on_destination_entered)
 	
 	# Ear animation
 	$enemy_ear/AnimationPlayer.play("Walk")

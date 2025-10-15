@@ -1,32 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://nav7ruy7rqfq"]
+[gd_scene load_steps=6 format=3 uid="uid://nav7ruy7rqfq"]
 
 [ext_resource type="PackedScene" uid="uid://b20vk52xwuusu" path="res://models/towers/tube.blend" id="1_4nsea"]
 [ext_resource type="Script" uid="uid://b0ue22gt2kqm" path="res://game_world/towers/tube/tube.gd" id="1_rr3rj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bcdp0"]
 size = Vector3(2.5, 3.6572113, 2.5)
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bcdp0"]
-emission_shape = 6
-emission_ring_axis = Vector3(0, 0, 1)
-emission_ring_height = 0.0
-emission_ring_radius = 1.2
-emission_ring_inner_radius = 0.0
-emission_ring_cone_angle = 90.0
-direction = Vector3(0, 0, 1)
-spread = 0.0
-initial_velocity_min = 27.33
-initial_velocity_max = 27.33
-scale_min = 0.099999994
-scale_max = 2.0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l6e7f"]
-shading_mode = 0
-albedo_color = Color(0.19178796, 0.23318738, 0.2951771, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_84ewc"]
-material = SubResource("StandardMaterial3D_l6e7f")
-size = Vector3(0.05, 0.05, 0.05)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bcdp0"]
 shading_mode = 0
@@ -41,7 +19,7 @@ outer_radius = 1.98
 script = ExtResource("1_rr3rj")
 
 [node name="tube" parent="." instance=ExtResource("1_4nsea")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.601, 0)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 2.601, 0)
 
 [node name="TowerBody" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
@@ -52,16 +30,8 @@ collision_mask = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9277878, 0)
 shape = SubResource("BoxShape3D_bcdp0")
 
-[node name="AirParticles" type="GPUParticles3D" parent="."]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.3392167, 1.7796407, 0)
-emitting = false
-amount = 32
-lifetime = 0.17
-one_shot = true
-explosiveness = 0.55
-randomness = 0.19
-process_material = SubResource("ParticleProcessMaterial_bcdp0")
-draw_pass_1 = SubResource("BoxMesh_84ewc")
+[node name="ProjectileStart" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4001799, 1.7899992, 0)
 
 [node name="Ring" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
