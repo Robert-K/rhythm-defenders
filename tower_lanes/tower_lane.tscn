@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://noqeeoaythhn"]
+[gd_scene load_steps=9 format=3 uid="uid://noqeeoaythhn"]
 
 [ext_resource type="Script" uid="uid://dukbcohfy0kca" path="res://tower_lanes/tower_lane.gd" id="1_05uu3"]
 [ext_resource type="FontFile" uid="uid://b7tawnkqrlpkn" path="res://ui/MouldyCheeseRegular-WyMWG.ttf" id="2_05uu3"]
+[ext_resource type="AudioStream" uid="uid://668mqvxobta2" path="res://music/fart.mp3" id="3_ho2ta"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ff4tv"]
 font = ExtResource("2_05uu3")
@@ -25,6 +26,7 @@ gradient = SubResource("Gradient_05uu3")
 offset_right = 204.0
 offset_bottom = 70.0
 script = ExtResource("1_05uu3")
+input_name = null
 pixels_per_second = 400.0
 
 [node name="KeyContainer" type="CenterContainer" parent="."]
@@ -85,3 +87,6 @@ grow_horizontal = 0
 grow_vertical = 2
 texture = SubResource("GradientTexture1D_ho2ta")
 expand_mode = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ho2ta")

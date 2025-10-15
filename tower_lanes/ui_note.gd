@@ -11,6 +11,8 @@ extends Control
 		if spam_overlay:
 			spam_overlay.visible = spam
 
+var expended: bool = false
+
 @export var pixels_per_second: float = 100.0
 
 @export var sync_player: SyncPlayer
@@ -56,3 +58,5 @@ func _process(delta: float) -> void:
 	var target_time := fposmod(note_time - sync_player.current_animation_position + duration, sync_player.animation.length) - duration
 	var target_x := target_time * pixels_per_second
 	position.x = target_x
+	if position.x > 600.0:
+		expended = false

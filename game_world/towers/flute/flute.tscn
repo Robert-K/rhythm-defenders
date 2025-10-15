@@ -1,10 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://d4bqpss13euoj"]
+[gd_scene load_steps=6 format=3 uid="uid://d4bqpss13euoj"]
 
 [ext_resource type="Script" uid="uid://25gdfoxq5sol" path="res://game_world/towers/flute/flute.gd" id="1_48p82"]
 [ext_resource type="PackedScene" uid="uid://blklrdey58lxe" path="res://models/towers/flute.blend" id="1_ol7h7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_48p82"]
 size = Vector3(2.5, 3.6572113, 2.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_48p82"]
+shading_mode = 0
+albedo_color = Color(0, 0.7999997, 1, 1)
+
+[sub_resource type="TorusMesh" id="TorusMesh_wb74x"]
+material = SubResource("StandardMaterial3D_48p82")
+inner_radius = 1.507
+outer_radius = 1.98
 
 [node name="Flute" type="Node3D"]
 script = ExtResource("1_48p82")
@@ -22,3 +31,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
 [node name="TowerCollision" type="CollisionShape3D" parent="TowerBody"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9277878, 0)
 shape = SubResource("BoxShape3D_48p82")
+
+[node name="Ring" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+cast_shadow = 0
+mesh = SubResource("TorusMesh_wb74x")

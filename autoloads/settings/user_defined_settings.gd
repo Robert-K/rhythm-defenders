@@ -105,10 +105,10 @@ func _register_controls_settings() -> void:
 	var key_bindings_category = Settings.SettingCategory.new("key_bindings", "Key Bindings")
 	
 	# Insert remappable actions
-	_create_action_setting(key_bindings_category, "move_up", "Move Forward")
-	_create_action_setting(key_bindings_category, "move_down", "Move Backward")
-	_create_action_setting(key_bindings_category, "move_left", "Move Left")
-	_create_action_setting(key_bindings_category, "move_right", "Move Right")
+	_create_action_setting(key_bindings_category, "drum_trigger", "Drum")
+	_create_action_setting(key_bindings_category, "tube_trigger", "Tube")
+	_create_action_setting(key_bindings_category, "flute_trigger", "Flute")
+	_create_action_setting(key_bindings_category, "maracas_trigger", "Maracas")
 	
 	controls_category.add_sub_category(key_bindings_category)
 	

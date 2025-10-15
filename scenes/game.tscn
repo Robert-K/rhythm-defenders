@@ -175,15 +175,15 @@ transform = Transform3D(-1, 0, -8.940697e-08, 0, 1, 0, 8.940697e-08, 0, -1, -8.7
 
 [node name="tube" parent="World" instance=ExtResource("4_p57ef")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.038813, -9.536743e-07, 5.960987)
-damage = 10
-radius = 1000.0
-fire_interval = 1.0
 
 [node name="bass_drum_canon" parent="World" instance=ExtResource("2_lbhrr")]
 transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 13.032256, -1.9073486e-06, 3.8778563)
+projectile_speed = null
+fire_interval = null
 
 [node name="Flute" parent="World" instance=ExtResource("7_vtaks")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.022114, 1.9073486e-06, -11.327541)
+radius = 1000.0
 
 [node name="GameUI" type="CanvasLayer" parent="."]
 
@@ -286,6 +286,7 @@ size_flags_vertical = 8
 
 [node name="DrumLane" parent="BottomUI/LanesMargin/TowerLanes" instance=ExtResource("1_uwrxv")]
 layout_mode = 2
+input_name = "drum_trigger"
 notes_color = Color(0.9872448, 0, 0.2998942, 1)
 stream_index = 1
 
@@ -301,6 +302,7 @@ expand_icon = true
 
 [node name="TubeLane" parent="BottomUI/LanesMargin/TowerLanes" instance=ExtResource("1_uwrxv")]
 layout_mode = 2
+input_name = "tube_trigger"
 notes_color = Color(1, 0.73333335, 0, 1)
 stream_index = 8
 key_label_text = "S"
@@ -317,6 +319,7 @@ expand_icon = true
 
 [node name="MaracasLane" parent="BottomUI/LanesMargin/TowerLanes" instance=ExtResource("1_uwrxv")]
 layout_mode = 2
+input_name = "maracas_trigger"
 notes_color = Color(0.76666665, 1, 0, 1)
 stream_index = 7
 key_label_text = "K"
@@ -333,6 +336,7 @@ expand_icon = true
 
 [node name="FluteLane" parent="BottomUI/LanesMargin/TowerLanes" instance=ExtResource("1_uwrxv")]
 layout_mode = 2
+input_name = "flute_trigger"
 notes_color = Color(0, 0.7999997, 1, 1)
 stream_index = 5
 key_label_text = "L"
