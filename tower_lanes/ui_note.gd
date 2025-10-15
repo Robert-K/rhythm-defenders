@@ -30,6 +30,7 @@ var holding: bool = false
 			return
 		note_panel.size.x = duration * pixels_per_second
 		spam_overlay.size.x = duration * pixels_per_second
+		%HitOverlay.size.x = duration * pixels_per_second
 
 @export var color: Color = Color.RED:
 	set(value):
@@ -52,6 +53,8 @@ func _ready() -> void:
 		spam_overlay.size.x = duration * pixels_per_second
 	if spam_overlay:
 		spam_overlay.visible = spam
+	%HitOverlay.size.x = duration * pixels_per_second
+	%HitOverlay.modulate = color.lerp(Color.WHITE, 0.5)
 	original_x = position.x
 
 func _process(delta: float) -> void:
@@ -64,3 +67,4 @@ func _process(delta: float) -> void:
 	position.x = target_x
 	if position.x > 600.0:
 		expended = false
+	%HitOverlay.visible = expended or holding

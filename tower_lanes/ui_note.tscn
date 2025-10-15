@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://xia7n4meh7mh"]
+[gd_scene load_steps=7 format=3 uid="uid://xia7n4meh7mh"]
 
 [ext_resource type="StyleBox" uid="uid://eqlgoo3q3eeo" path="res://notes/note_style.tres" id="1_2xohx"]
 [ext_resource type="Script" uid="uid://i5jbaew7kbo4" path="res://tower_lanes/ui_note.gd" id="2_75lo8"]
@@ -13,6 +13,23 @@ colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_75lo8"]
 gradient = SubResource("Gradient_2xohx")
 width = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2xohx"]
+draw_center = false
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(1, 1, 1, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_left = 8.0
+expand_margin_top = 8.0
+expand_margin_right = 8.0
+expand_margin_bottom = 8.0
 
 [node name="UINote" type="Control"]
 layout_mode = 3
@@ -46,3 +63,15 @@ grow_vertical = 2
 texture = SubResource("GradientTexture1D_75lo8")
 expand_mode = 1
 stretch_mode = 1
+
+[node name="HitOverlay" type="Panel" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -15.0
+offset_right = 10.0
+offset_bottom = 15.0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2xohx")
