@@ -24,7 +24,7 @@ func deal_damage(damage: float):
 	update_health_label()
 
 func update_health_label():
-	health_label.text = str(health)
+	health_label.text = str(health).pad_decimals(0)
 
 func reset_health():
 	health = total_health

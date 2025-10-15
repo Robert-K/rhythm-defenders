@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://djwpgt2cuqd4n"]
+[gd_scene load_steps=4 format=3 uid="uid://djwpgt2cuqd4n"]
 
 [ext_resource type="PackedScene" uid="uid://cxtsrl0gxnfav" path="res://models/speaker_castle.blend" id="1_eb228"]
 [ext_resource type="Script" uid="uid://c7gtaa53uh6s6" path="res://game_world/speaker_castle.gd" id="1_xcyrc"]
+[ext_resource type="Texture2D" uid="uid://c13u3t1swxdgq" path="res://textures/health_heart.svg" id="3_ib8in"]
 
 [node name="SpeakerCastle" type="Node3D"]
 script = ExtResource("1_xcyrc")
@@ -11,8 +12,15 @@ script = ExtResource("1_xcyrc")
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(-0.3488005, 0.3413955, -0.6363038, 0.068783715, 0.71914244, 0.3481358, 0.71882004, 0.096844405, -0.3420734, 0.26646227, 3.891646, -1.1701603)
+texture = ExtResource("3_ib8in")
+
 [node name="HealthLabel" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.8344042, 0)
-billboard = 1
+transform = Transform3D(-0.48497823, 0.37054297, -0.7921451, 0.085184366, 0.921508, 0.37890238, 0.8703674, 0.11628102, -0.4784757, 0.06869568, 3.9915142, -0.7108261)
+modulate = Color(0.8117647, 0.3254902, 0.30980393, 1)
+outline_modulate = Color(0.18039216, 0.1882353, 0.22745098, 1)
 text = "100"
 font_size = 157
+outline_size = 62
+horizontal_alignment = 0
