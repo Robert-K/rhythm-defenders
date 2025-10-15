@@ -35,6 +35,10 @@ var ticks_per_second: float = 188.0 / 96.0
 		if key_label:
 			key_label.text = key_label_text
 
+func _exit_tree() -> void:
+	if active:
+		MusicPlayer.play_clip(stream_index, false)
+
 func _ready() -> void:
 	if Engine.is_editor_hint():
 		return	
