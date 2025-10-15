@@ -1,7 +1,7 @@
 extends Node3D
 class_name Tower
 
-const PLACEMENT_FORBIDDEN_INDICATOR_SCENE = preload("uid://b1s3bwtbo473j")
+const PLACEMENT_FORBIDDEN_INDICATOR_SCENE = preload("res://models/towers/placement_forbidden.tscn")
 var placement_indicator = null
 
 @export var damage: int = 10
@@ -58,7 +58,12 @@ func set_placement_allowed(allowed: bool):
 	
 	placement_indicator.visible = not allowed
 
-func fire_at_target(play_anim: Callable, projectile: PackedScene, projectile_start: Node3D, projectile_speed: float):
+func fire_at_target(
+	play_anim: Callable,
+	projectile: PackedScene,
+	projectile_start: Node3D,
+	projectile_speed: float,
+	projectile_rotation: Vector3 = Vector3.ZERO):
 	if (target_enemy == null || !is_instance_valid(target_enemy)):
 		return
 	
@@ -73,4 +78,5 @@ func fire_at_target(play_anim: Callable, projectile: PackedScene, projectile_sta
 	node.damage = damage
 	node.global_position = projectile_start.global_position
 	var target_vector = global_position.direction_to(target_pos)
+	node.rotation = rotation + projectile_rotation
 	node.apply_central_impulse(target_vector * projectile_speed)

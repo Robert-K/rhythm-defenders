@@ -14,4 +14,4 @@ func play_anim():
 	await $flute/AnimationPlayer.animation_finished
 
 func fire():
-	fire_at_target(play_anim, projectile, projectile_start, projectile_speed)
+	fire_at_target(play_anim, projectile, projectile_start, projectile_speed, Vector3(0, PI / 2, 0))
