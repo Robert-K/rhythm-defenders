@@ -34,6 +34,7 @@ func _ready() -> void:
 		return	
 	key_label.text = key_label_text
 	key_label.modulate = notes_color
+	$GPUParticles2D.modulate = notes_color
 	MusicPlayer.play_clip(stream_index, true)
 	var sync_player := MusicPlayer.sync_players[stream_index]
 	var x_start := 0.0
@@ -72,14 +73,27 @@ func _process(_delta: float) -> void:
 		for ui_note in ui_notes:
 			if absf(ui_note.position.x) < tolerance * pixels_per_second and not ui_note.expended:
 				emit_signal("fire")
+
 				ui_note.expended = true
 				if ui_note.hold_me:
 					ui_note.holding = true
 					held_note = ui_note
+					$GPUParticles2D.one_shot = false
+					$GPUParticles2D.explosiveness = 0.0
+					$GPUParticles2D.emitting = true
+					$GPUParticles2D.restart()
+				else:
+					$GPUParticles2D.restart()
+					$GPUParticles2D.explosiveness = 1.0
+					$GPUParticles2D.one_shot = true
+					$GPUParticles2D.emitting = true
 				hit_one = true
 				break
 			elif ui_note.hold_me and not ui_note.expended and ui_note.position.x < 0.0 and ui_note.position.x + ui_note.duration * pixels_per_second > 0.0:
 				emit_signal("fire")
+				$GPUParticles2D.one_shot = false
+				$GPUParticles2D.explosiveness = 0.0
+				$GPUParticles2D.emitting = true
 				ui_note.holding = true
 				held_note = ui_note
 				ui_note.expended = true
@@ -93,6 +107,7 @@ func _process(_delta: float) -> void:
 			if ui_note.holding:
 				ui_note.holding = false
 				held_note = null
+				$GPUParticles2D.emitting = false
 				emit_signal("release")
 				break
 	if held_note and held_note.holding:
@@ -100,5 +115,4 @@ func _process(_delta: float) -> void:
 			held_note.holding = false
 			held_note = null
 			emit_signal("release")
-	if held_note:
-		$AudioStreamPlayer.play()
+			$GPUParticles2D.emitting = false

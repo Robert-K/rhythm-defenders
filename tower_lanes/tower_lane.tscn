@@ -1,12 +1,30 @@
-[gd_scene load_steps=9 format=3 uid="uid://noqeeoaythhn"]
+[gd_scene load_steps=13 format=3 uid="uid://noqeeoaythhn"]
 
 [ext_resource type="Script" uid="uid://dukbcohfy0kca" path="res://tower_lanes/tower_lane.gd" id="1_05uu3"]
 [ext_resource type="FontFile" uid="uid://b7tawnkqrlpkn" path="res://ui/MouldyCheeseRegular-WyMWG.ttf" id="2_05uu3"]
+[ext_resource type="Texture2D" uid="uid://bpfvgqthb1um0" path="res://textures/dot_particle.svg" id="3_dd3q7"]
 [ext_resource type="AudioStream" uid="uid://668mqvxobta2" path="res://music/fart.mp3" id="3_ho2ta"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ff4tv"]
 font = ExtResource("2_05uu3")
 font_size = 40
+
+[sub_resource type="Curve" id="Curve_dd3q7"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.84951454, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_i616h"]
+curve = SubResource("Curve_dd3q7")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dd3q7"]
+resource_local_to_scene = true
+particle_flag_disable_z = true
+initial_velocity_min = 40.0
+initial_velocity_max = 170.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.099999994
+scale_max = 0.19999999
+scale_curve = SubResource("CurveTexture_i616h")
 
 [sub_resource type="Gradient" id="Gradient_ff4tv"]
 offsets = PackedFloat32Array(0, 0.51760566, 1)
@@ -37,6 +55,14 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "A"
 label_settings = SubResource("LabelSettings_ff4tv")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+z_index = 10
+position = Vector2(79.635, 34)
+emitting = false
+texture = ExtResource("3_dd3q7")
+randomness = 0.3
+process_material = SubResource("ParticleProcessMaterial_dd3q7")
 
 [node name="LaneParentControl" type="Control" parent="."]
 clip_contents = true
