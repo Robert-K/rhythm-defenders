@@ -22,6 +22,8 @@ mesh = ExtResource("3_lj2ar")
 
 [node name="Map1" type="Node3D"]
 script = ExtResource("1_nfx0i")
+enemy_spawn_base = 4
+enemy_spawn_round_mult = 4.0
 
 [node name="Path3D" type="Path3D" parent="."]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.5935273, 0, -0.3046664)
