@@ -82,6 +82,18 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0.28627452)
 
+[node name="ToleranceLine" type="TextureRect" parent="LaneParentControl"]
+unique_name_in_owner = true
+modulate = Color(0.3889989, 0.4584468, 0.52224994, 1)
+custom_minimum_size = Vector2(2, 0)
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 2.0
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_05uu3")
+expand_mode = 1
+
 [node name="LaneControl" type="Control" parent="LaneParentControl"]
 unique_name_in_owner = true
 layout_mode = 1

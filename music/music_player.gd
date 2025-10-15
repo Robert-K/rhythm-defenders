@@ -33,6 +33,14 @@ func _ready() -> void:
 	if not Engine.is_editor_hint():
 		play()
 
+var speed_tween: Tween
+
+func set_speed(value: float) -> void:
+	if speed_tween:
+		speed_tween.kill()
+	speed_tween = create_tween()
+	speed_tween.tween_property(self, "pitch_scale", value, 2.0)
+
 func clean_animations() -> void:
 	for player in sync_players:
 		var animation_library := player.get_animation_library("")

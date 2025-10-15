@@ -16,7 +16,7 @@ signal miss
 		if is_inside_tree():
 			MusicPlayer.play_clip(stream_index, active)
 
-var tolerance: float = 0.2
+var tolerance: float = 0.15
 
 @export var ui_note_scene: PackedScene = preload("res://tower_lanes/ui_note.tscn")
 
@@ -48,6 +48,7 @@ func _ready() -> void:
 	$GPUParticles2D.modulate = notes_color
 	if active:
 		MusicPlayer.play_clip(stream_index, true)
+	%ToleranceLine.size.x = tolerance * pixels_per_second
 	var sync_player := MusicPlayer.sync_players[stream_index]
 	var x_start := 0.0
 	var repetition := 1
