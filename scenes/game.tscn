@@ -1,16 +1,13 @@
-[gd_scene load_steps=26 format=3 uid="uid://c7vql0lrwfptu"]
+[gd_scene load_steps=23 format=3 uid="uid://c7vql0lrwfptu"]
 
 [ext_resource type="Script" uid="uid://8h1r1rjtau8e" path="res://game_world/game_world.gd" id="1_p57ef"]
 [ext_resource type="PackedScene" uid="uid://noqeeoaythhn" path="res://tower_lanes/tower_lane.tscn" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://d00tuuxxjh6dn" path="res://game_world/towers/bass_drum/bass_drum_canon.tscn" id="2_lbhrr"]
 [ext_resource type="Environment" uid="uid://bhb4ckqipjvu3" path="res://other/main_environment.tres" id="3_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://h623sn80nhar" path="res://scenes/map_1.tscn" id="4_iywne"]
-[ext_resource type="PackedScene" uid="uid://nav7ruy7rqfq" path="res://game_world/towers/tube/tube.tscn" id="4_p57ef"]
 [ext_resource type="Texture2D" uid="uid://e4mowu73d4jo" path="res://textures/icon/drum.png" id="6_gee14"]
 [ext_resource type="Texture2D" uid="uid://ih31eiq0kg53" path="res://textures/icon/tube.png" id="7_0tnpc"]
-[ext_resource type="PackedScene" uid="uid://d4bqpss13euoj" path="res://game_world/towers/flute/flute.tscn" id="7_vtaks"]
 [ext_resource type="Theme" uid="uid://hheneshfv1b2" path="res://ui/themes/your_theme.tres" id="8_kvuet"]
-[ext_resource type="PackedScene" uid="uid://dcr3uedfoisub" path="res://game_world/towers/maracas/maracas.tscn" id="9_0tnpc"]
 [ext_resource type="Texture2D" uid="uid://ctq0pqbm0lmhm" path="res://textures/icon/Maracas.png" id="10_dinhu"]
 [ext_resource type="Texture2D" uid="uid://bhipuc0pmport" path="res://textures/icon/flute.png" id="11_kvuet"]
 
@@ -149,9 +146,12 @@ corner_radius_bottom_left = 5
 [node name="CanvasLayer" type="CanvasLayer"]
 layer = 0
 
-[node name="World" type="Node3D" parent="." node_paths=PackedStringArray("build_ui", "start_button")]
+[node name="World" type="Node3D" parent="." node_paths=PackedStringArray("build_ui", "round_label", "round_container", "lost_screen", "start_button")]
 script = ExtResource("1_p57ef")
 build_ui = NodePath("../GameUI/MarginContainer/BuildTowers")
+round_label = NodePath("../GameUI/RoundContainer/RoundLabel")
+round_container = NodePath("../GameUI/RoundContainer")
+lost_screen = NodePath("../GameUI/LostLabel")
 start_button = NodePath("../GameUI/StartButton")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="World"]
@@ -170,20 +170,8 @@ shadow_enabled = true
 [node name="Map1" parent="World" instance=ExtResource("4_iywne")]
 transform = Transform3D(-1.7484555e-07, 0, -4, 0, 4, 0, 4, 0, -1.7484555e-07, 0, 0, 0)
 
-[node name="Maracas" parent="World" instance=ExtResource("9_0tnpc")]
-transform = Transform3D(-1, 0, -8.940697e-08, 0, 1, 0, 8.940697e-08, 0, -1, -8.769674, 1.9073486e-06, -4.959775)
-
-[node name="tube" parent="World" instance=ExtResource("4_p57ef")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.038813, -9.536743e-07, 5.960987)
-
 [node name="bass_drum_canon" parent="World" instance=ExtResource("2_lbhrr")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 13.032256, -1.9073486e-06, 3.8778563)
-projectile_speed = null
-fire_interval = null
-
-[node name="Flute" parent="World" instance=ExtResource("7_vtaks")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.022114, 1.9073486e-06, -11.327541)
-radius = 1000.0
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 14.765339, -1.9073486e-06, 4.020796)
 
 [node name="GameUI" type="CanvasLayer" parent="."]
 
@@ -257,6 +245,34 @@ theme_override_colors/font_outline_color = Color(0.18094951, 0.18889105, 0.22610
 theme_override_font_sizes/font_size = 39
 text = "▶ Start"
 flat = true
+
+[node name="LostLabel" type="Label" parent="GameUI"]
+visible = false
+offset_left = 347.0
+offset_top = 154.0
+offset_right = 811.0
+offset_bottom = 279.0
+theme_override_font_sizes/font_size = 91
+text = "YOU LOST!"
+
+[node name="RoundContainer" type="HBoxContainer" parent="GameUI"]
+visible = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -242.0
+offset_bottom = 88.0
+grow_horizontal = 0
+
+[node name="Label" type="Label" parent="GameUI/RoundContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Round"
+
+[node name="RoundLabel" type="Label" parent="GameUI/RoundContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "1"
 
 [node name="BottomUI" type="MarginContainer" parent="."]
 anchors_preset = 12

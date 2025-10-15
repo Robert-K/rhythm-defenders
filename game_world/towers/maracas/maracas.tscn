@@ -18,6 +18,7 @@ outer_radius = 1.98
 
 [node name="Maracas" type="Node3D"]
 script = ExtResource("1_j80pm")
+damage = 5
 fire_interval = 5.0
 
 [node name="maracas" parent="." instance=ExtResource("1_e6mcf")]

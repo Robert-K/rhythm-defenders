@@ -2,6 +2,9 @@ extends Node
 class_name World
 
 @export var build_ui: Control
+@export var round_label: Label
+@export var round_container: Container
+@export var lost_screen: Control
 @export var start_button: Button
 var tower_buttons: Array[Button] # Filled with the buttons from button_ui
 
@@ -20,6 +23,10 @@ enum GameMode {
 }
 
 signal on_game_mode_changed
+
+var round: int = 0
+
+var placed_towers: Array[Tower]
 
 var game_mode: GameMode
 
@@ -41,15 +48,36 @@ func change_game_mode(new_game_mode: GameMode):
 		build()
 	on_game_mode_changed.emit(game_mode)
 
+func loose():
+	update_round(1)
+	change_game_mode(GameMode.BUILD)
+	lost_screen.visible = true
+	
+
+func round_completed():
+	change_game_mode(GameMode.BUILD)
+	update_round(round + 1)
+
 func play():
 	stop_build()
-	current_map.start()
+	
+	current_map.lost.connect(loose)
+	current_map.round_completed.connect(round_completed)
+	current_map.start(round)
+
+func update_round(new_round: int):
+	round = new_round
+	round_label.text = str(new_round)
 
 func build():
+	round_container.visible = false
 	build_ui.visible = true
+	start_button.visible = true
 
 func stop_build():
+	round_container.visible = true
 	build_ui.visible = false
+	start_button.visible = false
 	if (current_ghost_tower != null):
 		cancel_tower()
 
@@ -169,6 +197,7 @@ func place_tower():
 	
 	current_ghost_tower.collision.disabled = false
 	current_ghost_tower.set_placement_preview(false)
+	placed_towers.append(current_ghost_tower)
 	current_ghost_tower = null
 	leave_placement()
 

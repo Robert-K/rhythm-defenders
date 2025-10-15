@@ -48,7 +48,7 @@ func set_placement_preview(enabled: bool):
 		placement_indicator = PLACEMENT_FORBIDDEN_INDICATOR_SCENE.instantiate()
 		placement_indicator.visible = false
 		add_child(placement_indicator)
-		
+	
 	if not enabled and placement_indicator != null:
 		placement_indicator.queue_free()
 

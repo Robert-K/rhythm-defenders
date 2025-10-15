@@ -10,3 +10,9 @@ script = ExtResource("1_xcyrc")
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
+
+[node name="HealthLabel" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.8344042, 0)
+billboard = 1
+text = "100"
+font_size = 157

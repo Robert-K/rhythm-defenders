@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://h623sn80nhar"]
+[gd_scene load_steps=10 format=3 uid="uid://h623sn80nhar"]
 
 [ext_resource type="PackedScene" uid="uid://duogrvotv7wq4" path="res://models/tree_1.blend" id="1_7xies"]
 [ext_resource type="Script" uid="uid://vwe7gt3qqtq2" path="res://game_world/map.gd" id="1_nfx0i"]
