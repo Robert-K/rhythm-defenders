@@ -54,8 +54,10 @@ func _ready() -> void:
 func change_game_mode(new_game_mode: GameMode):
 	game_mode= new_game_mode
 	if game_mode == GameMode.PLAY:
+		$"../BuildModeOverlay".visible = false
 		play()
 	elif game_mode == GameMode.BUILD:
+		$"../BuildModeOverlay".visible = true
 		build()
 	on_game_mode_changed.emit(game_mode)
 
