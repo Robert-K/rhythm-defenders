@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://phd7pw3tijgq"]
+
+[ext_resource type="Script" uid="uid://dwv3sxd5pso3r" path="res://game_world/damage_dealer/explosion_damage/explosion_damage.gd" id="1_6i8nq"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_sx6aw"]
+height = 4.0
+radius = 4.0
+
+[node name="CylinderAreaDamage" type="Area3D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_6i8nq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("CylinderShape3D_sx6aw")

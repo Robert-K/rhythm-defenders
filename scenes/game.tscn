@@ -39,21 +39,19 @@ shadow_enabled = true
 transform = Transform3D(-1.7484555e-07, 0, -4, 0, 4, 0, 4, 0, -1.7484555e-07, 0, 0, 0)
 
 [node name="Maracas" parent="World" instance=ExtResource("9_0tnpc")]
-transform = Transform3D(-1, 0, -8.940697e-08, 0, 1, 0, 8.940697e-08, 0, -1, 26.287218, 1.9073486e-06, -1.4455805)
+transform = Transform3D(-1, 0, -8.940697e-08, 0, 1, 0, 8.940697e-08, 0, -1, -8.769674, 1.9073486e-06, -4.959775)
 
 [node name="tube" parent="World" instance=ExtResource("4_p57ef")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.0180798, -9.536743e-07, 9.475182)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.038813, -9.536743e-07, 5.960987)
 damage = 10
 radius = 1000.0
 fire_interval = 1.0
 
 [node name="bass_drum_canon" parent="World" instance=ExtResource("2_lbhrr")]
 transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 13.032256, -1.9073486e-06, 3.8778563)
-projectile_speed = 15.0
-fire_interval = 1.0
 
 [node name="Flute" parent="World" instance=ExtResource("7_vtaks")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.034779, 1.9073486e-06, -7.813347)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.022114, 1.9073486e-06, -11.327541)
 
 [node name="GameUI" type="CanvasLayer" parent="."]
 

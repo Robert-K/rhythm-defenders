@@ -72,7 +72,7 @@ func fire_at_target(
 	if (dist > radius):
 		return
 	
-	play_anim.call()
+	await play_anim.call()
 	var node : Projectile = projectile.instantiate()
 	projectile_start.add_child(node)
 	node.damage = damage

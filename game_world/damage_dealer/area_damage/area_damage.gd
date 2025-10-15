@@ -11,6 +11,8 @@ func apply(enemy: Enemy):
 		await get_tree().create_timer(interval).timeout
 
 func contains_enemy(enemy: Enemy) -> bool:
+	print(area3d.get_overlapping_areas())
+	print(area3d.get_overlapping_bodies())
 	for body in area3d.get_overlapping_areas():
 		var current = body
 		while (current != null):

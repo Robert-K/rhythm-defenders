@@ -8,10 +8,8 @@ size = Vector3(2.5, 3.6572113, 2.5)
 
 [node name="bass_drum_canon" type="Node3D"]
 script = ExtResource("1_gypo3")
-projectile_speed = null
 damage = 34
 radius = 100.0
-fire_interval = null
 
 [node name="bass_drum_canon" parent="." instance=ExtResource("1_l0cdu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5598657, 0)

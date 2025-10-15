@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://bkru5xvj61m25"]
+
+[ext_resource type="Script" uid="uid://bvjlocndbnsc0" path="res://game_world/damage_dealer/projectile/bomb.gd" id="1_p3l5p"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_acklx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uw2iy"]
+albedo_color = Color(0.40832946, 0.40832946, 0.40832946, 1)
+metallic = 0.92
+roughness = 0.71
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_d5tly"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_5nj6s"]
+radius = 0.6
+
+[node name="Projectile" type="RigidBody3D"]
+top_level = true
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_p3l5p")
+damage = 34.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_acklx")
+surface_material_override/0 = SubResource("StandardMaterial3D_uw2iy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_d5tly")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_5nj6s")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_ground_entered"]

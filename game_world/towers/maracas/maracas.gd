@@ -5,7 +5,6 @@ extends Tower
 @export var fire_duration: float = 2
 
 func fire():
-	
 	# Add area damage
 	# Play animation
 	$maracas/AnimationPlayer.play("FireLoop")
