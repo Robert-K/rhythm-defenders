@@ -7,7 +7,12 @@ var sync_players: Array[SyncPlayer] = []
 
 func play_clip(index: int, do_play: bool = true) -> void:
 	if index < sync_stream.stream_count:
-		sync_stream.set_sync_stream_volume(index, 0.0 if do_play else -60.0)
+		var full_vol := 0.0
+		if index == 8:
+			full_vol = -6.0
+		if index == 5:
+			full_vol = 7.0
+		sync_stream.set_sync_stream_volume(index, full_vol if do_play else -60.0)
 	if do_play and not playing:
 		play()
 

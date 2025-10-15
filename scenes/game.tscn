@@ -286,7 +286,6 @@ size_flags_vertical = 8
 
 [node name="DrumLane" parent="BottomUI/LanesMargin/TowerLanes" instance=ExtResource("1_uwrxv")]
 layout_mode = 2
-input_name = "drum_trigger"
 notes_color = Color(0.9872448, 0, 0.2998942, 1)
 stream_index = 1
 
