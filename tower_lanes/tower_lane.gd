@@ -28,6 +28,7 @@ func _ready() -> void:
 	if Engine.is_editor_hint():
 		return	
 	key_label.text = key_label_text
+	key_label.modulate = notes_color
 	update_ui_notes()
 	MusicPlayer.play_clip(stream_index, true)
 	var sync_player := MusicPlayer.sync_players[stream_index]

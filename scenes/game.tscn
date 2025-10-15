@@ -275,7 +275,9 @@ color = Color(0, 0, 0, 1)
 [node name="LanesMargin" type="MarginContainer" parent="BottomUI"]
 layout_mode = 2
 size_flags_vertical = 8
+theme_override_constants/margin_left = 12
 theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
 [node name="TowerLanes" type="VBoxContainer" parent="BottomUI/LanesMargin"]
@@ -287,11 +289,31 @@ layout_mode = 2
 notes_color = Color(0.9872448, 0, 0.2998942, 1)
 stream_index = 1
 
+[node name="ButtonDrum" type="Button" parent="BottomUI/LanesMargin/TowerLanes/DrumLane"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_kvuet")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1kice")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5newe")
+icon = ExtResource("6_gee14")
+icon_alignment = 1
+expand_icon = true
+
 [node name="TubeLane" parent="BottomUI/LanesMargin/TowerLanes" instance=ExtResource("1_uwrxv")]
 layout_mode = 2
 notes_color = Color(1, 0.73333335, 0, 1)
 stream_index = 8
 key_label_text = "S"
+
+[node name="ButtonTube" type="Button" parent="BottomUI/LanesMargin/TowerLanes/TubeLane"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_trtic")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_264po")
+theme_override_styles/hover = SubResource("StyleBoxFlat_37s47")
+icon = ExtResource("7_0tnpc")
+icon_alignment = 1
+expand_icon = true
 
 [node name="MaracasLane" parent="BottomUI/LanesMargin/TowerLanes" instance=ExtResource("1_uwrxv")]
 layout_mode = 2
@@ -299,14 +321,39 @@ notes_color = Color(0.76666665, 1, 0, 1)
 stream_index = 7
 key_label_text = "K"
 
+[node name="ButtonMaracas" type="Button" parent="BottomUI/LanesMargin/TowerLanes/MaracasLane"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_ir15t")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ssvqc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_bt5mj")
+icon = ExtResource("10_dinhu")
+icon_alignment = 1
+expand_icon = true
+
 [node name="FluteLane" parent="BottomUI/LanesMargin/TowerLanes" instance=ExtResource("1_uwrxv")]
 layout_mode = 2
 notes_color = Color(0, 0.7999997, 1, 1)
 stream_index = 5
 key_label_text = "L"
 
+[node name="ButtonFlute" type="Button" parent="BottomUI/LanesMargin/TowerLanes/FluteLane"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_ca42v")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rysoc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_e1j6l")
+icon = ExtResource("11_kvuet")
+icon_alignment = 1
+expand_icon = true
+
 [connection signal="pressed" from="GameUI/MarginContainer/BuildTowers/ButtonDrum" to="World" method="_on_button_drum_pressed"]
 [connection signal="pressed" from="GameUI/MarginContainer/BuildTowers/ButtonTube" to="World" method="_on_button_tube_pressed"]
 [connection signal="pressed" from="GameUI/MarginContainer/BuildTowers/ButtonMaracas" to="World" method="_on_button_maracas_pressed"]
 [connection signal="pressed" from="GameUI/MarginContainer/BuildTowers/ButtonFlute" to="World" method="_on_button_flute_pressed"]
 [connection signal="pressed" from="GameUI/StartButton" to="World" method="_on_start_button_pressed"]
+
+[editable path="BottomUI/LanesMargin/TowerLanes/DrumLane"]
+[editable path="BottomUI/LanesMargin/TowerLanes/TubeLane"]
+[editable path="BottomUI/LanesMargin/TowerLanes/MaracasLane"]
+[editable path="BottomUI/LanesMargin/TowerLanes/FluteLane"]
