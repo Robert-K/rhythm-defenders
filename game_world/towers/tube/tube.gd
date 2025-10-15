@@ -11,4 +11,5 @@ func play_anim():
 	$tube/AnimationPlayer.play("Fire")
 
 func fire():
+	$AirParticles.emitting = true
 	fire_at_target(play_anim, projectile, projectile_start)
