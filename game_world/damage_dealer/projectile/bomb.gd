@@ -13,9 +13,13 @@ func _on_ground_entered(body: Node3D) -> void:
 	mesh.visible = false
 	rigid_body.freeze = true
 	
+	$AnimationPlayer.play("explode")
+	
 	# Place explosion
 	var node: ExplosionDamage = explosion_damage.instantiate()
 	node.damage = damage
 	add_child(node)
 	await get_tree().create_timer(0.5).timeout
 	remove_child(node)
+	
+	
