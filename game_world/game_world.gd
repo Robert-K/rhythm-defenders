@@ -14,6 +14,11 @@ var tower_buttons: Array[Button] # Filled with the buttons from button_ui
 @export var maracas_lane: TowerLane
 @export var flute_lane: TowerLane
 
+@export var drum_points_label: Label
+@export var tube_points_label: Label
+@export var maracas_points_label: Label
+@export var flute_points_label: Label
+
 @onready var drum = preload("res://game_world/towers/bass_drum/bass_drum_canon.tscn")
 @onready var maracas = preload("res://game_world/towers/maracas/maracas.tscn")
 @onready var tube = preload("res://game_world/towers/tube/tube.tscn")
@@ -69,6 +74,9 @@ func loose():
 	lost_screen.visible = true
 
 func round_completed():
+	if (game_mode == GameMode.BUILD):
+		return
+	
 	update_round(round + 1)
 	change_game_mode(GameMode.BUILD)
 	update_points(points + points_per_round)
@@ -151,9 +159,26 @@ func start_placing_tower(tower_scene: PackedScene):
 		cancel_tower()
 	
 	current_ghost_tower = tower_scene.instantiate()
-	if (points < current_ghost_tower.point_cost):
-		current_ghost_tower.queue_free()
-		return
+	
+	if (is_instance_of(current_ghost_tower, Drum)):
+		if (points < int(drum_points_label.text)):
+			current_ghost_tower.queue_free()
+			return
+	
+	if (is_instance_of(current_ghost_tower, Tube)):
+		if (points < int(tube_points_label.text)):
+			current_ghost_tower.queue_free()
+			return
+	
+	if (is_instance_of(current_ghost_tower, Maracas)):
+		if (points < int(maracas_points_label.text)):
+			current_ghost_tower.queue_free()
+			return
+	
+	if (is_instance_of(current_ghost_tower, Flute)):
+		if (points < int(flute_points_label.text)):
+			current_ghost_tower.queue_free()
+			return
 	
 	current_ghost_tower.set_placement_preview(true)
 	add_child(current_ghost_tower)
@@ -225,23 +250,34 @@ func cancel_tower():
 func place_tower():
 	if (current_ghost_tower == null):
 		return
-		
+	
 	if (current_ghost_tower_placement_allowed == false):
 		return
 	
 	if (is_instance_of(current_ghost_tower, Drum)):
 		drum_lane.active = true
+		var tower_points = int(drum_points_label.text)
+		update_points(points - tower_points)
+		drum_points_label.text = str(tower_points * 2)
 	
 	if (is_instance_of(current_ghost_tower, Tube)):
 		tube_lane.active = true
+		var tower_points = int(tube_points_label.text)
+		update_points(points - tower_points)
+		tube_points_label.text = str(tower_points * 2)
 	
 	if (is_instance_of(current_ghost_tower, Maracas)):
 		maracas_lane.active = true
+		var tower_points = int(maracas_points_label.text)
+		update_points(points - tower_points)
+		maracas_points_label.text = str(tower_points * 2)
 	
 	if (is_instance_of(current_ghost_tower, Flute)):
 		flute_lane.active = true
+		var tower_points = int(flute_points_label.text)
+		update_points(points - tower_points)
+		flute_points_label.text = str(tower_points * 2)
 	
-	update_points(points - current_ghost_tower.point_cost)
 	current_ghost_tower.collision.disabled = false
 	current_ghost_tower.set_placement_preview(false)
 	placed_towers.append(current_ghost_tower)

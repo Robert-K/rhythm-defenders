@@ -193,7 +193,7 @@ scale_curve = SubResource("CurveTexture_i616h")
 [node name="CanvasLayer" type="CanvasLayer"]
 layer = 0
 
-[node name="World" type="Node3D" parent="." node_paths=PackedStringArray("build_ui", "round_label", "round_container", "lost_screen", "start_button", "points_label", "drum_lane", "tube_lane", "maracas_lane", "flute_lane")]
+[node name="World" type="Node3D" parent="." node_paths=PackedStringArray("build_ui", "round_label", "round_container", "lost_screen", "start_button", "points_label", "drum_lane", "tube_lane", "maracas_lane", "flute_lane", "drum_points_label", "tube_points_label", "maracas_points_label", "flute_points_label")]
 script = ExtResource("1_p57ef")
 build_ui = NodePath("../GameUI/MarginContainer/BuildTowers")
 round_label = NodePath("../GameUI/RoundContainer/RoundLabel")
@@ -205,6 +205,10 @@ drum_lane = NodePath("../BottomUI/LanesMargin/TowerLanes/DrumLane")
 tube_lane = NodePath("../BottomUI/LanesMargin/TowerLanes/TubeLane")
 maracas_lane = NodePath("../BottomUI/LanesMargin/TowerLanes/MaracasLane")
 flute_lane = NodePath("../BottomUI/LanesMargin/TowerLanes/FluteLane")
+drum_points_label = NodePath("../GameUI/MarginContainer/BuildTowers/ButtonDrum/PriceInfo/PointsLabel")
+tube_points_label = NodePath("../GameUI/MarginContainer/BuildTowers/ButtonTube/PriceInfo/PointsLabel")
+maracas_points_label = NodePath("../GameUI/MarginContainer/BuildTowers/ButtonMaracas/PriceInfo/PointsLabel")
+flute_points_label = NodePath("../GameUI/MarginContainer/BuildTowers/ButtonFlute/PriceInfo/PointsLabel")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="World"]
 environment = ExtResource("3_lbhrr")
