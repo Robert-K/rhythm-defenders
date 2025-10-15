@@ -34,6 +34,21 @@ func turn_to_closest_enemy():
 		target_vector = Vector3(target_vector.x, 0, target_vector.z)
 		basis = Basis.looking_at(target_vector)
 
+func turn_to_last_enemy():
+	if not world:
+		return
+
+	target_enemy = world.get_last_enemy(global_position, radius)
+	if (target_enemy == null):
+		return
+	
+	var dist = global_position.distance_to(target_enemy.global_position)
+	DebugDraw3D.draw_line(global_position, target_enemy.global_position)
+	if (dist <= radius):
+		var target_vector = global_position.direction_to(target_enemy.global_position)
+		target_vector = Vector3(target_vector.x, 0, target_vector.z)
+		basis = Basis.looking_at(target_vector)
+
 func fire() -> void:
 	print("fire")
 

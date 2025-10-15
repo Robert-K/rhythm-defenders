@@ -68,5 +68,10 @@ func pause_for(time: float):
 	await get_tree().create_timer(time).timeout
 	path_tween.play()
 
+func go_back_for(time: float):
+	path_tween.set_speed_scale(0.25)
+	await get_tree().create_timer(time).timeout
+	path_tween.set_speed_scale(1)
+
 func on_destination_entered():
 	enemy_at_destination.emit(self)

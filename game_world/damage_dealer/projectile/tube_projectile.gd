@@ -13,14 +13,7 @@ func _ready() -> void:
 
 func apply(enemy: Enemy):
 	super.apply(enemy)
-	if (is_instance_valid(enemy)):
-		pass
-		enemy.path_tween.set_speed_scale(-0.5)
-		enemy.path_tween.pause()
-	await get_tree().create_timer(move_back_time).timeout
-	if (is_instance_valid(enemy)):
-		enemy.path_tween.set_speed_scale(1.0)
-		enemy.path_tween.play()
+	enemy.go_back_for(move_back_time)
 
 func move_into_direction(dir: Vector3):
 	rigid_body.apply_central_impulse(dir * projectile_speed)

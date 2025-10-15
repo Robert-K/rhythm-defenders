@@ -5,7 +5,7 @@ class_name Flute
 @onready var projectile_start = $ProjectileStart
 
 func _process(_delta):
-	turn_to_closest_enemy()
+	turn_to_last_enemy()
 
 func play_anim():
 	$flute/AnimationPlayer.play("Fire")

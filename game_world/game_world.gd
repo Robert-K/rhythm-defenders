@@ -137,6 +137,23 @@ func get_closest_enemy(pos: Vector3) -> Enemy:
 	
 	return closest
 
+func get_last_enemy(pos: Vector3, max_dist: float) -> Enemy:
+	var closest = null
+	var min_ratio = 0
+	for enemy: Enemy in current_map.get_enemies():
+		if (enemy == null):
+			continue
+		
+		var dist = 	enemy.global_position.distance_to(pos)
+		if (dist > max_dist):
+			continue
+		
+		if (closest == null || min_ratio > enemy.path_tween.get_loops_left()):
+			closest = enemy
+			min_ratio = enemy.path_tween.get_loops_left()
+	
+	return closest
+
 func _process(delta: float) -> void:
 	if (Input.is_action_just_pressed("click")):
 		place_tower()
