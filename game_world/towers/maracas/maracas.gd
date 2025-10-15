@@ -12,3 +12,6 @@ func fire():
 	await get_tree().create_timer(fire_duration).timeout
 	$maracas/AnimationPlayer.stop()
 	#area_damage.disabled = true
+	
+func stop_firing():
+	$maracas/AnimationPlayer.stop()
