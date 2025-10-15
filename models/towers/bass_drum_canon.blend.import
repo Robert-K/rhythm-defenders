@@ -37,7 +37,15 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={}
+_subresources={
+"materials": {
+"Base": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://models/towers/Base.tres",
+"use_external/path": "uid://csnrh4bvv5vgk"
+}
+}
+}
 blender/nodes/visible=0
 blender/nodes/active_collection_only=false
 blender/nodes/punctual_lights=true

@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://csnrh4bvv5vgk"]
+
+[ext_resource type="Texture2D" uid="uid://ct1r6mde684fk" path="res://textures/colormap.png" id="1_xkrrm"]
+
+[resource]
+resource_name = "Base"
+cull_mode = 2
+albedo_texture = ExtResource("1_xkrrm")
+roughness = 0.5

@@ -1,6 +1,17 @@
-[gd_resource type="Theme" load_steps=7 format=3 uid="uid://hheneshfv1b2"]
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://hheneshfv1b2"]
 
 [ext_resource type="FontFile" uid="uid://b7tawnkqrlpkn" path="res://ui/MouldyCheeseRegular-WyMWG.ttf" id="1_d100o"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_prsbj"]
+content_margin_left = 10.0
+content_margin_top = 15.0
+content_margin_right = 10.0
+content_margin_bottom = 11.0
+bg_color = Color(0.37, 0.316535, 0.3071, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d100o"]
 
@@ -55,6 +66,7 @@ Button/colors/font_color = Color(1, 1, 1, 1)
 Button/colors/font_outline_color = Color(0.67, 0.27514666, 0.2144, 1)
 Button/constants/outline_size = 13
 Button/font_sizes/font_size = 23
+Button/styles/disabled = SubResource("StyleBoxFlat_prsbj")
 Button/styles/focus = SubResource("StyleBoxEmpty_d100o")
 Button/styles/hover = SubResource("StyleBoxFlat_d100o")
 Button/styles/normal = SubResource("StyleBoxFlat_ge066")

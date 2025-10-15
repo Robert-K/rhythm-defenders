@@ -3,7 +3,7 @@ class_name World
 
 @export var build_ui: Control
 @export var start_button: Button
-@export var tower_buttons: Array[Button]
+var tower_buttons: Array[Button] # Filled with the buttons from button_ui
 
 @onready var drum = preload("res://game_world/towers/bass_drum/bass_drum_canon.tscn")
 @onready var maracas = preload("res://game_world/towers/maracas/maracas.tscn")
@@ -24,9 +24,13 @@ signal on_game_mode_changed
 var game_mode: GameMode
 
 var current_ghost_tower: Tower = null
+var current_ghost_tower_placement_allowed = false
 
 func _ready() -> void:
 	assert(build_ui != null)
+	for child in build_ui.get_children():
+		assert(child is Button)
+		tower_buttons.append(child)
 	change_game_mode(GameMode.BUILD)
 
 func change_game_mode(new_game_mode: GameMode):
@@ -89,10 +93,12 @@ func start_placing_tower(tower_scene: PackedScene):
 	
 	enter_placement()
 	current_ghost_tower = tower_scene.instantiate()
+	current_ghost_tower.set_placement_preview(true)
 	add_child(current_ghost_tower)
 
 func update_tower():
 	if (current_ghost_tower == null):
+		current_ghost_tower_placement_allowed = false
 		return
 	
 	var viewport := get_viewport()
@@ -106,13 +112,25 @@ func update_tower():
 	var query := PhysicsRayQueryParameters3D.create(origin, end)
 	var result := space_state.intersect_ray(query)
 	if (result.has("position")):
+		current_ghost_tower.visible = true
 		print(result.position)
 		var pos = find_closest_abs_pos(path, result.position)
-		if (result.position.distance_to(pos) < 4):
+		
+		#Collides with path
+		if (result.position.distance_to(pos) < 3):
+			current_ghost_tower.global_position = result.position
+			current_ghost_tower_placement_allowed = false
+			current_ghost_tower.set_placement_allowed(false)
 			return
+		
+		current_ghost_tower_placement_allowed = true
+		current_ghost_tower.set_placement_allowed(true)
 		var position: Vector3 = result.position;
 		#current_ghost_tower.global_position = (Vector3i(position) / 3) * 3
 		current_ghost_tower.global_position = result.position
+	else:
+		current_ghost_tower.visible = false
+		
 
 func find_closest_abs_pos(path: Path3D, global_pos: Vector3):
 	var curve: Curve3D = path.curve
@@ -145,8 +163,12 @@ func cancel_tower():
 func place_tower():
 	if (current_ghost_tower == null):
 		return
+		
+	if current_ghost_tower_placement_allowed == false:
+		return
 	
 	current_ghost_tower.collision.disabled = false
+	current_ghost_tower.set_placement_preview(false)
 	current_ghost_tower = null
 	leave_placement()
 

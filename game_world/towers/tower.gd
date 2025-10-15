@@ -1,12 +1,14 @@
 extends Node3D
 class_name Tower
 
+const PLACEMENT_FORBIDDEN_INDICATOR_SCENE = preload("uid://b1s3bwtbo473j")
+var placement_indicator = null
+
 @export var damage: int = 10
 @export var radius: float = 1000
 @export var fire_interval: float = 1
 
 @onready var collision: CollisionShape3D = find_child("TowerCollision")
-
 @onready var world: World = find_parent('World')
 
 var fire_delta: float = 0
@@ -40,6 +42,21 @@ func _process(_delta):
 
 func fire() -> void:
 	print("fire")
+
+func set_placement_preview(enabled: bool):
+	if enabled and placement_indicator == null:
+		placement_indicator = PLACEMENT_FORBIDDEN_INDICATOR_SCENE.instantiate()
+		placement_indicator.visible = false
+		add_child(placement_indicator)
+		
+	if not enabled and placement_indicator != null:
+		placement_indicator.queue_free()
+
+func set_placement_allowed(allowed: bool):
+	if placement_indicator == null:
+		return
+	
+	placement_indicator.visible = not allowed
 
 func fire_at_target(play_anim: Callable, projectile: PackedScene, projectile_start: Node3D, projectile_speed: float):
 	if (target_enemy == null || !is_instance_valid(target_enemy)):
