@@ -31,7 +31,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9277878, 0)
 shape = SubResource("BoxShape3D_bcdp0")
 
 [node name="ProjectileStart" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4001799, 1.7899992, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.044234276, 1.6933398, -2.7056346)
 
 [node name="Ring" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)

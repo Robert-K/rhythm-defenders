@@ -7,7 +7,7 @@ class_name TubeProjectile
 
 @onready var particles: GPUParticles3D = $CollisionShape3D/AirParticles
 
-@onready var animatable_body: AnimatableBody3D = $"."
+@onready var rigid_body: RigidBody3D = $"."
 
 func _ready() -> void:
 	particles.emitting = true
@@ -23,4 +23,4 @@ func apply(enemy: Enemy):
 		enemy.path_tween.play()
 
 func move_into_direction(dir: Vector3):
-	animatable_body.constant_linear_velocity = dir * projectile_speed
+	rigid_body.apply_central_impulse(dir * projectile_speed)

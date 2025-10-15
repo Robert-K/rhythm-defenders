@@ -11,4 +11,4 @@ func play_anim():
 	$tube/AnimationPlayer.play("Fire")
 
 func fire():
-	fire_at_target(play_anim, projectile, projectile_start, Vector3(0, PI / -2, 0))
+	fire_at_target(play_anim, projectile, projectile_start)
