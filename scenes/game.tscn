@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://c7vql0lrwfptu"]
+[gd_scene load_steps=29 format=3 uid="uid://c7vql0lrwfptu"]
 
 [ext_resource type="Script" uid="uid://8h1r1rjtau8e" path="res://game_world/game_world.gd" id="1_p57ef"]
 [ext_resource type="PackedScene" uid="uid://noqeeoaythhn" path="res://tower_lanes/tower_lane.tscn" id="1_uwrxv"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://e4mowu73d4jo" path="res://textures/icon/drum.png" id="6_gee14"]
 [ext_resource type="Texture2D" uid="uid://ih31eiq0kg53" path="res://textures/icon/tube.png" id="7_0tnpc"]
 [ext_resource type="Theme" uid="uid://hheneshfv1b2" path="res://ui/themes/your_theme.tres" id="8_kvuet"]
+[ext_resource type="Texture2D" uid="uid://c144u52ttnv5a" path="res://textures/point.svg" id="9_vtaks"]
 [ext_resource type="Texture2D" uid="uid://ctq0pqbm0lmhm" path="res://textures/icon/Maracas.png" id="10_dinhu"]
 [ext_resource type="Texture2D" uid="uid://bhipuc0pmport" path="res://textures/icon/flute.png" id="11_kvuet"]
 
@@ -199,7 +200,7 @@ round_label = NodePath("../GameUI/RoundContainer/RoundLabel")
 round_container = NodePath("../GameUI/RoundContainer")
 lost_screen = NodePath("../GameUI/LostLabel")
 start_button = NodePath("../GameUI/StartButton")
-points_label = NodePath("../GameUI/PointsLabel")
+points_label = NodePath("../GameUI/Control/PointsLabel")
 drum_lane = NodePath("../BottomUI/LanesMargin/TowerLanes/DrumLane")
 tube_lane = NodePath("../BottomUI/LanesMargin/TowerLanes/TubeLane")
 maracas_lane = NodePath("../BottomUI/LanesMargin/TowerLanes/MaracasLane")
@@ -247,6 +248,32 @@ icon = ExtResource("6_gee14")
 icon_alignment = 1
 expand_icon = true
 
+[node name="PriceInfo" type="Control" parent="GameUI/MarginContainer/BuildTowers/ButtonDrum"]
+anchors_preset = 0
+offset_left = 692.0
+offset_top = -5.0
+offset_right = 692.0
+offset_bottom = 91.0
+
+[node name="PointsLabel" type="Label" parent="GameUI/MarginContainer/BuildTowers/ButtonDrum/PriceInfo"]
+layout_mode = 0
+offset_left = -662.00006
+offset_top = 7.0000076
+offset_right = -589.00006
+offset_bottom = 61.000008
+scale = Vector2(0.35999024, 0.35999024)
+theme = ExtResource("8_kvuet")
+theme_override_colors/font_color = Color(1, 0.7529412, 0.26666668, 1)
+theme_override_colors/font_outline_color = Color(0.18039216, 0.1882353, 0.22745098, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 39
+text = "50"
+
+[node name="Point" type="Sprite2D" parent="GameUI/MarginContainer/BuildTowers/ButtonDrum/PriceInfo"]
+position = Vector2(-670.99994, 12.999992)
+scale = Vector2(0.119527996, 0.119527996)
+texture = ExtResource("9_vtaks")
+
 [node name="ButtonTube" type="Button" parent="GameUI/MarginContainer/BuildTowers"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
@@ -256,6 +283,32 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_37s47")
 icon = ExtResource("7_0tnpc")
 icon_alignment = 1
 expand_icon = true
+
+[node name="PriceInfo" type="Control" parent="GameUI/MarginContainer/BuildTowers/ButtonTube"]
+anchors_preset = 0
+offset_left = 692.0
+offset_top = -5.0
+offset_right = 692.0
+offset_bottom = 91.0
+
+[node name="PointsLabel" type="Label" parent="GameUI/MarginContainer/BuildTowers/ButtonTube/PriceInfo"]
+layout_mode = 0
+offset_left = -662.00006
+offset_top = 7.0000076
+offset_right = -589.00006
+offset_bottom = 61.000008
+scale = Vector2(0.35999024, 0.35999024)
+theme = ExtResource("8_kvuet")
+theme_override_colors/font_color = Color(1, 0.7529412, 0.26666668, 1)
+theme_override_colors/font_outline_color = Color(0.18039216, 0.1882353, 0.22745098, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 39
+text = "50"
+
+[node name="Point" type="Sprite2D" parent="GameUI/MarginContainer/BuildTowers/ButtonTube/PriceInfo"]
+position = Vector2(-670.99994, 12.999992)
+scale = Vector2(0.119527996, 0.119527996)
+texture = ExtResource("9_vtaks")
 
 [node name="ButtonMaracas" type="Button" parent="GameUI/MarginContainer/BuildTowers"]
 custom_minimum_size = Vector2(60, 60)
@@ -267,6 +320,32 @@ icon = ExtResource("10_dinhu")
 icon_alignment = 1
 expand_icon = true
 
+[node name="PriceInfo" type="Control" parent="GameUI/MarginContainer/BuildTowers/ButtonMaracas"]
+anchors_preset = 0
+offset_left = 692.0
+offset_top = -5.0
+offset_right = 692.0
+offset_bottom = 91.0
+
+[node name="PointsLabel" type="Label" parent="GameUI/MarginContainer/BuildTowers/ButtonMaracas/PriceInfo"]
+layout_mode = 0
+offset_left = -662.00006
+offset_top = 7.0000076
+offset_right = -589.00006
+offset_bottom = 61.000008
+scale = Vector2(0.35999024, 0.35999024)
+theme = ExtResource("8_kvuet")
+theme_override_colors/font_color = Color(1, 0.7529412, 0.26666668, 1)
+theme_override_colors/font_outline_color = Color(0.18039216, 0.1882353, 0.22745098, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 39
+text = "50"
+
+[node name="Point" type="Sprite2D" parent="GameUI/MarginContainer/BuildTowers/ButtonMaracas/PriceInfo"]
+position = Vector2(-670.99994, 12.999992)
+scale = Vector2(0.119527996, 0.119527996)
+texture = ExtResource("9_vtaks")
+
 [node name="ButtonFlute" type="Button" parent="GameUI/MarginContainer/BuildTowers"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
@@ -276,6 +355,32 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_e1j6l")
 icon = ExtResource("11_kvuet")
 icon_alignment = 1
 expand_icon = true
+
+[node name="PriceInfo" type="Control" parent="GameUI/MarginContainer/BuildTowers/ButtonFlute"]
+anchors_preset = 0
+offset_left = 692.0
+offset_top = -5.0
+offset_right = 692.0
+offset_bottom = 91.0
+
+[node name="PointsLabel" type="Label" parent="GameUI/MarginContainer/BuildTowers/ButtonFlute/PriceInfo"]
+layout_mode = 0
+offset_left = -662.00006
+offset_top = 7.0000076
+offset_right = -589.00006
+offset_bottom = 61.000008
+scale = Vector2(0.35999024, 0.35999024)
+theme = ExtResource("8_kvuet")
+theme_override_colors/font_color = Color(1, 0.7529412, 0.26666668, 1)
+theme_override_colors/font_outline_color = Color(0.18039216, 0.1882353, 0.22745098, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 39
+text = "50"
+
+[node name="Point" type="Sprite2D" parent="GameUI/MarginContainer/BuildTowers/ButtonFlute/PriceInfo"]
+position = Vector2(-670.99994, 12.999992)
+scale = Vector2(0.119527996, 0.119527996)
+texture = ExtResource("9_vtaks")
 
 [node name="StartButton" type="Button" parent="GameUI"]
 anchors_preset = 1
@@ -307,6 +412,31 @@ theme_override_constants/outline_size = 51
 theme_override_font_sizes/font_size = 91
 text = "YOU LOST!"
 
+[node name="Control" type="Control" parent="GameUI"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1142.0
+offset_right = 1142.0
+offset_bottom = 96.0
+
+[node name="PointsLabel" type="Label" parent="GameUI/Control"]
+layout_mode = 0
+offset_left = -1084.0
+offset_top = 29.0
+offset_right = -1011.0
+offset_bottom = 83.0
+theme = ExtResource("8_kvuet")
+theme_override_colors/font_color = Color(1, 0.7529412, 0.26666668, 1)
+theme_override_colors/font_outline_color = Color(0.18039216, 0.1882353, 0.22745098, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 39
+text = "50"
+
+[node name="Point" type="Sprite2D" parent="GameUI/Control"]
+position = Vector2(-1110, 45.000004)
+scale = Vector2(0.33203128, 0.33203128)
+texture = ExtResource("9_vtaks")
+
 [node name="RoundContainer" type="HBoxContainer" parent="GameUI"]
 anchors_preset = 1
 anchor_left = 1.0
@@ -331,12 +461,6 @@ theme_override_colors/font_outline_color = Color(0.18039216, 0.1882353, 0.227450
 theme_override_constants/outline_size = 15
 theme_override_font_sizes/font_size = 39
 text = "1"
-
-[node name="PointsLabel" type="Label" parent="GameUI"]
-offset_right = 40.0
-offset_bottom = 23.0
-theme_override_font_sizes/font_size = 64
-text = "50"
 
 [node name="BottomUI" type="MarginContainer" parent="."]
 anchors_preset = 12
