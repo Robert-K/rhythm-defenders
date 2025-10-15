@@ -12,6 +12,8 @@ var _enemies: Array[Enemy] = []
 @export var enemy_spawn_round_mult: float = 2
 @export var enemy_spawn_group_size: int = 10
 @export var time_between_groups: float = 4
+@export var music_speed_increase_every_x_rounds: int = 3
+@export var music_speed_increase_percentage: float = 0.15
 
 var enemy_count_total = 1
 var enemy_count_spawned = 0
@@ -32,6 +34,10 @@ func start(round: int) -> void:
 	enemy_count_spawned = 0
 	enemy_count_total = get_enemy_count(round)
 	
+	# Music speed
+	var music_speed = 1.0 + music_speed_increase_percentage * (round / music_speed_increase_every_x_rounds)
+	MusicPlayer.set_speed(music_speed)
+	
 	spawn_enemy()
 	start_timer()
 
@@ -46,7 +52,8 @@ func stop_timer():
 	timer.timeout.disconnect(spawn_enemy)
 
 func get_enemy_count(current_round: int) -> int:
-	return enemy_spawn_base + current_round * enemy_spawn_round_mult
+	var speed_increase_compensation =  1 + 0.25 * (current_round / music_speed_increase_every_x_rounds)
+	return (enemy_spawn_base + current_round * enemy_spawn_round_mult) * speed_increase_compensation
 
 func spawn_enemy():
 	if (enemy_count_spawned >= enemy_count_total):#

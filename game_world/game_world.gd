@@ -57,7 +57,7 @@ func _ready() -> void:
 	new_level()
 
 func change_game_mode(new_game_mode: GameMode):
-	game_mode= new_game_mode
+	game_mode = new_game_mode
 	if game_mode == GameMode.PLAY:
 		$"../BuildModeOverlay".visible = false
 		play()
