@@ -4,7 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://cjunbgmqxqj1w" path="res://game_world/enemies/enemy_ear.tscn" id="2_bwbnx"]
 
 [sub_resource type="Gradient" id="Gradient_s75w2"]
-colors = PackedColorArray(1, 0, 0, 0, 1, 0.035494473, 0.029347012, 0.124087594)
+offsets = PackedFloat32Array(0, 0.6612022, 1)
+colors = PackedColorArray(1, 0, 0, 0, 0.59, 0.3476083, 0.088499986, 0.84313726, 0.35, 0.101500005, 0.101500005, 1)
 metadata/_snap_count = 2
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_s75w2"]

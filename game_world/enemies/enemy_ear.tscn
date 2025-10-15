@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://coiek6proq74l" path="res://models/enemy_ear.blend" id="1_vhekb"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vhekb"]
+resource_local_to_scene = true
 transparency = 1
 albedo_color = Color(1, 0, 0, 0)
 

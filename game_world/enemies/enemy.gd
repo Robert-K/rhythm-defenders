@@ -32,7 +32,7 @@ func apply_damage(amount: float) -> void:
 		enemy_defeated.emit(self)
 
 func update_health_visuals():
-	var offset = (max_health - health) / max_health
+	var offset = (max_health - health) / max_health 
 	var new_color = health_gradient.sample(offset)
 	
 	var material = ear.material_overlay
