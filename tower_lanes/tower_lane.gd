@@ -123,7 +123,7 @@ func _process(_delta: float) -> void:
 				$GPUParticles2D.emitting = false
 				emit_signal("release")
 				break
-	if held_note and held_note.holding:
+	if held_note:
 		if held_note.position.x < - held_note.duration * pixels_per_second:
 			held_note.holding = false
 			held_note = null
