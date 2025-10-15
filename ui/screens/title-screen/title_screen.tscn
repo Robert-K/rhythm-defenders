@@ -9,6 +9,117 @@
 [ext_resource type="PackedScene" uid="uid://nav7ruy7rqfq" path="res://game_world/towers/tube/tube.tscn" id="7_w0yry"]
 [ext_resource type="PackedScene" uid="uid://cjunbgmqxqj1w" path="res://game_world/enemies/enemy_ear.tscn" id="8_7e41y"]
 
+[sub_resource type="Animation" id="Animation_w0yry"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../UI:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../UI/CenterContainer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera3D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.6584119, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("enemy_ear:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.23927245, 0.05504555, -7.8025594)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Camera3D:fov")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [75.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../FadeOverlay:color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.23200002, 0.3104, 0.4, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("bass_drum_canon2:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 2.4112945, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Flute:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -2.3596327, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("tube:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -2.4804096, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_acv68"]
 resource_name = "start"
 length = 6.5
@@ -85,80 +196,41 @@ tracks/5/keys = {
 "update": 0,
 "values": [Color(0.23200002, 0.3104, 0.4, 0), Color(0.15294118, 0.18431373, 0.21960784, 1)]
 }
-
-[sub_resource type="Animation" id="Animation_w0yry"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../UI:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("bass_drum_canon2:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(2.37, 4),
+"transitions": PackedFloat32Array(-5.2780294, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Vector3(0, 2.4112945, 0), Vector3(0, 0.21244143, 0)]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../UI/CenterContainer:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Camera3D:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Flute:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(2.55, 5.07),
+"transitions": PackedFloat32Array(2, 1),
 "update": 0,
-"values": [Vector3(0, 1.6584119, 0)]
+"values": [Vector3(0, -2.3596327, 0), Vector3(0, -0.13941696, 0)]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("enemy_ear:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("tube:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(2.9666667, 4.8333335),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0.23927245, 0.05504555, -7.8025594)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Camera3D:fov")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [75.0]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("../FadeOverlay:color")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.23200002, 0.3104, 0.4, 0)]
+"values": [Vector3(0, -2.4804096, 0), Vector3(0, 1.5261855, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_w0yry"]
@@ -219,10 +291,10 @@ shadow_enabled = true
 transform = Transform3D(0.3109336, 0, -0.033668395, 0, 0.3127511, 0, 0.033668395, 0, 0.3109336, 0, 0.09957051, 5.444839)
 
 [node name="bass_drum_canon2" parent="3D World" instance=ExtResource("3_acv68")]
-transform = Transform3D(-0.23299193, 0, 0.2086337, 0, 0.3127511, 0, -0.2086337, 0, -0.23299193, 3.3917673, 0.09957051, 1.2511958)
+transform = Transform3D(-0.23299192, 0, 0.2086337, 0, 0.3127511, 0, -0.2086337, 0, -0.23299192, 3.3917673, 0.09957051, 1.2511958)
 
 [node name="Flute" parent="3D World" instance=ExtResource("4_w0yry")]
-transform = Transform3D(-0.21286014, 0, -0.21140139, 0, 0.29999998, 0, 0.21140139, 0, -0.21286014, -0.37330854, 0.03143859, 0.9549899)
+transform = Transform3D(-0.21286015, 0, -0.21140142, 0, 0.29999998, 0, 0.21140142, 0, -0.21286015, -0.37330854, 0.03143859, 0.9549899)
 
 [node name="Camera3D" type="Camera3D" parent="3D World"]
 transform = Transform3D(-0.087503485, 0, 0.9961643, 0, 1, 0, -0.9961643, 0, -0.087503485, 2.8012028, 0.7569132, 3.606905)
@@ -234,7 +306,7 @@ transform = Transform3D(1, 0, -2.9802322e-08, 0, 1, 0, 2.9802322e-08, 0, 1, 0, 0
 transform = Transform3D(0.03168116, 0, 0.009236016, 0, 0.033, 0, -0.009236016, 0, 0.03168116, 0.23927245, 0.05504555, -7.8025594)
 
 [node name="tube" parent="3D World" instance=ExtResource("7_w0yry")]
-transform = Transform3D(0.25449738, 0, -0.1856235, 0, 0.315, 0, 0.1856235, 0, 0.25449738, 0.015677929, 0, -1.5855638)
+transform = Transform3D(-0.2486189, 0, -0.19342606, 0, 0.315, 0, 0.19342606, 0, -0.2486189, 0.015677929, 0, -1.5855638)
 
 [node name="FadeOverlay" type="ColorRect" parent="."]
 layout_mode = 1
