@@ -28,7 +28,6 @@ func turn_to_closest_enemy():
 		return
 	
 	var dist = global_position.distance_to(target_enemy.global_position)
-	DebugDraw3D.draw_line(global_position, target_enemy.global_position)
 	if (dist <= radius):
 		var target_vector = global_position.direction_to(target_enemy.global_position)
 		target_vector = Vector3(target_vector.x, 0, target_vector.z)
@@ -43,7 +42,6 @@ func turn_to_last_enemy():
 		return
 	
 	var dist = global_position.distance_to(target_enemy.global_position)
-	DebugDraw3D.draw_line(global_position, target_enemy.global_position)
 	if (dist <= radius):
 		var target_vector = global_position.direction_to(target_enemy.global_position)
 		target_vector = Vector3(target_vector.x, 0, target_vector.z)
