@@ -223,3 +223,48 @@ func _on_button_maracas_pressed() -> void:
 
 func _on_button_flute_pressed() -> void:
 	start_placing_tower(flute)
+
+func _get_tower_of_type(type):
+	var array: Array = []
+	for tower in placed_towers:
+		if is_instance_of(tower, type):
+			array.append(tower)
+	return array
+
+func _on_drum_lane_fire() -> void:
+	for tower in _get_tower_of_type(Drum):
+		tower.fire()
+
+func _on_drum_lane_miss() -> void:
+	pass # Replace with function body.
+
+
+func _on_tube_lane_fire() -> void:
+	for tower in _get_tower_of_type(Tube):
+		tower.fire()
+
+
+func _on_tube_lane_miss() -> void:
+	pass # Replace with function body.
+
+
+func _on_maracas_lane_fire() -> void:
+	for tower in _get_tower_of_type(Maracas):
+		tower.fire()
+
+
+func _on_maracas_lane_release() -> void:
+	for tower in _get_tower_of_type(Maracas):
+		tower.stop_firing()
+
+func _on_maracas_lane_miss() -> void:
+	pass # Replace with function body.
+
+
+func _on_flute_lane_fire() -> void:
+	for tower in _get_tower_of_type(Flute):
+		tower.fire()
+
+
+func _on_flute_lane_miss() -> void:
+	pass # Replace with function body.

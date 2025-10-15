@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://8h1r1rjtau8e" path="res://game_world/game_world.gd" id="1_p57ef"]
 [ext_resource type="PackedScene" uid="uid://noqeeoaythhn" path="res://tower_lanes/tower_lane.tscn" id="1_uwrxv"]
-[ext_resource type="PackedScene" uid="uid://d00tuuxxjh6dn" path="res://game_world/towers/bass_drum/bass_drum_canon.tscn" id="2_lbhrr"]
 [ext_resource type="Environment" uid="uid://bhb4ckqipjvu3" path="res://other/main_environment.tres" id="3_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://h623sn80nhar" path="res://scenes/map_1.tscn" id="4_iywne"]
 [ext_resource type="Texture2D" uid="uid://e4mowu73d4jo" path="res://textures/icon/drum.png" id="6_gee14"]
@@ -216,9 +215,6 @@ shadow_enabled = true
 
 [node name="Map1" parent="World" instance=ExtResource("4_iywne")]
 transform = Transform3D(-1.7484555e-07, 0, -4, 0, 4, 0, 4, 0, -1.7484555e-07, 0, 0, 0)
-
-[node name="bass_drum_canon" parent="World" instance=ExtResource("2_lbhrr")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 14.765339, -1.9073486e-06, 4.020796)
 
 [node name="GameUI" type="CanvasLayer" parent="."]
 
@@ -434,6 +430,15 @@ expand_icon = true
 [connection signal="pressed" from="GameUI/MarginContainer/BuildTowers/ButtonMaracas" to="World" method="_on_button_maracas_pressed"]
 [connection signal="pressed" from="GameUI/MarginContainer/BuildTowers/ButtonFlute" to="World" method="_on_button_flute_pressed"]
 [connection signal="pressed" from="GameUI/StartButton" to="World" method="_on_start_button_pressed"]
+[connection signal="fire" from="BottomUI/LanesMargin/TowerLanes/DrumLane" to="World" method="_on_drum_lane_fire"]
+[connection signal="miss" from="BottomUI/LanesMargin/TowerLanes/DrumLane" to="World" method="_on_drum_lane_miss"]
+[connection signal="fire" from="BottomUI/LanesMargin/TowerLanes/TubeLane" to="World" method="_on_tube_lane_fire"]
+[connection signal="miss" from="BottomUI/LanesMargin/TowerLanes/TubeLane" to="World" method="_on_tube_lane_miss"]
+[connection signal="fire" from="BottomUI/LanesMargin/TowerLanes/MaracasLane" to="World" method="_on_maracas_lane_fire"]
+[connection signal="miss" from="BottomUI/LanesMargin/TowerLanes/MaracasLane" to="World" method="_on_maracas_lane_miss"]
+[connection signal="release" from="BottomUI/LanesMargin/TowerLanes/MaracasLane" to="World" method="_on_maracas_lane_release"]
+[connection signal="fire" from="BottomUI/LanesMargin/TowerLanes/FluteLane" to="World" method="_on_flute_lane_fire"]
+[connection signal="miss" from="BottomUI/LanesMargin/TowerLanes/FluteLane" to="World" method="_on_flute_lane_miss"]
 
 [editable path="BottomUI/LanesMargin/TowerLanes/DrumLane"]
 [editable path="BottomUI/LanesMargin/TowerLanes/TubeLane"]
