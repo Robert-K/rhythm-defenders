@@ -7,6 +7,9 @@ signal show_settings_screen()
 signal quit()
 
 func _on_start_pressed() -> void:
+	$AnimationPlayer.play("start")
+	$"3D World/enemy_ear/AnimationPlayer".play("Walk")
+	await $AnimationPlayer.animation_finished
 	start_game.emit()
 	queue_free()
 
@@ -27,4 +30,4 @@ func _on_quit_pressed():
 	queue_free()
 
 func show_levels(b: bool) -> void:
-	$CenterContainer2/VBoxContainer/LevelSelect.visible = b
+	$UI/CenterContainer2/VBoxContainer/LevelSelect.visible = b

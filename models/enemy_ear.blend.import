@@ -2095,6 +2095,13 @@ _subresources={
 "slice_99/start_frame": 0,
 "slices/amount": 0
 }
+},
+"materials": {
+"Base": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://models/towers/Base.tres",
+"use_external/path": "uid://csnrh4bvv5vgk"
+}
 }
 }
 blender/nodes/visible=1
