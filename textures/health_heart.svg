@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="128"
+   height="128"
+   viewBox="0 0 33.866667 33.866666"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.2 (f4327f4, 2025-05-13)"
+   sodipodi:docname="health_heart.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="3.0564115"
+     inkscape:cx="-35.171965"
+     inkscape:cy="41.715587"
+     inkscape:window-width="2560"
+     inkscape:window-height="1494"
+     inkscape:window-x="-11"
+     inkscape:window-y="-11"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="font-weight:900;font-size:50.8px;line-height:1;font-family:Inter;-inkscape-font-specification:'Inter Heavy';letter-spacing:0.330729px;fill:#cf534f;stroke:#2e303a;stroke-width:5.63967;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+       d="M 16.707246,28.780079 6.0371263,17.645707 q -1.2695728,-1.339698 -1.697519,-3.096189 -0.4279454,-1.771379 0,-3.52787 0.4279462,-1.756493 1.697519,-3.0515339 1.2981024,-1.3248116 2.952827,-1.756492 1.6689897,-0.4465654 3.3237147,0 1.668988,0.4316804 2.967091,1.756492 l 1.426487,1.4290106 1.397956,-1.4290106 q 1.312368,-1.3248116 2.967092,-1.756492 1.66899,-0.4465654 3.323714,0 1.668989,0.4316804 2.952827,1.756492 1.269573,1.2950409 1.697519,3.0515339 0.427946,1.756491 0,3.52787 -0.413681,1.756491 -1.697519,3.096189 z"
+       id="text1"
+       aria-label="❤" />
+    <ellipse
+       style="fill:#fd6c40;fill-opacity:1;stroke:none;stroke-width:29.5256;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+       id="path1"
+       cx="10.51785"
+       cy="11.558452"
+       rx="6.094492"
+       ry="5.6286349" />
+    <ellipse
+       style="fill:#cf534f;fill-opacity:1;stroke:none;stroke-width:29.7832;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+       id="ellipse2"
+       cx="11.383517"
+       cy="13.159935"
+       rx="7.1339083"
+       ry="4.892818" />
+    <ellipse
+       style="fill:#cf534f;fill-opacity:1;stroke:none;stroke-width:17.5591;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+       id="ellipse3"
+       cx="22.593899"
+       cy="12.618893"
+       rx="3.9736087"
+       ry="3.0532765" />
+    <ellipse
+       style="fill:#fd6c40;fill-opacity:1;stroke:none;stroke-width:29.5256;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+       id="ellipse4"
+       cx="-22.900049"
+       cy="11.558452"
+       rx="6.094492"
+       ry="5.6286349"
+       transform="scale(-1,1)" />
+    <ellipse
+       style="fill:#cf534f;fill-opacity:1;stroke:none;stroke-width:29.7832;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+       id="ellipse5"
+       cx="-22.034382"
+       cy="13.159935"
+       rx="7.1339083"
+       ry="4.892818"
+       transform="scale(-1,1)" />
+  </g>
+</svg>
