@@ -5,6 +5,7 @@ var ui_notes: Array[UINote]
 
 signal fire
 signal release
+signal miss
 
 @export var input_name: String = "drum_trigger"
 
@@ -67,6 +68,7 @@ func _process(_delta: float) -> void:
 	if ui_notes.size() == 0:
 		return
 	if Input.is_action_just_pressed(input_name):
+		var hit_one: bool = false
 		for ui_note in ui_notes:
 			if absf(ui_note.position.x) < tolerance * pixels_per_second and not ui_note.expended:
 				emit_signal("fire")
@@ -74,15 +76,18 @@ func _process(_delta: float) -> void:
 				if ui_note.hold_me:
 					ui_note.holding = true
 					held_note = ui_note
-				$AudioStreamPlayer.play()
+				hit_one = true
 				break
 			elif ui_note.hold_me and not ui_note.expended and ui_note.position.x < 0.0 and ui_note.position.x + ui_note.duration * pixels_per_second > 0.0:
 				emit_signal("fire")
 				ui_note.holding = true
 				held_note = ui_note
-				$AudioStreamPlayer.play()
 				ui_note.expended = true
+				hit_one = true
 				break
+		if not hit_one:
+			$AudioStreamPlayer.play()
+			emit_signal("miss")
 	if Input.is_action_just_released(input_name):
 		for ui_note in ui_notes:
 			if ui_note.holding:
@@ -95,5 +100,3 @@ func _process(_delta: float) -> void:
 			held_note.holding = false
 			held_note = null
 			emit_signal("release")
-	if held_note:
-		$AudioStreamPlayer.play()
