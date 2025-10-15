@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://c7vql0lrwfptu"]
+[gd_scene load_steps=29 format=3 uid="uid://c7vql0lrwfptu"]
 
 [ext_resource type="Script" uid="uid://8h1r1rjtau8e" path="res://game_world/game_world.gd" id="1_p57ef"]
 [ext_resource type="PackedScene" uid="uid://noqeeoaythhn" path="res://tower_lanes/tower_lane.tscn" id="1_uwrxv"]
@@ -349,6 +349,7 @@ size_flags_vertical = 8
 
 [node name="DrumLane" parent="BottomUI/LanesMargin/TowerLanes" instance=ExtResource("1_uwrxv")]
 layout_mode = 2
+active = false
 notes_color = Color(0.9872448, 0, 0.2998942, 1)
 stream_index = 1
 
@@ -368,6 +369,7 @@ expand_icon = true
 [node name="TubeLane" parent="BottomUI/LanesMargin/TowerLanes" instance=ExtResource("1_uwrxv")]
 layout_mode = 2
 input_name = "tube_trigger"
+active = false
 notes_color = Color(1, 0.73333335, 0, 1)
 stream_index = 8
 key_label_text = "S"
@@ -388,6 +390,7 @@ expand_icon = true
 [node name="MaracasLane" parent="BottomUI/LanesMargin/TowerLanes" instance=ExtResource("1_uwrxv")]
 layout_mode = 2
 input_name = "maracas_trigger"
+active = false
 notes_color = Color(0.76666665, 1, 0, 1)
 stream_index = 7
 key_label_text = "K"
@@ -408,6 +411,7 @@ expand_icon = true
 [node name="FluteLane" parent="BottomUI/LanesMargin/TowerLanes" instance=ExtResource("1_uwrxv")]
 layout_mode = 2
 input_name = "flute_trigger"
+active = false
 notes_color = Color(0, 0.7999997, 1, 1)
 stream_index = 5
 key_label_text = "L"

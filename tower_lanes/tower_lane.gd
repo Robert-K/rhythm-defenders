@@ -1,4 +1,3 @@
-@tool
 extends HBoxContainer
 
 var ui_notes: Array[UINote]
@@ -8,6 +7,13 @@ signal release
 signal miss
 
 @export var input_name: String = "drum_trigger"
+
+@export var active: bool = true:
+	set(value):
+		active = value
+		visible = active
+		if is_inside_tree():
+			MusicPlayer.play_clip(stream_index, active)
 
 var tolerance: float = 0.2
 
@@ -35,7 +41,8 @@ func _ready() -> void:
 	key_label.text = key_label_text
 	key_label.modulate = notes_color
 	$GPUParticles2D.modulate = notes_color
-	MusicPlayer.play_clip(stream_index, true)
+	if active:
+		MusicPlayer.play_clip(stream_index, true)
 	var sync_player := MusicPlayer.sync_players[stream_index]
 	var x_start := 0.0
 	var repetition := 1
@@ -66,7 +73,7 @@ func _ready() -> void:
 var held_note: UINote = null
 
 func _process(_delta: float) -> void:
-	if not visible:
+	if not active:
 		return
 	if ui_notes.size() == 0:
 		return

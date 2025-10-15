@@ -30,6 +30,7 @@ func _ready() -> void:
 		var sync_player := child as SyncPlayer
 		if sync_player and not sync_players.has(sync_player):
 			sync_players.append(sync_player)
+	play()
 
 func clean_animations() -> void:
 	for player in sync_players:

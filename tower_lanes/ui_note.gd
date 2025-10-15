@@ -57,6 +57,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if Engine.is_editor_hint():
 		return
+	if not sync_player.current_animation:
+		return
 	var target_time := fposmod(note_time - sync_player.current_animation_position + duration, sync_player.animation.length) - duration
 	var target_x := target_time * pixels_per_second
 	position.x = target_x
