@@ -35,6 +35,7 @@ extends Control
 		var stylebox := note_panel.get_theme_stylebox("panel")
 		stylebox.bg_color = color
 
+var note_time: float = 0.0
 var original_x: float
 
 func _ready() -> void:
@@ -52,6 +53,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if Engine.is_editor_hint():
 		return
-	position.x -= delta * pixels_per_second
-	if position.x < -duration * pixels_per_second:
-		position.x += track_length * pixels_per_second * repetition
+	var target_time := fposmod(note_time - sync_player.current_animation_position + duration, sync_player.animation.length) - duration
+	var target_x := target_time * pixels_per_second
+	position.x = target_x

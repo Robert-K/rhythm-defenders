@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c7vql0lrwfptu"]
+[gd_scene load_steps=26 format=3 uid="uid://c7vql0lrwfptu"]
 
 [ext_resource type="Script" uid="uid://8h1r1rjtau8e" path="res://game_world/game_world.gd" id="1_p57ef"]
 [ext_resource type="PackedScene" uid="uid://noqeeoaythhn" path="res://tower_lanes/tower_lane.tscn" id="1_uwrxv"]
@@ -13,6 +13,138 @@
 [ext_resource type="PackedScene" uid="uid://dcr3uedfoisub" path="res://game_world/towers/maracas/maracas.tscn" id="9_0tnpc"]
 [ext_resource type="Texture2D" uid="uid://ctq0pqbm0lmhm" path="res://textures/icon/Maracas.png" id="10_dinhu"]
 [ext_resource type="Texture2D" uid="uid://bhipuc0pmport" path="res://textures/icon/flute.png" id="11_kvuet"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kvuet"]
+content_margin_left = 10.0
+content_margin_top = 15.0
+content_margin_right = 10.0
+content_margin_bottom = 11.0
+bg_color = Color(0.9872448, 0, 0.2998942, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1kice"]
+content_margin_left = 10.0
+content_margin_top = 15.0
+content_margin_right = 10.0
+content_margin_bottom = 11.0
+bg_color = Color(0.7, 0, 0.21000013, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5newe"]
+content_margin_left = 10.0
+content_margin_top = 15.0
+content_margin_right = 10.0
+content_margin_bottom = 11.0
+bg_color = Color(0.99, 0.29700002, 0.5049001, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_trtic"]
+content_margin_left = 10.0
+content_margin_top = 15.0
+content_margin_right = 10.0
+content_margin_bottom = 11.0
+bg_color = Color(1, 0.73333335, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_264po"]
+content_margin_left = 10.0
+content_margin_top = 15.0
+content_margin_right = 10.0
+content_margin_bottom = 11.0
+bg_color = Color(0.7, 0.5133333, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_37s47"]
+content_margin_left = 10.0
+content_margin_top = 15.0
+content_margin_right = 10.0
+content_margin_bottom = 11.0
+bg_color = Color(1, 0.81333333, 0.3, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ir15t"]
+content_margin_left = 10.0
+content_margin_top = 15.0
+content_margin_right = 10.0
+content_margin_bottom = 11.0
+bg_color = Color(0.76666665, 1, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ssvqc"]
+content_margin_left = 10.0
+content_margin_top = 15.0
+content_margin_right = 10.0
+content_margin_bottom = 11.0
+bg_color = Color(0.53666663, 0.7, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bt5mj"]
+content_margin_left = 10.0
+content_margin_top = 15.0
+content_margin_right = 10.0
+content_margin_bottom = 11.0
+bg_color = Color(0.83666664, 1, 0.3, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ca42v"]
+content_margin_left = 10.0
+content_margin_top = 15.0
+content_margin_right = 10.0
+content_margin_bottom = 11.0
+bg_color = Color(0, 0.7999997, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rysoc"]
+content_margin_left = 10.0
+content_margin_top = 15.0
+content_margin_right = 10.0
+content_margin_bottom = 11.0
+bg_color = Color(0, 0.55999976, 0.7, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e1j6l"]
+content_margin_left = 10.0
+content_margin_top = 15.0
+content_margin_right = 10.0
+content_margin_bottom = 11.0
+bg_color = Color(0.3, 0.8599998, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [node name="CanvasLayer" type="CanvasLayer"]
 layer = 0
@@ -72,6 +204,9 @@ alignment = 1
 [node name="ButtonDrum" type="Button" parent="GameUI/MarginContainer/BuildTowers"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_kvuet")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1kice")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5newe")
 icon = ExtResource("6_gee14")
 icon_alignment = 1
 expand_icon = true
@@ -79,6 +214,9 @@ expand_icon = true
 [node name="ButtonTube" type="Button" parent="GameUI/MarginContainer/BuildTowers"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_trtic")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_264po")
+theme_override_styles/hover = SubResource("StyleBoxFlat_37s47")
 icon = ExtResource("7_0tnpc")
 icon_alignment = 1
 expand_icon = true
@@ -86,6 +224,9 @@ expand_icon = true
 [node name="ButtonMaracas" type="Button" parent="GameUI/MarginContainer/BuildTowers"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_ir15t")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ssvqc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_bt5mj")
 icon = ExtResource("10_dinhu")
 icon_alignment = 1
 expand_icon = true
@@ -93,6 +234,9 @@ expand_icon = true
 [node name="ButtonFlute" type="Button" parent="GameUI/MarginContainer/BuildTowers"]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_ca42v")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rysoc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_e1j6l")
 icon = ExtResource("11_kvuet")
 icon_alignment = 1
 expand_icon = true
@@ -119,12 +263,9 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -220.0
-offset_right = 1152.0
-offset_bottom = 220.0
+offset_top = -218.0
 grow_horizontal = 2
 grow_vertical = 0
-scale = Vector2(0.5, 0.5)
 size_flags_vertical = 8
 
 [node name="Background" type="ColorRect" parent="BottomUI"]
@@ -133,45 +274,36 @@ color = Color(0, 0, 0, 1)
 
 [node name="LanesMargin" type="MarginContainer" parent="BottomUI"]
 layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_bottom = 12
 
 [node name="TowerLanes" type="VBoxContainer" parent="BottomUI/LanesMargin"]
 layout_mode = 2
 size_flags_vertical = 8
 
-[node name="TowerLane" parent="BottomUI/LanesMargin/TowerLanes" instance=ExtResource("1_uwrxv")]
+[node name="DrumLane" parent="BottomUI/LanesMargin/TowerLanes" instance=ExtResource("1_uwrxv")]
 layout_mode = 2
 notes_color = Color(0.9872448, 0, 0.2998942, 1)
 stream_index = 1
 
-[node name="TowerLane2" parent="BottomUI/LanesMargin/TowerLanes" instance=ExtResource("1_uwrxv")]
+[node name="TubeLane" parent="BottomUI/LanesMargin/TowerLanes" instance=ExtResource("1_uwrxv")]
 layout_mode = 2
 notes_color = Color(1, 0.73333335, 0, 1)
-stream_index = 2
+stream_index = 8
 key_label_text = "S"
 
-[node name="TowerLane3" parent="BottomUI/LanesMargin/TowerLanes" instance=ExtResource("1_uwrxv")]
+[node name="MaracasLane" parent="BottomUI/LanesMargin/TowerLanes" instance=ExtResource("1_uwrxv")]
 layout_mode = 2
 notes_color = Color(0.76666665, 1, 0, 1)
-stream_index = 4
-key_label_text = "D"
+stream_index = 7
+key_label_text = "K"
 
-[node name="TowerLane4" parent="BottomUI/LanesMargin/TowerLanes" instance=ExtResource("1_uwrxv")]
+[node name="FluteLane" parent="BottomUI/LanesMargin/TowerLanes" instance=ExtResource("1_uwrxv")]
 layout_mode = 2
 notes_color = Color(0, 0.7999997, 1, 1)
 stream_index = 5
-key_label_text = "H"
-
-[node name="TowerLane5" parent="BottomUI/LanesMargin/TowerLanes" instance=ExtResource("1_uwrxv")]
-layout_mode = 2
-notes_color = Color(0.23333359, 0, 1, 1)
-stream_index = 6
-key_label_text = "J"
-
-[node name="TowerLane6" parent="BottomUI/LanesMargin/TowerLanes" instance=ExtResource("1_uwrxv")]
-layout_mode = 2
-notes_color = Color(0.9333334, 0, 1, 1)
-stream_index = 7
-key_label_text = "K"
+key_label_text = "L"
 
 [connection signal="pressed" from="GameUI/MarginContainer/BuildTowers/ButtonDrum" to="World" method="_on_button_drum_pressed"]
 [connection signal="pressed" from="GameUI/MarginContainer/BuildTowers/ButtonTube" to="World" method="_on_button_tube_pressed"]

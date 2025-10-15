@@ -28,7 +28,7 @@ script = ExtResource("1_05uu3")
 pixels_per_second = 400.0
 
 [node name="KeyContainer" type="CenterContainer" parent="."]
-custom_minimum_size = Vector2(200, 70)
+custom_minimum_size = Vector2(150, 50)
 layout_mode = 2
 
 [node name="KeyLabel" type="Label" parent="KeyContainer"]

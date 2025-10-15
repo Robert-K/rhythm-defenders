@@ -35,7 +35,7 @@ func _ready() -> void:
 	var repetition := 1
 	for track_index in sync_player.animation.get_track_count():
 		if sync_player.animation.track_get_type(track_index) == Animation.TYPE_METHOD:
-			while x_start < 3000.0:
+			while repetition < 4:
 				for key_index in sync_player.animation.track_get_key_count(track_index):
 					var key_time := sync_player.animation.track_get_key_time(track_index, key_index)
 					var method_name := sync_player.animation.method_track_get_name(track_index, key_index)
@@ -46,6 +46,7 @@ func _ready() -> void:
 					ui_note.pixels_per_second = pixels_per_second
 					ui_note.position.x = x_start + key_time * pixels_per_second
 					ui_note.color = notes_color
+					ui_note.note_time = key_time + (repetition - 1) * sync_player.animation.length
 					ui_note.duration = duration
 					ui_note.track_length = sync_player.animation.length
 					ui_note.spam = method_name == "dummy_spam"
