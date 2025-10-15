@@ -66,6 +66,8 @@ func _ready() -> void:
 var held_note: UINote = null
 
 func _process(_delta: float) -> void:
+	if not visible:
+		return
 	if ui_notes.size() == 0:
 		return
 	if Input.is_action_just_pressed(input_name):
