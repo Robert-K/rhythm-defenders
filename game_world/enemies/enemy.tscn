@@ -18,6 +18,8 @@ transform = Transform3D(-0.04, 0, 3.496911e-09, 0, 0.04, 0, -3.496911e-09, 0, -0
 
 [node name="Enemy_Area3D" type="Area3D" parent="."]
 transform = Transform3D(0.333, 0, 0, 0, 0.333, 0, 0, 0, 0.333, 0, 0.333, 0)
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Enemy_Area3D"]
 shape = SubResource("CylinderShape3D_s75w2")
