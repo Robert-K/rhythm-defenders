@@ -24,3 +24,5 @@ android/
 
 ~_*.dll
 ~_*.TMP
+
+**/~*.dll
