@@ -34,7 +34,7 @@ signal on_game_mode_changed
 @export var starting_points: int = 50
 var points: int = starting_points
 
-var round: int = 0
+var round: int = 1
 
 var placed_towers: Array[Tower]
 
@@ -48,8 +48,8 @@ func _ready() -> void:
 	for child in build_ui.get_children():
 		assert(child is Button)
 		tower_buttons.append(child)
-	new_level()
 	change_game_mode(GameMode.BUILD)
+	new_level()
 
 func change_game_mode(new_game_mode: GameMode):
 	game_mode= new_game_mode
@@ -62,23 +62,20 @@ func change_game_mode(new_game_mode: GameMode):
 func loose():
 	update_points(starting_points)
 	update_round(1)
-	change_game_mode(GameMode.BUILD)
+	change_game_mode(GameMode.BUILD)#
+	new_level()
 	lost_screen.visible = true
 
 func round_completed():
-	change_game_mode(GameMode.BUILD)
 	update_round(round + 1)
+	change_game_mode(GameMode.BUILD)
+	update_points(points + points_per_round)
 
 func enemy_defeated(enemy: Enemy):
 	points += enemy.point_reward
 
 func play():
 	stop_build()
-	
-	if (round == 1):
-		new_level()
-	else:
-		next_round()
 	
 	current_map.lost.connect(loose)
 	current_map.enemey_defeated.connect(enemy_defeated)
@@ -92,9 +89,6 @@ func new_level():
 	for tower in placed_towers:
 		tower.queue_free()
 	placed_towers.clear()
-
-func next_round():
-	update_points(points + points_per_round)
 
 func update_round(new_round: int):
 	round = new_round

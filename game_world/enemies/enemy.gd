@@ -63,5 +63,10 @@ func deal_damage(body: Node):
 	
 	damage_dealer.apply(self)
 
+func pause_for(time: float):
+	path_tween.pause()
+	await get_tree().create_timer(time).timeout
+	path_tween.play()
+
 func on_destination_entered():
 	enemy_at_destination.emit(self)

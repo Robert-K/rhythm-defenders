@@ -9,10 +9,7 @@ func apply(enemy: Enemy):
 	visible = false
 	super.apply(enemy)
 	if (is_instance_valid(enemy)):
-		enemy.path_tween.pause()
-	await get_tree().create_timer(sleep_time).timeout
-	if (is_instance_valid(enemy)):
-		enemy.path_tween.play()
+		enemy.pause_for(sleep_time)
 	queue_free()
 
 func move_into_direction(dir: Vector3):
