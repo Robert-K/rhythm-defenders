@@ -124,7 +124,7 @@ func _process(_delta: float) -> void:
 				emit_signal("release")
 				break
 	if held_note:
-		if held_note.position.x < - held_note.duration * pixels_per_second:
+		if held_note.position.x + held_note.duration * pixels_per_second < 0.0 or held_note.position.x > 600.0:
 			held_note.holding = false
 			held_note = null
 			emit_signal("release")
