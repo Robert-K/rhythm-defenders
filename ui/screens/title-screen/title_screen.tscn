@@ -3,7 +3,7 @@
 [ext_resource type="Theme" uid="uid://hheneshfv1b2" path="res://ui/themes/your_theme.tres" id="1_qt2rq"]
 [ext_resource type="Script" uid="uid://1mjt83fygiua" path="res://ui/screens/title-screen/title_screen.gd" id="1_rm86k"]
 [ext_resource type="PackedScene" uid="uid://h623sn80nhar" path="res://scenes/map_1.tscn" id="3_587ml"]
-[ext_resource type="PackedScene" uid="uid://d00tuuxxjh6dn" path="res://game_world/towers/bass_drum/bass_drum_canon.tscn" id="3_acv68"]
+[ext_resource type="PackedScene" uid="uid://d00tuuxxjh6dn" path="res://game_world/towers/drum/drum.tscn" id="3_acv68"]
 [ext_resource type="Environment" uid="uid://bhb4ckqipjvu3" path="res://other/main_environment.tres" id="3_w0yry"]
 [ext_resource type="PackedScene" uid="uid://d4bqpss13euoj" path="res://game_world/towers/flute/flute.tscn" id="4_w0yry"]
 [ext_resource type="PackedScene" uid="uid://nav7ruy7rqfq" path="res://game_world/towers/tube/tube.tscn" id="7_w0yry"]

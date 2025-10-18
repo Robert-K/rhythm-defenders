@@ -3,6 +3,8 @@ class_name Enemy
 
 @export var damage: float = 10
 @export var speed: float = 0.4
+@export var slow_down_multiplier: float = 0.25
+@export var speed_up_multiplier: float = 2
 @export var max_health: float = 100
 @export var health_gradient: Gradient = Gradient.new()
 
@@ -19,6 +21,8 @@ signal enemy_at_destination
 
 var path_tween: Tween
 
+var is_defeated = false
+
 func _ready() -> void:
 	# Start walking on path
 	path_tween = create_tween()
@@ -29,10 +33,14 @@ func _ready() -> void:
 	$enemy_ear/AnimationPlayer.play("Walk")
 
 func apply_damage(amount: float) -> void:
+	if (is_defeated):
+		return
+	
 	health -= amount
 	update_health_visuals()
 	play_hit_feedback()
 	if (health <= 0):
+		is_defeated = true
 		enemy_defeated.emit(self)
 
 func update_health_visuals():
@@ -45,7 +53,8 @@ func update_health_visuals():
 
 func play_hit_feedback():
 	var label = hit_feedback.instantiate()
-	hit_feedback_container.add_child(label)
+	if (hit_feedback_container.get_child_count() == 0):
+		hit_feedback_container.add_child(label)
 
 func _on_enemy_body_entered(body: Node3D) -> void:
 	deal_damage(body)
@@ -68,8 +77,14 @@ func pause_for(time: float):
 	await get_tree().create_timer(time).timeout
 	path_tween.play()
 
-func go_back_for(time: float):
-	path_tween.set_speed_scale(0.25)
+func slow_down_for(time: float):
+	path_tween.set_speed_scale(slow_down_multiplier)
+	await get_tree().create_timer(time).timeout
+	path_tween.set_speed_scale(1)
+
+func speed_up_for(time: float):
+	path_tween.play()
+	path_tween.set_speed_scale(speed_up_multiplier)
 	await get_tree().create_timer(time).timeout
 	path_tween.set_speed_scale(1)
 

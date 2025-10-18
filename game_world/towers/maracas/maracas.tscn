@@ -5,9 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://c3681qmi3fmsa" path="res://game_world/damage_dealer/area_damage/maracas_area_damage.tscn" id="3_86aje"]
 [ext_resource type="Texture2D" uid="uid://46a66a3aypn0" path="res://textures/damaged_ground.png" id="4_qyovd"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_86aje"]
-size = Vector3(2.5, 3.6572113, 2.5)
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_86aje"]
 shading_mode = 0
 albedo_color = Color(0.76666665, 1, 0, 1)
@@ -20,31 +17,25 @@ outer_radius = 1.98
 [sub_resource type="PrismMesh" id="PrismMesh_qyovd"]
 material = SubResource("StandardMaterial3D_86aje")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_86aje"]
+size = Vector3(2.5, 3.6572113, 2.5)
+
 [node name="Maracas" type="Node3D"]
 script = ExtResource("1_j80pm")
-damage = 20
 
 [node name="maracas" parent="." instance=ExtResource("1_e6mcf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.601, 0)
 
 [node name="AreaDamage" parent="." instance=ExtResource("3_86aje")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.3638654)
-damage = 20.0
-
-[node name="TowerBody" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
-
-[node name="TowerCollision" type="CollisionShape3D" parent="TowerBody"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9277878, 0)
-shape = SubResource("BoxShape3D_86aje")
+transform = Transform3D(1.0038118, 0, 0, 0, 1.0038118, 0, 0, 0, 1.0038118, 0, 0, -5.7679486)
 
 [node name="Ring" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 cast_shadow = 0
 mesh = SubResource("TorusMesh_qyovd")
 
-[node name="Ring2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 0.4143451, 0, -1, -1.81116e-08, 0, 0.47429872, -2.2056441)
+[node name="Arrow" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.75, 0, 0, 0, -7.649493e-08, 0.47, 0, -1.75, -2.0544352e-08, 0, 0.50000757, -2.3969061)
 cast_shadow = 0
 mesh = SubResource("PrismMesh_qyovd")
 
@@ -53,3 +44,9 @@ transform = Transform3D(1.2996279, 0, 0, 0, -5.680854e-08, -1.2996279, 0, 1.2996
 cast_shadow = 0
 shaded = true
 texture = ExtResource("4_qyovd")
+
+[node name="TowerArea" type="Area3D" parent="."]
+
+[node name="TowerCollision" type="CollisionShape3D" parent="TowerArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8277878, 0)
+shape = SubResource("BoxShape3D_86aje")

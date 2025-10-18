@@ -17,8 +17,6 @@ outer_radius = 1.98
 
 [node name="Flute" type="Node3D"]
 script = ExtResource("1_48p82")
-projectile_speed = 60.0
-damage = 25
 radius = 50.0
 
 [node name="flute" parent="." instance=ExtResource("1_ol7h7")]
@@ -27,11 +25,10 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 2
 [node name="ProjectileStart" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.03861565, 1.702, -3.951)
 
-[node name="TowerBody" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+[node name="TowerArea" type="Area3D" parent="."]
 
-[node name="TowerCollision" type="CollisionShape3D" parent="TowerBody"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9277878, 0)
+[node name="TowerCollision" type="CollisionShape3D" parent="TowerArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8277878, 0)
 shape = SubResource("BoxShape3D_48p82")
 
 [node name="Ring" type="MeshInstance3D" parent="."]

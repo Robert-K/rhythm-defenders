@@ -19,7 +19,7 @@ collision_layer = 2
 collision_mask = 2
 continuous_cd = true
 script = ExtResource("1_lf3eo")
-damage = 10.0
+damage = 7.5
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(2.0763844e-08, 0.47502136, 4.1527688e-08, 0.47502136, -2.0763844e-08, 0, 1.815233e-15, 4.1527688e-08, -0.47502136, 0, 0, 0)

@@ -9,7 +9,8 @@ func _process(_delta):
 
 func play_anim():
 	$tube/AnimationPlayer.play("Fire")
+	$AirParticles.emitting = true
 
 func fire():
-	$AirParticles.emitting = true
-	fire_at_target(play_anim, projectile, projectile_start)
+	play_anim()
+	fire_at_target(play_anim, projectile, projectile_start, Vector3(0, PI / 2, 0))

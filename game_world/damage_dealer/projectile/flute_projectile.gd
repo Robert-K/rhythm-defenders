@@ -3,7 +3,7 @@ class_name FluteProjectile
 
 @onready var rigid_body: RigidBody3D = $"."
 
-@export var sleep_time: float = 1.5
+@export var sleep_time: float = 1
 
 func apply(enemy: Enemy):
 	visible = false

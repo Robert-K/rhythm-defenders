@@ -3,9 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://b20vk52xwuusu" path="res://models/towers/tube.blend" id="1_4nsea"]
 [ext_resource type="Script" uid="uid://b0ue22gt2kqm" path="res://game_world/towers/tube/tube.gd" id="1_rr3rj"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_bcdp0"]
-size = Vector3(2.5, 3.6572113, 2.5)
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bcdp0"]
 shading_mode = 0
 albedo_color = Color(1, 0.73333335, 0, 1)
@@ -37,24 +34,15 @@ albedo_color = Color(0.19178796, 0.23318738, 0.2951771, 1)
 material = SubResource("StandardMaterial3D_l6e7f")
 size = Vector3(0.05, 0.05, 0.05)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_bcdp0"]
+size = Vector3(2.5, 3.6572113, 2.5)
+
 [node name="tube" type="Node3D"]
 script = ExtResource("1_rr3rj")
-radius = 10.0
+radius = 15.0
 
 [node name="tube" parent="." instance=ExtResource("1_4nsea")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 2.601, 0)
-
-[node name="TowerBody" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
-collision_layer = 4
-collision_mask = 4
-
-[node name="TowerCollision" type="CollisionShape3D" parent="TowerBody"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9277878, 0)
-shape = SubResource("BoxShape3D_bcdp0")
-
-[node name="ProjectileStart" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.044234276, 1.6933398, -2.7056346)
 
 [node name="Ring" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
@@ -71,3 +59,12 @@ explosiveness = 0.55
 randomness = 0.19
 process_material = SubResource("ParticleProcessMaterial_l6e7f")
 draw_pass_1 = SubResource("BoxMesh_84ewc")
+
+[node name="ProjectileStart" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.707108, -2.9108655)
+
+[node name="TowerArea" type="Area3D" parent="."]
+
+[node name="TowerCollision" type="CollisionShape3D" parent="TowerArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8277878, 0)
+shape = SubResource("BoxShape3D_bcdp0")

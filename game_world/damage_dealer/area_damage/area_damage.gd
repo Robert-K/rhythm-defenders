@@ -5,14 +5,20 @@ class_name AreaDamage
 
 @onready var area3d: Area3D = $"."
 
+func enable():
+	area3d.set_collision_layer_value(2, true)
+	area3d.set_collision_mask_value(2, true)
+
+func disable():
+	area3d.set_collision_layer_value(2, false)
+	area3d.set_collision_mask_value(2, false)
+
 func apply(enemy: Enemy):
-	while (is_instance_valid(enemy) && contains_enemy(enemy)):
+	while (is_instance_valid(enemy) and contains_enemy(enemy)):
 		enemy.apply_damage(damage)
 		await get_tree().create_timer(interval).timeout
 
 func contains_enemy(enemy: Enemy) -> bool:
-	print(area3d.get_overlapping_areas())
-	print(area3d.get_overlapping_bodies())
 	for body in area3d.get_overlapping_areas():
 		var current = body
 		while (current != null):

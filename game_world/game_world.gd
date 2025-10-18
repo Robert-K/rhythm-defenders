@@ -7,6 +7,7 @@ class_name World
 @export var lost_screen: Control
 @export var start_button: Button
 @export var points_label: Label
+@export var enemies_count_label: Label
 var tower_buttons: Array[Button] # Filled with the buttons from button_ui
 
 @export var drum_lane: TowerLane
@@ -19,7 +20,7 @@ var tower_buttons: Array[Button] # Filled with the buttons from button_ui
 @export var maracas_points_label: Label
 @export var flute_points_label: Label
 
-@onready var drum = preload("res://game_world/towers/bass_drum/bass_drum_canon.tscn")
+@onready var drum = preload("res://game_world/towers/drum/drum.tscn")
 @onready var maracas = preload("res://game_world/towers/maracas/maracas.tscn")
 @onready var tube = preload("res://game_world/towers/tube/tube.tscn")
 @onready var flute = preload("res://game_world/towers/flute/flute.tscn")
@@ -39,7 +40,7 @@ signal on_game_mode_changed
 @export var starting_points: int = 50
 var points: int = starting_points
 
-var round: int = 1
+var current_round: int = 1
 
 var placed_towers: Array[Tower]
 
@@ -77,20 +78,26 @@ func round_completed():
 	if (game_mode == GameMode.BUILD):
 		return
 	
-	update_round(round + 1)
+	update_round(current_round + 1)
 	change_game_mode(GameMode.BUILD)
 	update_points(points + points_per_round)
 
-func enemy_defeated(enemy: Enemy):
-	points += enemy.point_reward
+func enemy_spawned(_enemy: Enemy):
+	update_enemies_count()
+
+func enemy_defeated(_enemy: Enemy):
+	update_points(points + _enemy.point_reward)
+	update_enemies_count()
 
 func play():
 	stop_build()
 	
 	current_map.lost.connect(loose)
-	current_map.enemey_defeated.connect(enemy_defeated)
+	current_map.enemy_spawned.connect(enemy_spawned)
+	current_map.enemy_defeated.connect(enemy_defeated)
 	current_map.round_completed.connect(round_completed)
-	current_map.start(round)
+	current_map.start(current_round)
+	update_enemies_count()
 
 func new_level():
 	# only set start visible when first tower is placed
@@ -101,12 +108,15 @@ func new_level():
 	placed_towers.clear()
 
 func update_round(new_round: int):
-	round = new_round
+	current_round = new_round
 	round_label.text = str(new_round)
 
 func update_points(new_points: int):
 	points = new_points
 	points_label.text = str(new_points)
+
+func update_enemies_count():
+	enemies_count_label.text = str(current_map.enemy_count_total - current_map.enemy_count_defeated - current_map.enemy_count_reached) + "/" + str(current_map.enemy_count_total)
 
 func build():
 	round_container.visible = false
@@ -154,7 +164,7 @@ func get_last_enemy(pos: Vector3, max_dist: float) -> Enemy:
 	
 	return closest
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if (Input.is_action_just_pressed("click")):
 		place_tower()
 	
@@ -218,11 +228,17 @@ func update_tower():
 	var result := space_state.intersect_ray(query)
 	if (result.has("position")):
 		current_ghost_tower.visible = true
-		print(result.position)
 		var pos = find_closest_abs_pos(path, result.position)
 		
-		#Collides with path
+		# Collides with path
 		if (result.position.distance_to(pos) < 3):
+			current_ghost_tower.global_position = result.position
+			current_ghost_tower_placement_allowed = false
+			current_ghost_tower.set_placement_allowed(false)
+			return
+		
+		# Collides with other tower
+		if (current_ghost_tower.collision_area.get_overlapping_areas().is_empty() == false):
 			current_ghost_tower.global_position = result.position
 			current_ghost_tower_placement_allowed = false
 			current_ghost_tower.set_placement_allowed(false)
@@ -231,31 +247,19 @@ func update_tower():
 		current_ghost_tower_placement_allowed = true
 		current_ghost_tower.set_placement_allowed(true)
 		var position: Vector3 = result.position;
-		#current_ghost_tower.global_position = (Vector3i(position) / 3) * 3
 		current_ghost_tower.global_position = result.position
 	else:
 		current_ghost_tower.visible = false
 
-func find_closest_abs_pos(path: Path3D, global_pos: Vector3):
-	var curve: Curve3D = path.curve
+func find_closest_abs_pos(path3d: Path3D, global_pos: Vector3):
+	var curve: Curve3D = path3d.curve
 
 	# transform the target position to local space
-	#print(current_map.scale)
-	var path_transform: Transform3D = path.global_transform#.scaled(Vector3(1/4, 1/4, 1/4))
-	#print("path, transform", path_transform)
-	var local_pos: Vector3 = (global_pos) * path_transform.scaled(Vector3(1,1,1)/16)
+	var path_transform: Transform3D = path3d.global_transform
+	var local_pos: Vector3 = global_pos * path_transform.affine_inverse()
 
 	# get the nearest offset on the curve
 	return path_transform * curve.get_closest_point(local_pos)
-	var offset: float = curve.get_closest_offset(local_pos)
-
-	# get the local position at this offset
-	var curve_pos: Vector3 = curve.sample_baked(offset, true)
-
-	# transform it back to world space
-	curve_pos = path_transform * curve_pos
-
-	return curve_pos
 
 func cancel_tower():
 	if (current_ghost_tower == null):
@@ -295,7 +299,6 @@ func place_tower():
 		update_points(points - tower_points)
 		flute_points_label.text = str(tower_points * 2)
 	
-	current_ghost_tower.collision.disabled = false
 	current_ghost_tower.set_placement_preview(false)
 	placed_towers.append(current_ghost_tower)
 	if (placed_towers.size() > 0):
@@ -338,8 +341,7 @@ func _on_drum_lane_fire() -> void:
 		tower.fire()
 
 func _on_drum_lane_miss() -> void:
-	pass # Replace with function body.
-
+	miss_note()
 
 func _on_tube_lane_fire() -> void:
 	for tower in _get_tower_of_type(Tube):
@@ -347,7 +349,7 @@ func _on_tube_lane_fire() -> void:
 
 
 func _on_tube_lane_miss() -> void:
-	pass # Replace with function body.
+	miss_note()
 
 
 func _on_maracas_lane_fire() -> void:
@@ -360,7 +362,7 @@ func _on_maracas_lane_release() -> void:
 		tower.stop_firing()
 
 func _on_maracas_lane_miss() -> void:
-	pass # Replace with function body.
+	miss_note()
 
 
 func _on_flute_lane_fire() -> void:
@@ -368,4 +370,13 @@ func _on_flute_lane_fire() -> void:
 		tower.fire()
 
 func _on_flute_lane_miss() -> void:
-	pass # Replace with function body.
+	miss_note()
+
+func miss_note():
+	var enemies = current_map.get_enemies()
+	if enemies.is_empty():
+		return
+	
+	var enemy = enemies.pick_random()
+	if (is_instance_valid(enemy)):
+		enemy.speed_up_for(2.0)
