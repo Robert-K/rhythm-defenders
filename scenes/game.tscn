@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://c7vql0lrwfptu"]
+[gd_scene load_steps=37 format=3 uid="uid://c7vql0lrwfptu"]
 
 [ext_resource type="Script" uid="uid://8h1r1rjtau8e" path="res://game_world/game_world.gd" id="1_p57ef"]
 [ext_resource type="PackedScene" uid="uid://noqeeoaythhn" path="res://tower_lanes/tower_lane.tscn" id="1_uwrxv"]
@@ -183,6 +183,9 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
+[sub_resource type="InputEventAction" id="InputEventAction_vtaks"]
+action = &"drum_trigger"
+
 [sub_resource type="Curve" id="Curve_dd3q7"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.84951454, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
@@ -200,6 +203,9 @@ scale_min = 0.099999994
 scale_max = 0.19999999
 scale_curve = SubResource("CurveTexture_i616h")
 
+[sub_resource type="InputEventAction" id="InputEventAction_kvpfn"]
+action = &"tube_trigger"
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_trtic"]
 resource_local_to_scene = true
 particle_flag_disable_z = true
@@ -210,6 +216,9 @@ scale_min = 0.099999994
 scale_max = 0.19999999
 scale_curve = SubResource("CurveTexture_i616h")
 
+[sub_resource type="InputEventAction" id="InputEventAction_dinhu"]
+action = &"maracas_trigger"
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ir15t"]
 resource_local_to_scene = true
 particle_flag_disable_z = true
@@ -219,6 +228,9 @@ gravity = Vector3(0, 0, 0)
 scale_min = 0.099999994
 scale_max = 0.19999999
 scale_curve = SubResource("CurveTexture_i616h")
+
+[sub_resource type="InputEventAction" id="InputEventAction_kvuet"]
+action = &"flute_trigger"
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ca42v"]
 resource_local_to_scene = true
@@ -554,6 +566,7 @@ layout_mode = 2
 active = false
 notes_color = Color(0.9872448, 0, 0.2998942, 1)
 stream_index = 1
+action = SubResource("InputEventAction_vtaks")
 
 [node name="GPUParticles2D" parent="BottomUI/LanesMargin/TowerLanes/DrumLane" index="1"]
 process_material = SubResource("ParticleProcessMaterial_kvuet")
@@ -575,6 +588,7 @@ active = false
 notes_color = Color(1, 0.73333335, 0, 1)
 stream_index = 8
 key_label_text = "S"
+action = SubResource("InputEventAction_kvpfn")
 
 [node name="GPUParticles2D" parent="BottomUI/LanesMargin/TowerLanes/TubeLane" index="1"]
 process_material = SubResource("ParticleProcessMaterial_trtic")
@@ -596,6 +610,7 @@ active = false
 notes_color = Color(0.76666665, 1, 0, 1)
 stream_index = 7
 key_label_text = "K"
+action = SubResource("InputEventAction_dinhu")
 
 [node name="GPUParticles2D" parent="BottomUI/LanesMargin/TowerLanes/MaracasLane" index="1"]
 process_material = SubResource("ParticleProcessMaterial_ir15t")
@@ -617,6 +632,7 @@ active = false
 notes_color = Color(0, 0.7999997, 1, 1)
 stream_index = 5
 key_label_text = "L"
+action = SubResource("InputEventAction_kvuet")
 
 [node name="GPUParticles2D" parent="BottomUI/LanesMargin/TowerLanes/FluteLane" index="1"]
 process_material = SubResource("ParticleProcessMaterial_ca42v")

@@ -30,11 +30,66 @@ var ticks_per_second: float = 188.0 / 96.0
 
 @export var stream_index: int = 0
 
-@export var key_label_text: String = "A":
+var key_label_text: String:
 	set(value):
 		key_label_text = value
 		if key_label:
 			key_label.text = key_label_text
+
+@export var action: InputEventAction
+
+@export var keyword_mappings := {
+	0: "A",
+	1: "B",
+	2: "X",
+	3: "Y",
+}
+
+@export var ps_mappings := {
+	0: "X",
+	1: "◯",
+	2: "△",
+	3: "□",
+	4: "⏴",
+	5: "",
+	6: "⌂",
+	7: "L",
+	8: "R",
+	9: "LB",
+	10: "RB",
+	11: "↑",
+	12: "←",
+	13: "→",
+	14: "↓",
+}
+
+@export var ps_mappings_axis := {
+	4: "LS",
+	5: "RS",
+}
+
+@export var xbox_mappings := {
+	0: "A",
+	1: "B",
+	2: "X",
+	3: "Y",
+	4: "⏴",
+	5: "",
+	6: "⌂",
+	7: "L",
+	8: "R",
+	9: "LB",
+	10: "RB",
+	11: "↑",
+	12: "←",
+	13: "→",
+	14: "↓",
+}
+
+@export var xbox_mappings_axis := {
+	4: "LS",
+	5: "RS",
+}
 
 func _exit_tree() -> void:
 	if active:
@@ -42,7 +97,33 @@ func _exit_tree() -> void:
 
 func _ready() -> void:
 	if Engine.is_editor_hint():
-		return	
+		return
+	
+	assert(action != null)
+	
+	var events = InputMap.action_get_events(action.action)
+	var joypads = Input.get_connected_joypads()
+	
+	for joypad in joypads:
+		var joy_name = Input.get_joy_name(joypad)
+		if (joy_name.contains("PS")):
+			for event in events:
+				if event is InputEventJoypadButton:
+					key_label_text = ps_mappings[event.button_index]
+				elif event is InputEventJoypadMotion:
+					key_label_text = ps_mappings_axis[event.axis]
+		else:
+			for event in events:
+				if event is InputEventJoypadButton:
+					key_label_text = xbox_mappings[event.button_index]
+				elif event is InputEventJoypadMotion:
+					key_label_text = xbox_mappings_axis[event.axis]
+	
+	if joypads.size() == 0:
+		for event in events:
+			if event is InputEventKey:
+				key_label_text = OS.get_keycode_string(DisplayServer.keyboard_get_keycode_from_physical(event.physical_keycode))
+	
 	key_label.text = key_label_text
 	key_label.modulate = notes_color
 	$GPUParticles2D.modulate = notes_color
