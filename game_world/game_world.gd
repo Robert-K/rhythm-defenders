@@ -49,6 +49,8 @@ var game_mode: GameMode
 var current_ghost_tower: Tower = null
 var current_ghost_tower_placement_allowed = false
 
+@export var joystick_sensitivity: float = 0.1
+
 func _ready() -> void:
 	assert(build_ui != null)
 	for child in build_ui.get_children():
@@ -179,7 +181,21 @@ func _process(_delta: float) -> void:
 		if (is_instance_valid(current_ghost_tower)):
 			current_ghost_tower.rotate_y(PI / 2)
 	
-	update_tower()
+	if is_instance_valid(current_ghost_tower):
+		if (Input.get_connected_joypads().size() == 0):
+			move_tower_to_mouse()
+		else:
+			var x = Vector3(1, 0, 0) * joystick_sensitivity * Input.get_joy_axis(0, JOY_AXIS_LEFT_X)
+			var y = Vector3(0, 0, 1) * joystick_sensitivity * Input.get_joy_axis(0, JOY_AXIS_LEFT_Y)
+			if (x.length() < 0.05):
+				x = Vector3.ZERO
+			if (y.length() < 0.05):
+				y = Vector3.ZERO
+			
+			var new_pos = current_ghost_tower.global_position + x + y
+			update_ghost_tower_position(new_pos)
+	else:
+		current_ghost_tower_placement_allowed = false
 
 func start_placing_tower(tower_scene: PackedScene):
 	if (current_ghost_tower != null):
@@ -211,11 +227,7 @@ func start_placing_tower(tower_scene: PackedScene):
 	add_child(current_ghost_tower)
 	enter_placement()
 
-func update_tower():
-	if (current_ghost_tower == null):
-		current_ghost_tower_placement_allowed = false
-		return
-	
+func move_tower_to_mouse():
 	var viewport := get_viewport()
 	var mouse_position := viewport.get_mouse_position()
 	var camera := viewport.get_camera_3d()
@@ -228,26 +240,7 @@ func update_tower():
 	var result := space_state.intersect_ray(query)
 	if (result.has("position")):
 		current_ghost_tower.visible = true
-		var pos = find_closest_abs_pos(path, result.position)
-		
-		# Collides with path
-		if (result.position.distance_to(pos) < 3):
-			current_ghost_tower.global_position = result.position
-			current_ghost_tower_placement_allowed = false
-			current_ghost_tower.set_placement_allowed(false)
-			return
-		
-		# Collides with other tower
-		if (current_ghost_tower.collision_area.get_overlapping_areas().is_empty() == false):
-			current_ghost_tower.global_position = result.position
-			current_ghost_tower_placement_allowed = false
-			current_ghost_tower.set_placement_allowed(false)
-			return
-		
-		current_ghost_tower_placement_allowed = true
-		current_ghost_tower.set_placement_allowed(true)
-		var position: Vector3 = result.position;
-		current_ghost_tower.global_position = result.position
+		update_ghost_tower_position(result.position)
 	else:
 		current_ghost_tower.visible = false
 
@@ -260,6 +253,27 @@ func find_closest_abs_pos(path3d: Path3D, global_pos: Vector3):
 
 	# get the nearest offset on the curve
 	return path_transform * curve.get_closest_point(local_pos)
+
+func update_ghost_tower_position(new_pos: Vector3):
+	var pos = find_closest_abs_pos(path, new_pos)
+	
+	# Collides with path
+	if (new_pos.distance_to(pos) < 3):
+		current_ghost_tower.global_position = new_pos
+		current_ghost_tower_placement_allowed = false
+		current_ghost_tower.set_placement_allowed(false)
+		return
+	
+	# Collides with other tower
+	if (current_ghost_tower.collision_area.get_overlapping_areas().is_empty() == false):
+		current_ghost_tower.global_position = new_pos
+		current_ghost_tower_placement_allowed = false
+		current_ghost_tower.set_placement_allowed(false)
+		return
+	
+	current_ghost_tower_placement_allowed = true
+	current_ghost_tower.set_placement_allowed(true)
+	current_ghost_tower.global_position = new_pos
 
 func cancel_tower():
 	if (current_ghost_tower == null):
