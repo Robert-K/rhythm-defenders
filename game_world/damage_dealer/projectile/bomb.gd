@@ -6,7 +6,20 @@ class_name Bomb
 @onready var rigid_body: RigidBody3D = $"."
 @onready var mesh: MeshInstance3D = $"MeshInstance3D"
 
+var exploded = false
+
 func _on_ground_entered(body: Node3D) -> void:
+	explode()
+
+func _on_area_3d_area_entered(area: Area3D) -> void:
+	explode()
+
+func explode():
+	if exploded:
+		return
+	
+	exploded = true
+	
 	# Stop bomb
 	rigid_body.linear_velocity = Vector3.ZERO
 	rigid_body.angular_velocity = Vector3.ZERO
