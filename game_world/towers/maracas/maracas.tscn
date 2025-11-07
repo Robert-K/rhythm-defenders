@@ -27,7 +27,7 @@ script = ExtResource("1_j80pm")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.601, 0)
 
 [node name="AreaDamage" parent="." instance=ExtResource("3_86aje")]
-transform = Transform3D(1.0038118, 0, 0, 0, 1.0038118, 0, 0, 0, 1.0038118, 0, 0, -5.7679486)
+transform = Transform3D(1.0038118, 0, 0, 0, 1.0038118, 0, 0, 0, 1.0038118, 0, 0, -4)
 
 [node name="Ring" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
