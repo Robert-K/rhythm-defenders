@@ -587,7 +587,6 @@ input_name = "tube_trigger"
 active = false
 notes_color = Color(1, 0.73333335, 0, 1)
 stream_index = 8
-key_label_text = "S"
 action = SubResource("InputEventAction_kvpfn")
 
 [node name="GPUParticles2D" parent="BottomUI/LanesMargin/TowerLanes/TubeLane" index="1"]
@@ -609,7 +608,6 @@ input_name = "maracas_trigger"
 active = false
 notes_color = Color(0.76666665, 1, 0, 1)
 stream_index = 7
-key_label_text = "K"
 action = SubResource("InputEventAction_dinhu")
 
 [node name="GPUParticles2D" parent="BottomUI/LanesMargin/TowerLanes/MaracasLane" index="1"]
@@ -631,7 +629,6 @@ input_name = "flute_trigger"
 active = false
 notes_color = Color(0, 0.7999997, 1, 1)
 stream_index = 5
-key_label_text = "L"
 action = SubResource("InputEventAction_kvuet")
 
 [node name="GPUParticles2D" parent="BottomUI/LanesMargin/TowerLanes/FluteLane" index="1"]
