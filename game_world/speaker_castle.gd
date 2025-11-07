@@ -31,7 +31,6 @@ func deal_damage(damage: float):
 
 func vibration():
 	var strength = (total_health - health) / total_health
-	print(strength)
 	Input.vibrate_handheld((int) (1000 * vibration_duration_seconds), strength)
 	for joypad_id in Input.get_connected_joypads():
 		Input.start_joy_vibration(joypad_id, 1, strength, vibration_duration_seconds)

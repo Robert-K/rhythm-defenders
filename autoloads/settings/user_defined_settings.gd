@@ -10,6 +10,7 @@ func _register_settings() -> void:
 	_register_graphics_settings()
 	_register_audio_settings()
 	_register_controls_settings()
+	_register_gameplay_settings()
 
 func _register_graphics_settings() -> void:
 	var graphics_category = Settings.SettingCategory.new("graphics", "Graphics")
@@ -113,6 +114,29 @@ func _register_controls_settings() -> void:
 	controls_category.add_sub_category(key_bindings_category)
 	
 	Settings.add_root_category(controls_category)
+
+func _register_gameplay_settings() -> void:
+	var gameplay_category = Settings.SettingCategory.new("gameplay", "Gameplay")
+	var difficulty_category = Settings.SettingCategory.new("difficulty", "Difficulty")
+	gameplay_category.add_sub_category(difficulty_category)
+	
+	var enemy_speed_setting = Settings.FloatSetting.new("enemy_speed",
+															  "Enemy Speed",
+															  1.0,
+															  0.5,
+															  3,
+															  0.01)
+	difficulty_category.add_setting(enemy_speed_setting)
+	
+	var enemy_health_setting = Settings.FloatSetting.new("enemy_health",
+															  "Enemy Health",
+															  1.0,
+															  0.5,
+															  3,
+															  0.01)
+	difficulty_category.add_setting(enemy_health_setting)
+	
+	Settings.add_root_category(gameplay_category)
 
 
 #region Graphics Settings Callbacks

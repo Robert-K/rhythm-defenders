@@ -79,6 +79,14 @@ func spawn_enemy():
 		enemy.health *= max(3, current_round * 0.25)
 		enemy.scale *= 2
 	
+	var difficulty_speed_mult = Settings.get_value("gameplay/difficulty/enemy_speed")
+	if difficulty_speed_mult:
+		enemy.speed *= difficulty_speed_mult
+	
+	var difficulty_health_mult = Settings.get_value("gameplay/difficulty/enemy_health")
+	if difficulty_health_mult:
+		enemy.health *= difficulty_health_mult
+	
 	enemy.enemy_defeated.connect(defeat_enemy)
 	enemy.enemy_at_destination.connect(destination_reached)
 	path.add_child(enemy)
