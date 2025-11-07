@@ -8,7 +8,7 @@ var _enemies: Array[Enemy] = []
 @onready var castle: Castle = $SpeakerCastle
 
 @export var enemy_spawn_interval: float = 0.75
-@export var enemy_spawn_base: int = 2
+@export var enemy_spawn_base: int = 1
 @export var enemy_spawn_round_mult: float = 2
 @export var enemy_spawn_group_size: int = 10
 @export var time_between_groups: float = 4
