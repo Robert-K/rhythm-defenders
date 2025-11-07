@@ -21,6 +21,8 @@ func stop_firing():
 	damage_area.disable()
 
 func _process(_delta):
+	turn_to_closest_enemy()
+	
 	# Floor damage visuals
 	if firing:
 		floor_damage += _delta*0.5
