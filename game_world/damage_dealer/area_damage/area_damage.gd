@@ -5,6 +5,9 @@ class_name AreaDamage
 
 @onready var area3d: Area3D = $"."
 
+func _ready() -> void:
+	disable()
+
 func enable():
 	area3d.set_collision_layer_value(2, true)
 	area3d.set_collision_mask_value(2, true)
