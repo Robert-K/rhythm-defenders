@@ -253,7 +253,7 @@ round_container = NodePath("../GameUI/RoundContainer")
 lost_screen = NodePath("../GameUI/LostLabel")
 start_button = NodePath("../GameUI/StartButton")
 points_label = NodePath("../GameUI/Control/PointsLabel")
-enemies_count_label = NodePath("../GameUI/RoundContainer/EnemiesCountLabel")
+enemies_count_label = NodePath("../GameUI/MarginContainer/EnemiesCountLabel")
 drum_lane = NodePath("../BottomUI/LanesMargin/TowerLanes/DrumLane")
 tube_lane = NodePath("../BottomUI/LanesMargin/TowerLanes/TubeLane")
 maracas_lane = NodePath("../BottomUI/LanesMargin/TowerLanes/MaracasLane")
@@ -284,7 +284,7 @@ transform = Transform3D(-1.7484555e-07, 0, -4, 0, 4, 0, 4, 0, -1.7484555e-07, 0,
 [node name="MarginContainer" type="MarginContainer" parent="GameUI"]
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 60.0
+offset_bottom = 65.0
 grow_horizontal = 2
 theme_override_constants/margin_top = 5
 
@@ -447,6 +447,15 @@ position = Vector2(-670.99994, 12.999992)
 scale = Vector2(0.119527996, 0.119527996)
 texture = ExtResource("9_vtaks")
 
+[node name="EnemiesCountLabel" type="Label" parent="GameUI/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9607843, 0.20784314, 0.0627451, 1)
+theme_override_colors/font_outline_color = Color(0.18039216, 0.1882353, 0.22745098, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 39
+text = "1/1"
+horizontal_alignment = 1
+
 [node name="StartButton" type="Button" parent="GameUI"]
 anchors_preset = 1
 anchor_left = 1.0
@@ -512,13 +521,6 @@ offset_bottom = 96.0
 grow_horizontal = 0
 theme = ExtResource("8_kvuet")
 theme_override_constants/separation = 24
-
-[node name="EnemiesCountLabel" type="Label" parent="GameUI/RoundContainer"]
-layout_mode = 2
-theme_override_colors/font_outline_color = Color(0.18039216, 0.1882353, 0.22745098, 1)
-theme_override_constants/outline_size = 15
-theme_override_font_sizes/font_size = 39
-text = "1/1"
 
 [node name="Label" type="Label" parent="GameUI/RoundContainer"]
 layout_mode = 2

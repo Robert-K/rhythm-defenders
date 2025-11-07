@@ -122,11 +122,13 @@ func update_enemies_count():
 
 func build():
 	round_container.visible = false
+	enemies_count_label.visible = false
 	build_ui.visible = true
 	start_button.visible = true
 
 func stop_build():
 	round_container.visible = true
+	enemies_count_label.visible = true
 	build_ui.visible = false
 	start_button.visible = false
 	if (current_ghost_tower != null):
