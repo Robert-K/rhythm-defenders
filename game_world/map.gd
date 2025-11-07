@@ -72,16 +72,17 @@ func spawn_enemy():
 		timer.paused = false
 	
 	var enemy : Enemy = enemy_scene.instantiate()
-	path.add_child(enemy)
-	enemy.enemy_defeated.connect(defeat_enemy)
-	enemy.enemy_at_destination.connect(destination_reached)
-	_enemies.append(enemy)
 	enemy.speed *= min(1 + current_round / 10, 4)
 	enemy.health *= 1 + current_round / 5
 	enemy_count_spawned += 1
 	if (enemy_count_spawned % 10 == 0 || (enemy_count_spawned % 5 == 0 && enemy_count_spawned < current_round * 5)):
 		enemy.health *= max(3, current_round * 0.25)
 		enemy.scale *= 2
+	
+	enemy.enemy_defeated.connect(defeat_enemy)
+	enemy.enemy_at_destination.connect(destination_reached)
+	path.add_child(enemy)
+	_enemies.append(enemy)
 	enemy_spawned.emit(enemy)
 	
 func defeat_enemy(enemy: Enemy):
