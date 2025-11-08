@@ -174,22 +174,25 @@ func _process(_delta: float) -> void:
 				if ui_note.hold_me:
 					ui_note.holding = true
 					held_note = ui_note
-					$GPUParticles2D.one_shot = false
-					$GPUParticles2D.explosiveness = 0.0
-					$GPUParticles2D.emitting = true
-					$GPUParticles2D.restart()
+					if OS.get_name() != "Web":
+						$GPUParticles2D.one_shot = false
+						$GPUParticles2D.explosiveness = 0.0
+						$GPUParticles2D.emitting = true
+						$GPUParticles2D.restart()
 				else:
-					$GPUParticles2D.restart()
-					$GPUParticles2D.explosiveness = 1.0
-					$GPUParticles2D.one_shot = true
-					$GPUParticles2D.emitting = true
+					if OS.get_name() != "Web":
+						$GPUParticles2D.restart()
+						$GPUParticles2D.explosiveness = 1.0
+						$GPUParticles2D.one_shot = true
+						$GPUParticles2D.emitting = true
 				hit_one = true
 				break
 			elif ui_note.hold_me and not ui_note.expended and ui_note.position.x < 0.0 and ui_note.position.x + ui_note.duration * pixels_per_second > 0.0:
 				emit_signal("fire")
-				$GPUParticles2D.one_shot = false
-				$GPUParticles2D.explosiveness = 0.0
-				$GPUParticles2D.emitting = true
+				if OS.get_name() != "Web":
+					$GPUParticles2D.one_shot = false
+					$GPUParticles2D.explosiveness = 0.0
+					$GPUParticles2D.emitting = true
 				ui_note.holding = true
 				held_note = ui_note
 				ui_note.expended = true
