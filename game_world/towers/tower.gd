@@ -24,7 +24,7 @@ func turn_to_closest_enemy():
 	if (dist <= radius):
 		var target_vector = global_position.direction_to(target_enemy.global_position)
 		target_vector = Vector3(target_vector.x, 0, target_vector.z)
-		basis = Basis.looking_at(target_vector)
+		basis = basis.slerp(Basis.looking_at(target_vector), 0.5)
 
 func turn_to_last_enemy():
 	if not world:
@@ -38,7 +38,7 @@ func turn_to_last_enemy():
 	if (dist <= radius):
 		var target_vector = global_position.direction_to(target_enemy.global_position)
 		target_vector = Vector3(target_vector.x, 0, target_vector.z)
-		basis = Basis.looking_at(target_vector)
+		basis = basis.slerp(Basis.looking_at(target_vector), 0.5)
 
 func fire() -> void:
 	pass
