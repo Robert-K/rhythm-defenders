@@ -20,15 +20,16 @@ func stop_firing():
 	
 	damage_area.disable()
 
-func _process(_delta):
-	turn_to_closest_enemy()
-	
+func _process(_delta):	
 	# Floor damage visuals
 	if firing:
 		floor_damage += _delta*0.5
 	else:
 		floor_damage -= _delta*0.5
 	floor_damage = clamp(floor_damage, 0.0, 1.0)
+	
+	if firing == false and floor_damage == 0:
+		turn_to_closest_enemy()
 	
 	var color : Color = $Sprite3D.modulate
 	color.a = floor_damage
