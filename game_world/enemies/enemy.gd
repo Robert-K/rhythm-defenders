@@ -31,6 +31,20 @@ func _ready() -> void:
 	
 	# Ear animation
 	$enemy_ear/AnimationPlayer.play("Walk")
+	
+	if InputManager._is_paused:
+		_on_game_pause()
+	
+	InputManager.game_pause.connect(_on_game_pause)
+	InputManager.game_unpause.connect(_on_game_unpause)
+
+func _on_game_pause() -> void:
+	if path_tween:
+		path_tween.pause()
+
+func _on_game_unpause() -> void:
+	if path_tween:
+		path_tween.play()
 
 func apply_damage(amount: float) -> void:
 	if (is_defeated):
