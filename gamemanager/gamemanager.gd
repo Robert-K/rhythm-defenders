@@ -61,7 +61,6 @@ func pause():
 	
 func resume():
 	InputManager.set_is_paused(false)
-	print("resume")
 	pause_menu.hide()
 	pause_menu.reset()
 	get_tree().paused = false
