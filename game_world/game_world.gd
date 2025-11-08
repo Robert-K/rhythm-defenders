@@ -75,6 +75,8 @@ func loose():
 	change_game_mode(GameMode.BUILD)#
 	new_level()
 	lost_screen.visible = true
+	await get_tree().create_timer(3).timeout
+	Global.game_manager._return_to_title_screen()
 
 func round_completed():
 	if (game_mode == GameMode.BUILD):
