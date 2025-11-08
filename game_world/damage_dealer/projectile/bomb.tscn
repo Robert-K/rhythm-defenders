@@ -149,11 +149,11 @@ surface_material_override/0 = SubResource("StandardMaterial3D_uw2iy")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_d5tly")
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="Bomb_Area3D" type="Area3D" parent="."]
 collision_layer = 6
 collision_mask = 6
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bomb_Area3D"]
 shape = SubResource("SphereShape3D_5nj6s")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
@@ -176,5 +176,5 @@ libraries = {
 &"": SubResource("AnimationLibrary_nm3n2")
 }
 
-[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
-[connection signal="body_entered" from="Area3D" to="." method="_on_ground_entered"]
+[connection signal="area_entered" from="Bomb_Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="body_entered" from="Bomb_Area3D" to="." method="_on_ground_entered"]

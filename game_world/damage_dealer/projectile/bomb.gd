@@ -12,7 +12,8 @@ func _on_ground_entered(body: Node3D) -> void:
 	explode()
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
-	explode()
+	if area.name != "Bomb_Area3D":
+		explode()
 
 func explode():
 	if exploded:
