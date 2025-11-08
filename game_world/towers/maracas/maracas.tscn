@@ -22,6 +22,7 @@ size = Vector3(2.5, 3.6572113, 2.5)
 
 [node name="Maracas" type="Node3D"]
 script = ExtResource("1_j80pm")
+radius = 10.0
 
 [node name="maracas" parent="." instance=ExtResource("1_e6mcf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.601, 0)
