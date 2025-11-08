@@ -33,18 +33,16 @@ func _ready() -> void:
 	$enemy_ear/AnimationPlayer.play("Walk")
 	
 	if InputManager._is_paused:
-		_on_game_pause()
+		_pause_changed(true)
 	
-	InputManager.game_pause.connect(_on_game_pause)
-	InputManager.game_unpause.connect(_on_game_unpause)
+	InputManager.is_paused_changed.connect(_pause_changed)
 
-func _on_game_pause() -> void:
+func _pause_changed(pause: bool) -> void:
 	if path_tween:
-		path_tween.pause()
-
-func _on_game_unpause() -> void:
-	if path_tween:
-		path_tween.play()
+		if pause:
+			path_tween.pause()
+		else:
+			path_tween.play()
 
 func apply_damage(amount: float) -> void:
 	if (is_defeated):

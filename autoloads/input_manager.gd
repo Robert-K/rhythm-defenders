@@ -5,6 +5,7 @@ signal game_pause
 signal game_unpause
 signal game_debug_show
 signal game_debug_hide
+signal is_paused_changed
 #endregion
 
 #region Game State Management
@@ -20,7 +21,6 @@ func _ready():
 	set_process_mode(Node.PROCESS_MODE_ALWAYS)
 
 func _input(event: InputEvent) -> void:
-
 	if event.is_action_pressed("pause"):
 		if (_is_in_game and not _is_paused):
 			game_pause.emit()
@@ -47,4 +47,5 @@ func _update_mouse_capture() -> void:
 
 func set_is_paused(b: bool) -> void:
 	_is_paused = b
+	is_paused_changed.emit(b)
 	_update_mouse_capture()
