@@ -22,6 +22,7 @@ class_name GameManager
 @onready var pause_menu: Control = %PauseMenu
 @onready var menu_layer: CanvasLayer = %MenuLayer
 
+var user_settings: UserDefinedSettings
 var level = 0
 var completed_levels: Array[bool] = []
 var current_level_node: Node
@@ -33,7 +34,7 @@ func _ready() -> void:
 		completed_levels.append(false)
 	
 	# Settings
-	var user_settings = UserDefinedSettings.new()
+	user_settings = UserDefinedSettings.new()
 	user_settings._register_settings()
 	Settings.load_config()
 

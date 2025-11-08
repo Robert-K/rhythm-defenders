@@ -3,6 +3,9 @@ extends TabContainer
 @onready var action_remapping_button_scene: PackedScene = load("res://ui/components/settings-menu/action-remapping-button/action_remapping_button.tscn")
 
 func _ready() -> void:
+	while Global.game_manager == null:
+		await get_tree().process_frame
+	
 	_populate_menu()
 
 func _populate_menu() -> void:
